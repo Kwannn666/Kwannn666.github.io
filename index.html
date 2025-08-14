@@ -1,61 +1,500 @@
+跳至內容
+你說：
+教導我如何用github加設自己的網站io
+ChatGPT 說：
+
+已思考 15s
+太好了！用 GitHub Pages 架自己的「.github.io」網站其實很簡單。下面我把兩種常見做法一次講清楚：
+
+個人／組織首頁（username.github.io）
+
+專案網站（掛在某個 repo 底下）
+
+0) 先備條件
+有 GitHub 帳號（假設帳號是 jenweikuo）
+
+已安裝 Git（或用 GitHub Desktop 也行）
+
+電腦上任一資料夾可當網站原始碼目錄
+
+1) 建「個人首頁」：username.github.io
+這種會對應到你的主網域，例如 https://jenweikuo.github.io/
+
+A. 建立倉庫
+
+到 GitHub 按「New」建立新 repo
+
+Repo 名稱必須精準：jenweikuo.github.io（把 jenweikuo換成你的帳號）
+
+Public、勾選「Add a README」可不勾
+
+B. 放入網站檔案
+最簡單先放一個 index.html：
+
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>我的首頁</title>
+</head>
+<body>
+  <h1>Hello GitHub Pages!</h1>
+  <p>這是我的個人網站 🎉</p>
+</body>
+</html>
+把它放進 repo（可用網頁上傳或本機 git push）。
+
+C. 等待自動部署
+個人首頁 repo 不需額外設定，GitHub 會自動發佈到 https://jenweikuo.github.io/
+第一次通常 1～2 分鐘內就會好（有時會久一點）。
+
+2) 建「專案網站」（例如 https://jenweikuo.github.io/my-project/）
+適合每個專案各有網站／Docs。
+
+有兩種簡單模式，挑一種就好：
+
+做法 A：使用 docs/ 資料夾
+
+在你專案的 repo（例如 my-project）裡面，新建資料夾 docs/
+
+把網站檔案放到 docs/（至少要有 docs/index.html）
+
+到 GitHub → 該 repo 的 Settings → Pages
+
+在 Build and deployment 選：
+
+Source：Deploy from a branch
+
+Branch：main & /docs
+
+存檔，等部署完成，網址會是：
+https://jenweikuo.github.io/my-project/
+
+做法 B：使用 gh-pages 分支
+
+建一個分支叫 gh-pages
+
+把網站檔案放在這個分支的根目錄（有 index.html）
+
+Settings → Pages → Source 選 gh-pages 分支
+
+儲存後等待部署
+
+3) 想用主題（Jekyll）怎麼做？（可選）
+GitHub Pages 內建支援 Jekyll 靜態網站（免 CI）。
+最簡單方式：在 repo 根目錄放 _config.yml，指定一個官方主題，例如：
+
+title: 我的技術筆記
+description: 通訊/韌體/AI筆記
+theme: minima
+再新增 index.md：
+
+# 歡迎
+這是用 Jekyll 主題生成的頁面。
+提交後，GitHub 會自動幫你建站。
+（不想在本機裝 Ruby/Jekyll 也沒關係，直接 push 檔案即可）
+
+想更進階（Hugo、Docusaurus、MkDocs、Next.js 靜態輸出）也行，只要把產生出來的靜態檔案部署到 gh-pages 分支或 docs/ 夾即可。
+
+4) 綁定自訂網域（可選）
+子網域（如 blog.example.com）：在你的 DNS 管理加入一筆 CNAME 指向 jenweikuo.github.io，然後在 GitHub → Pages 設定你的自訂網域即可（GitHub 會自動建立 CNAME 檔）。
+
+根網域（如 example.com）：通常用 DNS 提供的 ALIAS/ANAME，或依官方文件設 A 記錄。
+
+DNS 細節偶爾會更新，設定 A/AAAA 記錄前，務必查官方最新指引。完成後到 Pages 勾 Enforce HTTPS。
+
+5) 本機到 GitHub 的常用指令（範本）
+# 第一次
+mkdir jenweikuo.github.io && cd jenweikuo.github.io
+git init
+echo "<h1>Hello GitHub Pages</h1>" > index.html
+git add .
+git commit -m "init site"
+git branch -M main
+git remote add origin https://github.com/jenweikuo/jenweikuo.github.io.git
+git push -u origin main
+
+# 之後更新
+# 修改檔案後
+git add -A
+git commit -m "update content"
+git push
+6) 常見問題排查
+404 或頁面沒更新：剛部署需要等待；或你選錯 Pages Source（分支/資料夾）。
+
+首頁不顯示：確定路徑下有 index.html 或 index.md。
+
+專案網站路徑問題：假設專案網址是 /my-project/，你的 CSS/JS 相對路徑要配合（建議用相對路徑或以 {{ site.baseurl }} 之類處理）。
+
+自訂網域沒 HTTPS：DNS 設定生效後，回 Pages 勾 Enforce HTTPS。
+
+檔名大小寫：GitHub Pages 在 Linux 環境部署，大小寫敏感（Image.png ≠ image.png）。
+
+二進位檔案不顯示：把內容放在 assets/ 之類資料夾並用正確連結。
+
+7) 推薦你的一條龍最省事路線（給你現況）
+你在 Windows 10 ⇒ 建議先用純靜態或Jekyll 主題：
+
+先做個人首頁 username.github.io，放 index.html 跑通
+
+之後每個專案要文件就用該 repo 的 docs/ 方式掛 Pages
+
+要寫技術筆記再加 Jekyll 主題（免在本機裝 Ruby 也能用）
+
+如果你願意，我可以直接幫你生成一個開箱即用的最小網站專案結構（含簡單樣式、導覽列、文章範本），你只要把它整包丟到 username.github.io 推上去就行。你喜歡「極簡」、「部落格風」、「作品集卡片風」哪一種？我這邊一次幫你產生對應模板。
+
+你說：
+已上傳的圖像
+https://kwannn666.github.io/index.html
+ChatGPT 說：
+我看你的 GitHub Pages 已經成功部署了，因為右邊 Deployments 顯示 ✅ github-pages，而且 repo 名稱正確（Kwannn666.github.io），所以只要訪問：
+
+https://kwannn666.github.io/
+就能看到你的 index.html 內容，不需要加 /index.html，因為伺服器會自動載入首頁檔案。
+
+如果你打開網址沒看到更新內容，通常有幾個可能：
+
+瀏覽器快取
+
+按 Ctrl + F5 強制重新整理
+
+或開無痕模式試試
+
+檔案沒有 push 成功
+
+確認 index.html 內容已經在 main 分支上
+
+檔名大小寫
+
+確定檔名是 index.html（小寫 i），因為 Linux 伺服器區分大小寫
+
+剛部署還在生效中
+
+第一次部署可能要等 1～3 分鐘才會生效
+
+如果你願意，我可以幫你直接做一個完整美化版首頁模板，讓你的 index.html 看起來像作品集網站一樣，push 上去就能用。
+你要我幫你做這個模板嗎？這樣你馬上就會有一個漂亮的 GitHub Pages 首頁。
+
+你說：
+好
+ChatGPT 說：
+
+已思考 11s
+我已經把一個「一頁式作品集」的 index.html 模板放到右側畫布了（含深/淺色主題、置頂導覽列、Hero、專案格子、筆記區、關於我、聯絡按鈕）。你只要把畫布裡的內容整份複製到你的 repo Kwannn666.github.io 的 index.html，立刻就能變成漂亮首頁。
+
+使用說明（超快上線）
+在 GitHub 網頁直接打開 index.html → Edit → 將畫布中的全部內容貼上覆蓋 → Commit。
+
+等 GitHub Pages 自動部署完成（通常幾十秒），打開：
+https://kwannn666.github.io/
+
+你要改的幾個地方
+Email、LinkedIn、Kaggle 連結（在畫布文件「聯絡」區塊）。
+
+GitHub 使用者名稱（Hero 區塊的按鈕連結）。
+
+「最新動態」與「精選專案」三張卡片連結。
+
+頁面 <title> 與 <meta description>（有助 SEO）。
+
+進階小提醒（之後你會用到）
+專案網站：在任何 repo 建 docs/ 資料夾 + Settings → Pages 指到 /docs，網址會是 /<repo>/。
+
+自訂網域：Pages 設定中填你的域名，DNS 加 CNAME 指向 kwannn666.github.io，再勾 Enforce HTTPS。
+
+圖片與附件：直接新增 assets/ 目錄，引用時用相對路徑 assets/xxx.png。
+
+想要我把你的 GitHub、Kaggle、履歷連結先幫你填好，或再加一個「作品集卡片風」頁面嗎？說一聲我就幫你調整好版本 🙌
+
+你說：
+我的專案可以倒到點下去直接導入到我的github repo中嗎
+ChatGPT 說：
+我已經把說明改成兩種可直接匯入你 GitHub 的方式，你可以選擇：
+
+ZIP 下載後直接上傳到你的 repo
+
+我幫你建一個可「Use this template」的 GitHub 範本
+
+你想要我走哪一種流程？
+
+你說：
+我的專案可以改成履歷裡面的嗎，以及個人介紹
+ChatGPT 說：
+
+已思考 14s
+已把你的首頁「改成履歷 + 個人介紹版本」放到右側畫布了：
+
+已套用你的名字、Email、電話、GitHub、LinkedIn。
+
+加入「關於我、學歷、精選專案、競賽成就、技能/課程、聯絡」等區塊，內容已依你 PDF 的重點整理。
+
+按鈕裡留了「下載履歷 (PDF)」連結（目前指向 assets/Wayne_CV.pdf ），等等你只要把 PDF 上傳到網站的 assets/ 目錄即可生效。
+
+接下來三步就能上線：
+
+在 Kwannn666.github.io repo 裡新增 assets/ 目錄，將你的履歷檔命名為 Wayne_CV.pdf 上傳。
+
+開啟 repo 的 index.html，把畫布裡的全部內容貼上覆蓋並 Commit。
+
+等 Pages 部署完成，重新整理 https://kwannn666.github.io/。
+
+想再微調嗎？我可以：
+
+把「精選專案」對應到你實際的 GitHub repo 連結。
+
+增加英文/中文切換、加入作品縮圖、或新增「出版 / 論文」區塊。
+
+幫你把 PDF 直接轉一份輕量版放到 assets/。
+
+你說：
+幫我新增可以放照片的區段到原本的程式碼中
+ChatGPT 說：
+我已經幫你在原本的首頁中新增了「照片集」區段，並加入了可放多張專案或活動照片的圖片網格（gallery），你只需要將圖片放到 assets/images/ 目錄並改成自己的檔名即可顯示。
+
+你說：
+回到尚義版沒有照片的版本
+ChatGPT 說：
+已將頁面恢復成沒有照片集的版本，保留履歷與個人介紹區塊。
+
+你說：
+請新增履歷裡面的專案進去網頁裡面
+ChatGPT 說：
+
+已思考 10s
+已把你履歷裡的「專案」完整新增到網頁的 #projects 區塊（在首頁 Hero 區塊下方），每個專案都有時間、主題標籤與簡短描述。你現在可以把畫布內容貼回 index.html 就能上線。
+
+想再優化嗎？我可以：
+
+幫每個專案接上實際 GitHub/論文/展示連結
+
+加入關鍵技術 Tag 與成果指標（如參數量、Top% 名次、mAP/mIoU）
+
+依「AI/Vision、Comm/RL、Embedded」自動分欄或加篩選器（純前端即可）
+
+你說：
+幫我在這段程式碼中加入我的聯絡方式以及在每個專案前面都新增位置讓我可以上傳圖片上去
+以及在網頁的右上角留下原性的位置讓我放個人照片
+ChatGPT 說：
+
+已思考 28s
+
+在聊天中回答
+
+已思考 1m 16s
+我剛剛嘗試直接在你的畫布程式碼中做三件事：
+
+在導覽列右上角加一個「個人照片（圓形頭像）」的位置
+
+在「精選專案（履歷）」裡，每個專案卡片最上方加一個「專案縮圖」位置
+
+在頁面底部新增「聯絡方式」區塊（Email、電話、GitHub、LinkedIn、下載履歷）
+
+但因為畫布編輯器的批次取代規則卡住（正則比對不到某些區段），這次更新沒有成功套用。沒關係——你可以先照下面三步手動改（改很少），或回覆「幫我套用」我再一次性幫你貼好：
+
+要做的 3 個小改動
+A) 導覽列右上角加「圓形個人照片」
+在 <header> ... </header> 裡、現有的主題按鈕前面，插入下面這行（只 1 行）：
+
+<img class="avatar" src="assets/images/avatar.jpg" alt="個人照片（上傳到 assets/images/avatar.jpg）" />
+並在 <style> 裡加入這段樣式（若已存在就略過；放在 .theme{...} 後面都可）：
+
+.avatar{width:44px;height:44px;border-radius:50%;object-fit:cover;
+  border:1px solid var(--border);box-shadow:var(--shadow)}
+➡️ 把你的大頭照上傳到 assets/images/avatar.jpg 就會顯示。
+
+B) 專案卡片加縮圖位置
+在「精選專案（履歷）」區塊的每個 <a class="card"> 裡，在第一個 <div class="meta"> 之前插入一段縮圖容器，例如第一個專案改成：
+
+<a class="card" href="#" target="_blank" rel="noopener">
+  <span class="thumb"><img src="assets/projects/sound.jpg" alt="Sound Source Identification"></span>
+  <div class="meta">AI / Signal · 03/2023 – 12/2023</div>
+  <h3>Sound Source Identification</h3>
+  <p>前端降噪（Wiener、LogMMSE）…</p>
+</a>
+並在 <style> 裡加入縮圖樣式：
+
+.thumb{display:block;width:100%;aspect-ratio:16/9;overflow:hidden;
+  border-radius:12px;border:1px solid var(--border);
+  background:color-mix(in srgb, var(--card) 90%, #0000)}
+.thumb img{width:100%;height:100%;object-fit:cover;display:block}
+➡️ 圖片請放到 assets/projects/ 目錄，例如：
+
+sound.jpg（聲源辨識）
+
+yolo.jpg（
+
+`
+
+
+未選擇任何檔案未選擇任何檔案
+ChatGPT 可能會出錯。請查核重要資訊。
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>我的作品集｜GitHub Pages</title>
-  <meta name="description" content="通訊工程／韌體／AI 演算法工程師的個人作品集與筆記。" />
+  <title>JEN-WEI (Wayne) KUO｜郭人瑋｜作品集與履歷</title>
+  <meta name="description" content="通訊工程／韌體／AI 演算法工程師｜UAV-RIS × DRL × 多任務學習。" />
   <meta name="color-scheme" content="light dark" />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='80'>🛠️</text></svg>">
   <style>
-    :root{
-      --bg: #0b0d10; --card:#12151a; --muted:#a8b3cf; --text:#e6edf3; --brand:#4f8cff; --accent:#66d9e8; --border:#1f232a;
-      --shadow: 0 10px 30px rgba(0,0,0,.35);
-    }
-    :root.light{ --bg:#ffffff; --card:#ffffff; --text:#0f172a; --muted:#46506b; --brand:#2457ff; --accent:#0ea5e9; --border:#e5e7eb; --shadow: 0 8px 24px rgba(2,6,23,.08); }
-    *{box-sizing:border-box}
-    html,body{margin:0; padding:0; background:var(--bg); color:var(--text); font:16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Noto Sans TC, Arial, "PingFang TC", "Heiti TC", sans-serif}
+    :root{ --bg:#0b0d10; --card:#12151a; --muted:#a8b3cf; --text:#e6edf3; --brand:#4f8cff; --accent:#66d9e8; --border:#1f232a; --shadow: 0 10px 30px rgba(0,0,0,.35); }
+    :root.light{ --bg:#fff; --card:#fff; --text:#0f172a; --muted:#46506b; --brand:#2457ff; --accent:#0ea5e9; --border:#e5e7eb; --shadow: 0 8px 24px rgba(2,6,23,.08); }
+    *{box-sizing:border-box} html,body{margin:0; background:var(--bg); color:var(--text); font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Noto Sans TC,Arial,"PingFang TC",sans-serif}
     a{color:var(--brand); text-decoration:none}
     .container{max-width:1040px; margin:0 auto; padding:0 20px}
     header{position:sticky; top:0; backdrop-filter:saturate(180%) blur(10px); background:color-mix(in srgb, var(--bg) 80%, transparent); border-bottom:1px solid var(--border); z-index:20}
-    .nav{display:flex; align-items:center; justify-content:space-between; gap:16px; height:64px}
+    .nav{display:flex; align-items:center; justify-content:space-between; height:64px}
     .nav a.logo{font-weight:800; letter-spacing:.4px}
     .nav .links{display:flex; gap:18px}
     .btn{display:inline-flex; align-items:center; gap:8px; padding:10px 14px; border:1px solid var(--border); border-radius:12px; background:var(--card); color:var(--text); box-shadow:var(--shadow)}
     .btn.ghost{background:transparent; box-shadow:none}
-    .hero{display:grid; grid-template-columns:1.15fr .85fr; gap:28px; padding:64px 0 32px}
-    .hero .card{background:var(--card); border:1px solid var(--border); border-radius:20px; padding:28px; box-shadow:var(--shadow)}
-    h1{font-size:clamp(28px, 4vw, 44px); line-height:1.1; margin:0 0 12px}
-    .subtitle{color:var(--muted); margin:0 0 18px}
-    .badges{display:flex; flex-wrap:wrap; gap:10px; margin:14px 0 22px}
+    .hero{display:grid; grid-template-columns:1.15fr .85fr; gap:28px; padding:56px 0 24px; align-items:center}
+    .card{background:var(--card); border:1px solid var(--border); border-radius:20px; padding:24px; box-shadow:var(--shadow)}
+    h1{font-size:clamp(28px,4vw,44px); line-height:1.1; margin:0 0 8px}
+    h2{margin:0 0 8px}
+    .subtitle{color:var(--muted); margin:0 0 16px}
+    .badges{display:flex; flex-wrap:wrap; gap:10px; margin:10px 0 16px}
     .badge{padding:6px 10px; border:1px solid var(--border); border-radius:999px; font-size:13px; color:var(--muted)}
-    .grid{display:grid; grid-template-columns:repeat(3,1fr); gap:18px}
-    .card{background:var(--card); border:1px solid var(--border); border-radius:16px; padding:18px; box-shadow:var(--shadow)}
-    .card h3{margin:6px 0 6px; font-size:18px}
-    .card p{margin:0; color:var(--muted); font-size:14px}
-    .meta{display:flex; gap:10px; color:var(--muted); font-size:12px}
-    .tag{padding:4px 8px; border:1px solid var(--border); border-radius:999px; font-size:12px; color:var(--muted)}
-    section{padding:36px 0}
+    section{padding:28px 0}
     .section-title{display:flex; align-items:center; justify-content:space-between; margin-bottom:12px}
-    .projects .card:hover{transform:translateY(-2px); transition:transform .15s ease}
+    .grid{display:grid; grid-template-columns:repeat(3,1fr); gap:18px}
+    .list{margin:0; padding-left:18px}
+    .meta{color:var(--muted); font-size:13px}
     footer{border-top:1px solid var(--border); padding:28px 0 60px; color:var(--muted)}
     .row{display:flex; flex-wrap:wrap; gap:12px; align-items:center}
     .theme{cursor:pointer; border:1px solid var(--border); border-radius:12px; padding:8px 10px; background:var(--card)}
-    @media (max-width: 880px){ .hero{grid-template-columns:1fr; padding-top:28px} .grid{grid-template-columns:1fr 1fr} }
+    @media (max-width: 880px){ .hero{grid-template-columns:1fr} .grid{grid-template-columns:1fr 1fr} }
     @media (max-width: 560px){ .grid{grid-template-columns:1fr} .nav .links{display:none} }
-    /* code block */
-    pre{background:var(--card); border:1px solid var(--border); border-radius:12px; padding:14px; overflow:auto}
-    code{font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; font-size: 13px}
   </style>
 </head>
 <body>
   <header>
     <div class="container nav">
-      <a class="logo" href="#top">kwannn666.github.io</a>
+      <a class="logo" href="#top">JEN-WEI (Wayne) KUO</a>
       <nav class="links">
-        <a href="#about">關於我</a>
+        <a href="#about">關於</a>
+        <a href="#education">學歷</a>
         <a href="#projects">專案</a>
-        <a href="#notes">技術筆記</a>
+        <a href="#awards">競賽</a>
+        <a href="#skills">技能</a>
         <a href="#contact">聯絡</a>
       </nav>
       <button id="themeBtn" class="theme" aria-label="切換主題">🌗</button>
@@ -66,120 +505,62 @@
     <!-- Hero -->
     <section class="hero">
       <div class="card">
-        <h1>軟韌體 × 通訊 × AI 演算法</h1>
-        <p class="subtitle">求職中：軟韌體／AI／通訊演算法工程師。具多任務學習、CLIP、UAV‑RIS、強化學習等經驗，善於將研究快速落地為產品樣機。</p>
+        <h1>韌體 × 通訊 × AI 演算法工程師</h1>
+        <p class="subtitle">研究 UAV-RIS × 深度強化學習（DRL）路徑規劃與 QoS 提升；實作多任務學習（分類/偵測/分割）、CLIP 語意特徵與時序建模；擅長把研究快速落地為可演示的原型。</p>
         <div class="badges">
           <span class="badge">C/C++／嵌入式</span>
-          <span class="badge">PyTorch／TensorRT</span>
-          <span class="badge">無線通訊與訊號處理</span>
-          <span class="badge">Docker／Linux</span>
+          <span class="badge">Python（PyTorch／OpenCV）</span>
+          <span class="badge">Machine learning / Deep learning / Reinforcement Learning</span>
+          <span class="badge">通訊/訊號處理</span>
+          <span class="badge">Docker／Linux／Git</span>
         </div>
         <div class="row">
-          <a class="btn" href="https://github.com/kwannn666" target="_blank" rel="noopener">GitHub</a>
+          <a class="btn" href="mailto:jooj30136@gmail.com">Email</a>
+          <a class="btn" href="https://github.com/Kwannn666" target="_blank" rel="noopener">GitHub</a>
+          <a class="btn" href="https://www.linkedin.com/in/%E4%BA%BA%E7%91%8B-%E9%83%AD-89026a29a/" target="_blank" rel="noopener">LinkedIn</a>
           <a class="btn ghost" href="#projects">查看專案</a>
+          <a class="btn ghost" href="assets/Wayne_CV.pdf">下載履歷 (PDF)</a>
         </div>
       </div>
       <div class="card">
         <h3 style="margin-top:0">最新動態</h3>
         <ul>
-          <li>⭐ BigQuery AI Hackathon 點子孵化中（向量搜尋 + 多模態 RAG）。</li>
-          <li>📦 開源：多任務一頭模型（Seg/Det/Cls）輕量化實作。</li>
-          <li>🛸 論文延伸：多 UAV‑RIS 與 SWIPT 的強化學習路徑規劃。</li>
+          <li>⭐ BigQuery AI Hackathon：向量搜尋 + 多模態 RAG 原型開發。</li>
+          <li>🧩 Unified-OneHead MTL：分階段訓練 + Replay Buffer，三任務衰退 < 5%。</li>
+          <li>🛸 多 UAV-RIS × SWIPT：以 DDPG/TD3 進行航跡與配置最佳化。</li>
         </ul>
         <p class="meta">更新於 <span id="today"></span></p>
       </div>
     </section>
 
     <!-- Projects -->
-    <section id="projects" class="projects">
+    <section id="projects">
+      <h2>專案經驗</h2>
+      <ul class="list">
+        <li><strong>Sound Source Identification Technology Development</strong> — 開發基於 Python 的前端降噪與語音模型訓練 (03/2023 - 12/2023)</li>
+        <li><strong>Image Processing and YOLO-based Image Recognition</strong> — 指甲邊緣檢測與影像增強 (06/2021 - 02/2021)</li>
+        <li><strong>Unified-OneHead Multi-Task Learning Model</strong> — 輕量單一輸出頭多任務模型 (04/2025 – 06/2025)</li>
+        <li><strong>DynamicConv Implementation for Lightweight Vision Tasks</strong> — 動態卷積模組開發 (03/2025 – 06/2025)</li>
+        <li><strong>TinyViT: Transformer-based Lightweight Vision Model</strong> — 僅 1.1M 參數的高效 ViT 模型 (03/2025 – 05/2025)</li>
+        <li><strong>MLB Game Prediction – Kaggle Competition</strong> — 隊長，特徵工程與隨機森林優化 (10/2024 - 12/2024)</li>
+        <li><strong>Interactive Resume & Interview System with GPT-4o</strong> — 生成式面試模擬系統 (04/2025 – 06/2025)</li>
+        <li><strong>Traffic Accident Prediction using CLIP Semantic Features</strong> — 基於 CLIP 與 XGBoost 的交通事故預測 (04/2024 - 07/2024)</li>
+        <li><strong>The controller design of the two-wheel balance car</strong> — 基於 LQR 控制的雙輪平衡車 (10/2022 - 01/2023)</li>
+        <li><strong>Intelligent Unmanned Vessel Design and Manufacture</strong> — 智慧無人船專題 (03/2023 - 01/2024)</li>
+      </ul>
+    </section>
+
+    <!-- Projects from CV -->
+    <section id="projects">
       <div class="section-title">
-        <h2>精選專案</h2>
-        <a class="btn ghost" href="https://github.com/kwannn666?tab=repositories" target="_blank" rel="noopener">更多 →</a>
+        <h2>精選專案（履歷）</h2>
+        <span class="meta">以下節選自我的履歷，涵蓋 AI/Vision、通訊/RL、嵌入式與學術專題。</span>
       </div>
       <div class="grid">
         <a class="card" href="#" target="_blank" rel="noopener">
-          <div class="tag">AI / 1Vision</div>
-          <h3>Accident Pre‑Warning Video Assistant</h3>
-          <p>以 OpenCLIP + 時序模型進行道路風險預警，支援多語提示與閾值自動化。</p>
+          <div class="meta">AI / Signal · 03/2023 – 12/2023</div>
+          <h3>Sound Source Identification</h3>
+          <p>前端降噪（Wiener、LogMMSE）、互相關比對，並訓練語音模型進行聲源辨識。</p>
         </a>
-        <a class="card" href="#" target="_blank" rel="noopener">
-          <div class="tag">Comm / RL</div>
-          <h3>UAV‑RIS Energy Harvesting (DDPG/TD3)</h3>
-          <p>以強化學習最佳化 UAV 航跡與 RIS 配置，權衡 QoS、能耗與延遲。</p>
-        </a>
-        <a class="card" href="#" target="_blank" rel="noopener">
-          <div class="tag">Embedded</div>
-          <h3>IME Auto‑Switch + Voice Notifier</h3>
-          <p>Windows TSF 監聽輸入法狀態，依語言自動語音提示；含 Python Notifier。</p>
-        </a>
-      </div>
-    </section>
 
-    <!-- Notes -->
-    <section id="notes">
-      <h2>技術筆記（GitHub Pages 原始碼）</h2>
-      <p>這個網站即部署於 <code>username.github.io</code>。若要在專案倉庫開啟頁面，只要新增 <code>docs/</code> 資料夾並啟用 Pages。</p>
-      <pre><code># 典型流程（第一次）
-mkdir username.github.io && cd $_
-git init
-# 建立 index.html 後
-git add . && git commit -m "init site"
-git branch -M main
-git remote add origin https://github.com/USERNAME/USERNAME.github.io.git
-git push -u origin main
-</code></pre>
-    </section>
-
-    <!-- About -->
-    <section id="about">
-      <h2>關於我</h2>
-      <p>國立成功大學電通所碩士。研究／實作領域涵蓋 UAV‑RIS、SWIPT、強化學習、CLIP 與多任務視覺。熟悉 C/C++、Python、Docker、Linux、Git；目標職位為通訊演算法、韌體與 AI 軟體工程師。</p>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact">
-      <h2>聯絡</h2>
-      <p>歡迎透過下列連結與我合作或交流：</p>
-      <div class="row">
-        <a class="btn" href="jooj30136@gmail.com">Email</a>
-        <a class="btn" href="https://www.linkedin.com/in/%E4%BA%BA%E7%91%8B-%E9%83%AD-89026a29a/" target="_blank" rel="noopener">LinkedIn</a>
-        <a class="btn" href="https://www.kaggle.com/kuojenwei" target="_blank" rel="noopener">104</a>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container row" style="justify-content:space-between">
-      <span>© <span id="year"></span> kwannn666. Built with GitHub Pages.</span>
-      <span class="meta">Made with ♥︎ · <a href="#top">Back to top</a></span>
-    </div>
-  </footer>
-
-  <script>
-    // 日期
-    document.getElementById('year').textContent = new Date().getFullYear();
-    document.getElementById('today').textContent = new Date().toLocaleDateString();
-
-    // 主題切換（跟隨系統，並可手動覆寫）
-    const root = document.documentElement;
-    const btn = document.getElementById('themeBtn');
-    const saved = localStorage.getItem('theme');
-    const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
-    function applyTheme(mode){ root.classList.toggle('light', mode === 'light'); }
-    applyTheme(saved || (prefersLight ? 'light' : 'dark'));
-    btn.addEventListener('click', ()=>{
-      const nowLight = !root.classList.contains('light');
-      applyTheme(nowLight ? 'light' : 'dark');
-      localStorage.setItem('theme', nowLight ? 'light' : 'dark');
-    });
-
-    // 平滑捲動
-    document.querySelectorAll('a[href^="#"]').forEach(a=>{
-      a.addEventListener('click', e=>{
-        const id = a.getAttribute('href');
-        if(id.length > 1){ e.preventDefault(); document.querySelector(id).scrollIntoView({behavior:'smooth'}); }
-      });
-    });
-  </script>
-</body>
-</html>
+ChatGPT 仍在產生回應中……
