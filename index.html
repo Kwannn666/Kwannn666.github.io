@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>JEN-WEI (Wayne) KUO｜郭人瑋｜作品集與履歷</title>
-  <meta name="description" content="通訊工程／韌體／AI 演算法工程師｜UAV-RIS × DRL × 多任務學習。" />
+  <meta name="description" content="通訊工程／韌體／AI 演算法工程師｜UAV-RIS × MPDRL × SWIPT 。" />
   <meta name="color-scheme" content="light dark" />
   <style>
     :root{ --bg:#0b0d10; --card:#12151a; --muted:#a8b3cf; --text:#e6edf3; --brand:#4f8cff; --accent:#66d9e8; --border:#1f232a; --shadow: 0 10px 30px rgba(0,0,0,.35); }
@@ -64,16 +64,8 @@
           <span class="badge">C/C++／嵌入式</span>
           <span class="badge">Python（PyTorch／OpenCV）</span>
           <span class="badge">Machine learning / Deep learning / Reinforcement Learning</span>
-          <span class="badge">通訊/訊號處理</span>
+          <span class="badge">B5G/6G通訊/訊號處理</span>
           <span class="badge">Docker／Linux／Git</span>
-        </div>
-        <div class="row">
-          <a class="btn" href="mailto:jooj30136@gmail.com">Email</a>
-          <a class="btn" href="tel:+886965017814">電話</a>
-          <a class="btn" href="https://github.com/Kwannn666" target="_blank" rel="noopener">GitHub</a>
-          <a class="btn" href="https://www.linkedin.com/in/%E4%BA%BA%E7%91%8B-%E9%83%AD-89026a29a/" target="_blank" rel="noopener">LinkedIn</a>
-          <a class="btn ghost" href="#projects">查看專案</a>
-          <a class="btn ghost" href="assets/Wayne_CV.pdf">下載履歷 (PDF)</a>
         </div>
       </div>
     </section>
@@ -107,6 +99,8 @@
       <p>📱 電話: <a href="tel:+886965017814">+886 965-017-814</a></p>
       <p>🌐 GitHub: <a href="https://github.com/Kwannn666" target="_blank">github.com/Kwannn666</a></p>
       <p>💼 LinkedIn: <a href="https://www.linkedin.com/in/%E4%BA%BA%E7%91%8B-%E9%83%AD-89026a29a/" target="_blank">LinkedIn Profile</a></p>
+        <div id="visitor-counter" class="container" style="margin-top:10px; font-size:14px; color:var(--muted)">
+      👀 瀏覽人數：<span id="visitor-count">載入中...</span>
     </div>
   </footer>
 
@@ -118,6 +112,16 @@
     function apply(mode){ root.classList.toggle('light', mode==='light'); }
     apply(saved || (prefersLight ? 'light' : 'dark'));
     btn.addEventListener('click', ()=>{ const l=!root.classList.contains('light'); apply(l?'light':'dark'); localStorage.setItem('theme', l?'light':'dark'); });
+    // —— 訪客計數（countapi.xyz）——
+  (function(){
+    const ns = "kwannn666.github.io";   // 可改為你想要的命名空間（需全站唯一）
+    const key = "pageviews";            // 可改成每頁不同的 key 以做分頁統計
+    fetch(`https://api.countapi.xyz/hit/${ns}/${key}`)
+      .then(r => r.json())
+      .then(d => { const el = document.getElementById('visitor-count'); if(el) el.textContent = d.value?.toLocaleString?.() || d.value; })
+      .catch(() => { const el = document.getElementById('visitor-count'); if(el) el.textContent = '無法取得'; });
+  })();
   </script>
 </body>
 </html>
+
