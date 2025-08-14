@@ -58,10 +58,10 @@
   <main id="top" class="container">
     <section class="hero">
       <div class="card">
-        <h1>韌體 × 通訊 × AI 演算法工程師</h1>
-        <p class="subtitle">研究 UAV-RIS × 深度強化學習（DRL）路徑規劃與 QoS 提升；實作多任務學習（分類/偵測/分割）、CLIP 語意特徵與時序建模。</p>
+        <h1>技能/研究興趣</h1>
+        <p class="subtitle"> UAV-RIS × SWIPT × /多協同深度強化學習（MPDRL）路徑規劃與 QoS 提升；多任務學習（分類/偵測/分割）、CLIP 語意特徵與時序建模、VLM。</p>
         <div class="badges">
-          <span class="badge">C/C++／嵌入式</span>
+          <span class="badge">C/C++／嵌入式(Rasberry pi/STM32)</span>
           <span class="badge">Python（PyTorch／OpenCV）</span>
           <span class="badge">Machine learning / Deep learning / Reinforcement Learning</span>
           <span class="badge">B5G/6G通訊/訊號處理</span>
@@ -89,7 +89,7 @@
     </section>
   </main>
 
-  <footer>
+   <footer>
     <div class="container row" style="justify-content:space-between">
       <span>© <span id="year"></span> JEN-WEI (Wayne) KUO · kwannn666.github.io</span>
       <span class="meta"><a href="#top">Back to top</a></span>
@@ -99,8 +99,13 @@
       <p>📱 電話: <a href="tel:+886965017814">+886 965-017-814</a></p>
       <p>🌐 GitHub: <a href="https://github.com/Kwannn666" target="_blank">github.com/Kwannn666</a></p>
       <p>💼 LinkedIn: <a href="https://www.linkedin.com/in/%E4%BA%BA%E7%91%8B-%E9%83%AD-89026a29a/" target="_blank">LinkedIn Profile</a></p>
-        <div id="visitor-counter" class="container" style="margin-top:10px; font-size:14px; color:var(--muted)">
+    </div>
+    <div id="visitor-counter" class="container" style="margin-top:10px; font-size:14px; color:var(--muted)">
       👀 瀏覽人數：<span id="visitor-count">載入中...</span>
+      <span id="visitor-fallback" style="display:none">
+        <img alt="visits" style="vertical-align:middle"
+          src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fkwannn666.github.io%2F&count_bg=%232B6CB0&title_bg=%23555555&title=visits&edge_flat=false" />
+      </span>
     </div>
   </footer>
 
@@ -112,16 +117,46 @@
     function apply(mode){ root.classList.toggle('light', mode==='light'); }
     apply(saved || (prefersLight ? 'light' : 'dark'));
     btn.addEventListener('click', ()=>{ const l=!root.classList.contains('light'); apply(l?'light':'dark'); localStorage.setItem('theme', l?'light':'dark'); });
+
     // —— 訪客計數（countapi.xyz）——
   (function(){
-    const ns = "kwannn666.github.io";   // 可改為你想要的命名空間（需全站唯一）
-    const key = "pageviews";            // 可改成每頁不同的 key 以做分頁統計
-    fetch(`https://api.countapi.xyz/hit/${ns}/${key}`)
-      .then(r => r.json())
-      .then(d => { const el = document.getElementById('visitor-count'); if(el) el.textContent = d.value?.toLocaleString?.() || d.value; })
-      .catch(() => { const el = document.getElementById('visitor-count'); if(el) el.textContent = '無法取得'; });
+    const ns = "kwannn666.github.io";   // 全站唯一命名空間
+    const key = "pageviews";            // 可改成每頁不同 key
+
+    const showFallback = () => {
+      const fallback = document.getElementById('visitor-fallback');
+      const count = document.getElementById('visitor-count');
+      if (fallback) fallback.style.display = 'inline-block';
+      if (count) count.style.display = 'none';
+    };
+
+    const withTimeout = (promise, ms = 3500) => {
+      return Promise.race([
+        promise,
+        new Promise((_, rej) => setTimeout(() => rej(new Error('timeout')), ms))
+      ]);
+    };
+
+    withTimeout(fetch(`https://api.countapi.xyz/hit/${ns}/${key}`))
+      .then(r => {
+        if (!r.ok) throw new Error('HTTP ' + r.status);
+        return r.json();
+      })
+      .then(d => {
+        const el = document.getElementById('visitor-count');
+        if (el && typeof d.value !== 'undefined') {
+          el.textContent = (d.value?.toLocaleString?.() || d.value);
+        } else {
+          showFallback();
+        }
+      })
+      .catch(err => {
+        console.warn('countapi 失敗，啟用後備徽章：', err);
+        showFallback();
+      });
   })();
   </script>
 </body>
 </html>
+
 
