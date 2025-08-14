@@ -1,210 +1,311 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>JEN-WEI (Wayne) KUO｜郭人瑋｜作品集與履歷</title>
-  <meta name="description" content="通訊工程／韌體／AI 演算法工程師｜UAV-RIS × MPDRL × SWIPT 。" />
-  <meta name="color-scheme" content="light dark" />
-  <style>
-    :root{ --bg:#0b0d10; --card:#12151a; --muted:#a8b3cf; --text:#e6edf3; --brand:#4f8cff; --accent:#66d9e8; --border:#1f232a; --shadow: 0 10px 30px rgba(0,0,0,.35); }
-    :root.light{ --bg:#fff; --card:#fff; --text:#0f172a; --muted:#46506b; --brand:#2457ff; --accent:#0ea5e9; --border:#e5e7eb; --shadow: 0 8px 24px rgba(2,6,23,.08); }
-    *{box-sizing:border-box} html,body{margin:0; background:var(--bg); color:var(--text); font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Noto Sans TC,Arial,"PingFang TC",sans-serif}
-    a{color:var(--brand); text-decoration:none}
-    .container{max-width:1040px; margin:0 auto; padding:0 20px}
-    header{position:sticky; top:0; backdrop-filter:saturate(180%) blur(10px); background:color-mix(in srgb, var(--bg) 80%, transparent); border-bottom:1px solid var(--border); z-index:20}
-    .nav{display:flex; align-items:center; justify-content:space-between; height:64px}
-    .nav a.logo{font-weight:800; letter-spacing:.4px}
-    .nav .links{display:flex; gap:18px}
-    .profile-pic{width:48px; height:48px; border-radius:50%; object-fit:cover; border:2px solid var(--border); box-shadow:var(--shadow)}
-    .btn{display:inline-flex; align-items:center; gap:8px; padding:10px 14px; border:1px solid var(--border); border-radius:12px; background:var(--card); color:var(--text); box-shadow:var(--shadow)}
-    .btn.ghost{background:transparent; box-shadow:none}
-    .hero{display:grid; grid-template-columns:1.15fr .85fr; gap:28px; padding:56px 0 24px; align-items:center}
-    .card{background:var(--card); border:1px solid var(--border); border-radius:20px; padding:24px; box-shadow:var(--shadow)}
-    h1{font-size:clamp(28px,4vw,44px); line-height:1.1; margin:0 0 8px}
-    h2{margin:0 0 8px}
-    .subtitle{color:var(--muted); margin:0 0 16px}
-    .badges{display:flex; flex-wrap:wrap; gap:10px; margin:10px 0 16px}
-    .badge{padding:6px 10px; border:1px solid var(--border); border-radius:999px; font-size:13px; color:var(--muted)}
-    section{padding:28px 0}
-    .section-title{display:flex; align-items:center; justify-content:space-between; margin-bottom:12px}
-    .horizontal-projects{display:flex; flex-direction:column; gap:16px}
-    .project-item{display:flex; gap:16px; background:var(--card); border:1px solid var(--border); border-radius:12px; padding:16px; box-shadow:var(--shadow)}
-    .project-img{width:160px; height:100px; object-fit:cover; border-radius:8px}
-    .project-content h3{margin:0 0 6px}
-    .meta{color:var(--muted); font-size:13px; margin-bottom:6px}
-    footer{border-top:1px solid var(--border); padding:28px 0 60px; color:var(--muted)}
-    .row{display:flex; flex-wrap:wrap; gap:12px; align-items:center}
-    .theme{cursor:pointer; border:1px solid var(--border); border-radius:12px; padding:8px 10px; background:var(--card)}
-  </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>JEN-WEI (Wayne) KUO｜郭人瑋｜作品集與履歷</title>
+    <meta name="description" content="通訊工程／韌體／AI 演算法工程師｜UAV-RIS × MPDRL × SWIPT 。" />
+    <meta name="color-scheme" content="light dark" />
+    <style>
+        :root{ --bg:#0b0d10; --card:#12151a; --muted:#a8b3cf; --text:#e6edf3; --brand:#4f8cff; --accent:#66d9e8; --border:#1f232a; --shadow: 0 10px 30px rgba(0,0,0,.35); }
+        :root.light{ --bg:#fff; --card:#fff; --text:#0f172a; --muted:#46506b; --brand:#2457ff; --accent:#0ea5e9; --border:#e5e7eb; --shadow: 0 8px 24px rgba(2,6,23,.08); }
+        *{box-sizing:border-box} html,body{margin:0; background:var(--bg); color:var(--text); font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Noto Sans TC,Arial,"PingFang TC",sans-serif}
+        a{color:var(--brand); text-decoration:none}
+        .container{max-width:1040px; margin:0 auto; padding:0 20px}
+        header{position:sticky; top:0; backdrop-filter:saturate(180%) blur(10px); background:color-mix(in srgb, var(--bg) 80%, transparent); border-bottom:1px solid var(--border); z-index:20}
+        .nav{display:flex; align-items:center; justify-content:space-between; height:64px}
+        .nav a.logo{font-weight:800; letter-spacing:.4px}
+        .nav .links{display:flex; gap:18px}
+        .profile-pic{width:48px; height:48px; border-radius:50%; object-fit:cover; border:2px solid var(--border); box-shadow:var(--shadow)}
+        .btn{display:inline-flex; align-items:center; gap:8px; padding:10px 14px; border:1px solid var(--border); border-radius:12px; background:var(--card); color:var(--text); box-shadow:var(--shadow)}
+        .btn.ghost{background:transparent; box-shadow:none}
+        .hero{display:grid; grid-template-columns:1fr; gap:28px; padding:56px 0 24px; align-items:center}
+        .card{background:var(--card); border:1px solid var(--border); border-radius:20px; padding:24px; box-shadow:var(--shadow)}
+        h1{font-size:clamp(28px,4vw,44px); line-height:1.1; margin:0 0 8px}
+        h2{margin:0 0 8px}
+        .subtitle{color:var(--muted); margin:0 0 16px}
+        .badges{display:flex; flex-wrap:wrap; gap:10px; margin:10px 0 16px}
+        .badge{padding:6px 10px; border:1px solid var(--border); border-radius:999px; font-size:13px; color:var(--muted)}
+        section{padding:28px 0}
+        .section-title{display:flex; align-items:center; justify-content:space-between; margin-bottom:12px}
+        .horizontal-projects{display:flex; flex-direction:column; gap:16px}
+        .project-item{display:flex; gap:16px; background:var(--card); border:1px solid var(--border); border-radius:12px; padding:16px; box-shadow:var(--shadow)}
+        .project-img{width:160px; height:100px; object-fit:cover; border-radius:8px}
+        .project-content h3{margin:0 0 6px}
+        .meta{color:var(--muted); font-size:13px; margin-bottom:6px}
+        .project-content ul{margin:0; padding-left:18px; color:var(--muted); font-size:14px}
+        .project-content ul li{margin-bottom:4px}
+        footer{border-top:1px solid var(--border); padding:28px 0 60px; color:var(--muted)}
+        .row{display:flex; flex-wrap:wrap; gap:12px; align-items:center}
+        .theme{cursor:pointer; border:1px solid var(--border); border-radius:12px; padding:8px 10px; background:var(--card)}
+        .grid.two{display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:16px}
+        .ongoing-list .ongoing-item{display:flex; gap:16px; align-items:flex-start; border:1px solid var(--border); border-radius:12px; padding:16px; background:var(--card); box-shadow:var(--shadow)}
+        .ongoing-list .ongoing-item .dot{width:12px; height:12px; border-radius:50%; background:var(--brand); flex-shrink:0; margin-top:6px}
+    </style>
 </head>
 <body>
-  <header>
-    <div class="container nav">
-      <a class="logo" href="#top">JEN-WEI (Wayne) KUO</a>
-      <nav class="links">
-        <a href="#about">關於</a>
-        <a href="#education">學歷</a>
-        <a href="#projects">專案</a>
-        <a href="#awards">競賽</a>
-        <a href="#skills">技能</a>
-        <a href="#contact">聯絡</a>
-      </nav>
-      <img src="assets/images/profile.jpg" alt="個人照片" class="profile-pic" />
-      <button id="themeBtn" class="theme" aria-label="切換主題">🌗</button>
-    </div>
-  </header>
-
-  <main id="top" class="container">
-    <section class="hero">
-      <div class="card">
-        <h1>技能/研究興趣</h1>
-        <p class="subtitle"> UAV-RIS × SWIPT × /多協同深度強化學習（MPDRL）路徑規劃與 QoS 提升；多任務學習（分類/偵測/分割）、CLIP 語意特徵與時序建模、VLM。</p>
-        <div class="badges">
-          <span class="badge">C/C++／嵌入式(Rasberry pi/STM32)</span>
-          <span class="badge">Python（PyTorch／OpenCV）</span>
-          <span class="badge">Machine learning / Deep learning / Reinforcement Learning</span>
-          <span class="badge">B5G/6G通訊/訊號處理</span>
-          <span class="badge">Docker／Linux／Git</span>
+    <header>
+        <div class="container nav">
+            <a class="logo" href="#top">JEN-WEI (Wayne) KUO</a>
+            <nav class="links">
+                <a href="#about">關於</a>
+                <a href="#education">學歷</a>
+                <a href="#projects">專案</a>
+                <a href="#awards">競賽</a>
+                <a href="#skills">技能</a>
+                <a href="#contact">聯絡</a>
+            </nav>
+            <img src="assets/images/profile.jpg" alt="個人照片" class="profile-pic" />
+            <button id="themeBtn" class="theme" aria-label="切換主題">🌗</button>
         </div>
-      </div>
-    </section>
-        <!-- 進行中專案：區塊化條列展示 -->
-    <section id="ongoing">
-      <div class="section-title"><h2>進行中專案</h2></div>
-      <div class="ongoing-list">
-        <div class="ongoing-item">
-          <span class="dot" aria-hidden="true"></span>
-          <div>
-            <h3 style="margin:0 0 4px">BigQuery AI／向量搜尋 + 多模態 RAG</h3>
-            <p class="meta">BigQuery Vector Index、CLIP / 多模態 Embeddings、檔案上傳管線</p>
-            <p style="margin:0">建置向量索引與檢索擴展，支援多檔案與語意查詢；串接前端問答與權責說明。</p>
-          </div>
+    </header>
+
+    <main id="top" class="container">
+        <section class="hero">
+            <div class="card">
+                <h1>技能 / 研究興趣</h1>
+                <p class="subtitle">
+                    **研究方向：** UAV-RIS × SWIPT、多協同深度強化學習（MPDRL）、多任務學習、VLM<br/>
+                    **核心技術：** DRL 路徑規劃與 QoS 提升、CLIP 語意特徵與時序建模<br/>
+                    **開發工具：** C/C++、Python (PyTorch/OpenCV)、嵌入式 (Rasberry Pi/STM32)、Docker、Linux、Git
+                </p>
+                <div class="badges">
+                    <span class="badge">B5G/6G通訊</span>
+                    <span class="badge">訊號處理</span>
+                    <span class="badge">ML/DL/RL</span>
+                    <span class="badge">Python</span>
+                    <span class="badge">C/C++</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="ongoing">
+            <div class="section-title"><h2>進行中專案</h2></div>
+            <div class="ongoing-list">
+                <div class="ongoing-item">
+                    <span class="dot" aria-hidden="true"></span>
+                    <div>
+                        <h3 style="margin:0 0 4px">BigQuery AI／向量搜尋 + 多模態 RAG</h3>
+                        <p class="meta">技術：BigQuery Vector Index、CLIP、多模態 Embeddings、文件上傳管線</p>
+                        <p style="margin:0">建立向量索引與檢索擴展，支援多檔案與語意查詢，並串接前端問答與權責說明。</p>
+                    </div>
+                </div>
+                <div class="ongoing-item">
+                    <span class="dot" aria-hidden="true"></span>
+                    <div>
+                        <h3 style="margin:0 0 4px">TTS（文字轉語音）管線</h3>
+                        <p class="meta">技術：中文 TTS 微調、音色轉換、推論加速</p>
+                        <p style="margin:0">建立資料清理與對齊流程，評估說話人適配性，並與前端語音提示 API 介接。</p>
+                    </div>
+                </div>
+                <div class="ongoing-item">
+                    <span class="dot" aria-hidden="true"></span>
+                    <div>
+                        <h3 style="margin:0 0 4px">Voronoi × UAV‑RIS 覆蓋規劃</h3>
+                        <p class="meta">技術：Voronoi 分割、UAV 航跡規劃、RIS 配置、DDPG/TD3</p>
+                        <p style="margin:0">以 Voronoi 區域化多 UAV 任務，結合 DRL 最佳化能量與 QoS，支援 SWIPT 場景。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="education">
+            <div class="section-title"><h2>學歷</h2></div>
+            <div class="grid two">
+                <div class="card">
+                    <h3>國立成功大學｜電腦與通信工程研究所 碩士</h3>
+                    <p class="meta">2024/09 – 2026/06（在學）</p>
+                    <p>研究主題：UAV‑RIS × 深度強化學習（DDPG/TD3）、SWIPT、通訊最佳化。</p>
+                </div>
+                <div class="card">
+                    <h3>國立成功大學｜系統及船舶機電工程學系 學士</h3>
+                    <p class="meta">2020/09 – 2024/06</p>
+                    <p>專題涵蓋：智慧無人船舶設計與製造、聲源辨識、數位影像處理與控制系統。</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <div class="section-title">
+                <h2>專案列表</h2>
+            </div>
+            <div class="horizontal-projects">
+                <div class="project-item">
+                    <img src="assets/images/project1.jpg" alt="Sound Source Identification" class="project-img" />
+                    <div class="project-content">
+                        <div class="meta">AI / Signal · 03/2023 – 12/2023</div>
+                        <h3>聲源辨識系統 (Sound Source Identification)</h3>
+                        <ul>
+                            <li>**降噪技術**：應用 Wiener、LogMMSE 演算法，提升語音辨識準確率。</li>
+                            <li>**核心功能**：實現基於互相關比對與語音模型訓練的聲源辨識。</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="project-item">
+                    <img src="assets/images/project2.jpg" alt="Image Processing & YOLO Recognition" class="project-img" />
+                    <div class="project-content">
+                        <div class="meta">Vision · 06/2021 – 02/2021</div>
+                        <h3>影像處理與 YOLO 偵測</h3>
+                        <ul>
+                            <li>**影像強化**：實作數位影像強化與邊緣檢出技術。</li>
+                            <li>**物件偵測**：應用 YOLO 模型進行物件辨識。</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="project-item">
+                    <img src="assets/images/project3.jpg" alt="Unified-OneHead MTL" class="project-img" />
+                    <div class="project-content">
+                        <div class="meta">MTL · 04/2025 – 06/2025</div>
+                        <h3>多任務學習（Unified-OneHead MTL）</h3>
+                        <ul>
+                            <li>**模型架構**：整合分類、偵測、分割任務於單一模型頭部輸出。</li>
+                            <li>**優化策略**：導入 Replay Buffer 記憶機制，有效抑制模型遺忘問題。</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="project-item">
+                    <img src="assets/images/project4.jpg" alt="DynamicConv" class="project-img" />
+                    <div class="project-content">
+                        <div class="meta">Vision / Efficient · 03/2025 – 06/2025</div>
+                        <h3>輕量化動態卷積 (DynamicConv)</h3>
+                        <ul>
+                            <li>**核心技術**：利用 MLP 動態生成卷積核心，支援多通道組合。</li>
+                            <li>**專案成果**：提升模型彈性與運算效率，適用於輕量級任務。</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="project-item">
+                    <img src="assets/images/project5.jpg" alt="TinyViT" class="project-img" />
+                    <div class="project-content">
+                        <div class="meta">Transformer · 03/2025 – 05/2025</div>
+                        <h3>輕量級 Transformer 模型 (TinyViT)</h3>
+                        <ul>
+                            <li>**模型優化**：實現 1.1M 參數、5M FLOPs 的精簡架構。</li>
+                            <li>**效能表現**：準確率達到 ResNet34 水準，並完成消融實驗分析。</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="project-item">
+                    <img src="assets/images/project6.jpg" alt="MLB Game Prediction" class="project-img" />
+                    <div class="project-content">
+                        <div class="meta">Kaggle · 10/2024 – 12/2024</div>
+                        <h3>MLB 賽事結果預測</h3>
+                        <ul>
+                            <li>**資料分析**：進行資料前處理與特徵工程。</li>
+                            <li>**模型應用**：使用隨機森林模型並最佳化參數，最終排名 Top 13%（19/142）。</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="project-item">
+                    <img src="assets/images/project7.jpg" alt="Interactive Resume & Interview System" class="project-img" />
+                    <div class="project-content">
+                        <div class="meta">GenAI / RAG · 04/2025 – 06/2025</div>
+                        <h3>互動式履歷與面試系統</h3>
+                        <ul>
+                            <li>**系統開發**：建置即時履歷解析與 Q&A 平台。</li>
+                            <li>**技術整合**：結合 OpenAI API、LangChain 框架與向量檢索技術。</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="project-item">
+                    <img src="assets/images/project8.jpg" alt="Traffic Accident Prediction" class="project-img" />
+                    <div class="project-content">
+                        <div class="meta">AI / Vision · 04/2024 – 07/2024</div>
+                        <h3>交通事故預測</h3>
+                        <ul>
+                            <li>**特徵工程**：應用 **CLIP 語意特徵**結合 **XGBoost** 模型。</li>
+                            <li>**競賽成果**：在 Kaggle 競賽中獲得 Top 9.2%（12/130）的佳績。</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="project-item">
+                    <img src="assets/images/project9.jpg" alt="Two-wheel Balance Car" class="project-img" />
+                    <div class="project-content">
+                        <div class="meta">Control · 10/2022 – 01/2023</div>
+                        <h3>雙輪自平衡車 (LQR)</h3>
+                        <ul>
+                            <li>**硬體實作**：使用 Arduino 與 C++ 程式實作倒單擺車控制系統。</li>
+                            <li>**控制演算法**：應用 MATLAB LQR 模擬並結合群體演算法進行參數調優。</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="project-item">
+                    <img src="assets/images/project10.jpg" alt="Intelligent Unmanned Vessel" class="project-img" />
+                    <div class="project-content">
+                        <div class="meta">Embedded / Robotics · 03/2023 – 01/2024</div>
+                        <h3>智慧無人船舶設計與製造</h3>
+                        <ul>
+                            <li>**系統整合**：以 Raspberry Pi 與 Arduino 為核心。</li>
+                            <li>**核心功能**：實現自主航行、聲源導引、影像辨識及光導導航等多項功能。</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container row" style="justify-content:space-between">
+            <span>© <span id="year"></span> JEN-WEI (Wayne) KUO · kwannn666.github.io</span>
+            <span class="meta"><a href="#top">Back to top</a></span>
         </div>
-        <div class="ongoing-item">
-          <span class="dot" aria-hidden="true"></span>
-          <div>
-            <h3 style="margin:0 0 4px">TTS（文字轉語音）管線</h3>
-            <p class="meta">中文 TTS 微調、音色轉換、推論加速</p>
-            <p style="margin:0">建立資料清理與對齊流程，評估說話人適配；前端語音提示與 API 介接。</p>
-          </div>
+        <div class="container contact-info">
+            <p>📧 Email: <a href="mailto:jooj30136@gmail.com">jooj30136@gmail.com</a></p>
+            <p>📱 電話: <a href="tel:+886965017814">+886 965-017-814</a></p>
+            <p>🌐 GitHub: <a href="https://github.com/Kwannn666" target="_blank">github.com/Kwannn666</a></p>
+            <p>💼 LinkedIn: <a href="https://www.linkedin.com/in/%E4%BA%BA%E7%91%8B-%E9%83%AD-89026a29a/" target="_blank">LinkedIn Profile</a></p>
         </div>
-        <div class="ongoing-item">
-          <span class="dot" aria-hidden="true"></span>
-          <div>
-            <h3 style="margin:0 0 4px">Voronoi × UAV‑RIS 覆蓋規劃</h3>
-            <p class="meta">Voronoi 分割、UAV 航跡規劃、RIS 配置、DDPG/TD3</p>
-            <p style="margin:0">以 Voronoi 區域化多 UAV 任務並結合 DRL 最佳化能量與 QoS，支援 SWIPT 場景。</p>
-          </div>
+        <div id="visitor-counter" class="container" style="margin-top:10px; font-size:14px; color:var(--muted)">
+            👀 瀏覽人數：<span id="visitor-count">載入中...</span>
+            <span id="visitor-fallback" style="display:none">
+                <img alt="visits" style="vertical-align:middle" src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fkwannn666.github.io%2F&count_bg=%232B6CB0&title_bg=%23555555&title=visits&edge_flat=false" />
+            </span>
         </div>
-      </div>
-    </section>
+    </footer>
 
- <!-- Education inserted here -->
-    <section id="education">
-      <div class="section-title"><h2>學歷</h2></div>
-      <div class="grid two">
-        <div class="card">
-          <h3>國立成功大學｜電腦與通信工程研究所 碩士</h3>
-          <p class="meta">2024/09 – 2026/06（在學）</p>
-          <p>研究主題：UAV‑RIS × 深度強化學習（DDPG/TD3）、SWIPT、通訊最佳化。</p>
-        </div>
-        <div class="card">
-          <h3>國立成功大學｜系統及船舶機電工程學系 學士</h3>
-          <p class="meta">2020/09 – 2024/06</p>
-          <p>專題涵蓋：智慧無人船舶設計與製造、聲源辨識、數位影像處理與控制系統。</p>
-        </div>
-      </div>
-    </section>
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+        const root=document.documentElement, btn=document.getElementById('themeBtn');
+        const saved=localStorage.getItem('theme');
+        const prefersLight=window.matchMedia('(prefers-color-scheme: light)').matches;
+        function apply(mode){ root.classList.toggle('light', mode==='light'); }
+        apply(saved || (prefersLight ? 'light' : 'dark'));
+        btn.addEventListener('click', ()=>{ const l=!root.classList.contains('light'); apply(l?'light':'dark'); localStorage.setItem('theme', l?'light':'dark'); });
 
-    <section id="projects">
-      <div class="section-title">
-        <h2>專案列表</h2>
-      </div>
-      <div class="horizontal-projects">
-        <div class="project-item"><img src="assets/images/project1.jpg" alt="Sound Source Identification" class="project-img" /><div class="project-content"><div class="meta">AI / Signal · 03/2023 – 12/2023</div><h3>Sound Source Identification</h3><p>降噪（Wiener、LogMMSE）、互相關比對、語音模型訓練。</p></div></div>
-        <div class="project-item"><img src="assets/images/project2.jpg" alt="Image Processing & YOLO Recognition" class="project-img" /><div class="project-content"><div class="meta">Vision · 06/2021 – 02/2021</div><h3>Image Processing & YOLO Recognition</h3><p>數位影像強化、邊緣檢出、YOLO 偵測。</p></div></div>
-        <div class="project-item"><img src="assets/images/project3.jpg" alt="Unified-OneHead MTL" class="project-img" /><div class="project-content"><div class="meta">MTL · 04/2025 – 06/2025</div><h3>Unified-OneHead Multi-Task Learning</h3><p>分類/偵測/分割單頭輸出，導入 Replay Buffer 抑制遺忘。</p></div></div>
-        <div class="project-item"><img src="assets/images/project4.jpg" alt="DynamicConv" class="project-img" /><div class="project-content"><div class="meta">Vision / Efficient · 03/2025 – 06/2025</div><h3>DynamicConv for Lightweight Tasks</h3><p>MLP 生成動態卷積核心，支援多通道組合，提升彈性與效率。</p></div></div>
-        <div class="project-item"><img src="assets/images/project5.jpg" alt="TinyViT" class="project-img" /><div class="project-content"><div class="meta">Transformer · 03/2025 – 05/2025</div><h3>TinyViT: Transformer-based Lightweight Vision Model</h3><p>1.1M 參數 / 5M FLOPs，ResNet34 水準準確率，含消融實驗。</p></div></div>
-        <div class="project-item"><img src="assets/images/project6.jpg" alt="MLB Game Prediction" class="project-img" /><div class="project-content"><div class="meta">Kaggle · 10/2024 – 12/2024</div><h3>MLB Game Prediction</h3><p>資料前處理與特徵工程，隨機森林最佳化，Top 13%（19/142）。</p></div></div>
-        <div class="project-item"><img src="assets/images/project7.jpg" alt="Interactive Resume & Interview System" class="project-img" /><div class="project-content"><div class="meta">GenAI / RAG · 04/2025 – 06/2025</div><h3>Interactive Resume & Interview System with GPT-4o</h3><p>即時履歷解析與 Q&A 平台，OpenAI API + LangChain + 向量檢索。</p></div></div>
-        <div class="project-item"><img src="assets/images/project8.jpg" alt="Traffic Accident Prediction" class="project-img" /><div class="project-content"><div class="meta">AI / Vision · 04/2024 – 07/2024</div><h3>Traffic Accident Prediction using CLIP Semantic Features</h3><p>CLIP 語意特徵 + XGBoost 預測道路事故，Top 9.2%（12/130）。</p></div></div>
-        <div class="project-item"><img src="assets/images/project9.jpg" alt="Two-wheel Balance Car" class="project-img" /><div class="project-content"><div class="meta">Control · 10/2022 – 01/2023</div><h3>Two-wheel Balance Car (LQR)</h3><p>Arduino/C++ 實作倒單擺車，MATLAB LQR 模擬與群體演算法調參。</p></div></div>
-        <div class="project-item"><img src="assets/images/project10.jpg" alt="Intelligent Unmanned Vessel" class="project-img" /><div class="project-content"><div class="meta">Embedded / Robotics · 03/2023 – 01/2024</div><h3>Intelligent Unmanned Vessel Design and Manufacture</h3><p>Raspberry Pi + Arduino 智慧船，自主航行、聲源導引、影像辨識、光導導航。</p></div></div>
-      </div>
-    </section>
-  </div>
-</main>
-
-   <footer>
-    <div class="container row" style="justify-content:space-between">
-      <span>© <span id="year"></span> JEN-WEI (Wayne) KUO · kwannn666.github.io</span>
-      <span class="meta"><a href="#top">Back to top</a></span>
-    </div>
-    <div class="container contact-info">
-      <p>📧 Email: <a href="mailto:jooj30136@gmail.com">jooj30136@gmail.com</a></p>
-      <p>📱 電話: <a href="tel:+886965017814">+886 965-017-814</a></p>
-      <p>🌐 GitHub: <a href="https://github.com/Kwannn666" target="_blank">github.com/Kwannn666</a></p>
-      <p>💼 LinkedIn: <a href="https://www.linkedin.com/in/%E4%BA%BA%E7%91%8B-%E9%83%AD-89026a29a/" target="_blank">LinkedIn Profile</a></p>
-    </div>
-    <div id="visitor-counter" class="container" style="margin-top:10px; font-size:14px; color:var(--muted)">
-      👀 瀏覽人數：<span id="visitor-count">載入中...</span>
-      <span id="visitor-fallback" style="display:none">
-        <img alt="visits" style="vertical-align:middle"
-          src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fkwannn666.github.io%2F&count_bg=%232B6CB0&title_bg=%23555555&title=visits&edge_flat=false" />
-      </span>
-    </div>
-  </footer>
-
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-    const root=document.documentElement, btn=document.getElementById('themeBtn');
-    const saved=localStorage.getItem('theme');
-    const prefersLight=window.matchMedia('(prefers-color-scheme: light)').matches;
-    function apply(mode){ root.classList.toggle('light', mode==='light'); }
-    apply(saved || (prefersLight ? 'light' : 'dark'));
-    btn.addEventListener('click', ()=>{ const l=!root.classList.contains('light'); apply(l?'light':'dark'); localStorage.setItem('theme', l?'light':'dark'); });
-
-    // —— 訪客計數（countapi.xyz）——
-  (function(){
-    const ns = "kwannn666.github.io";   // 全站唯一命名空間
-    const key = "pageviews";            // 可改成每頁不同 key
-
-    const showFallback = () => {
-      const fallback = document.getElementById('visitor-fallback');
-      const count = document.getElementById('visitor-count');
-      if (fallback) fallback.style.display = 'inline-block';
-      if (count) count.style.display = 'none';
-    };
-
-    const withTimeout = (promise, ms = 3500) => {
-      return Promise.race([
-        promise,
-        new Promise((_, rej) => setTimeout(() => rej(new Error('timeout')), ms))
-      ]);
-    };
-
-    withTimeout(fetch(`https://api.countapi.xyz/hit/${ns}/${key}`))
-      .then(r => {
-        if (!r.ok) throw new Error('HTTP ' + r.status);
-        return r.json();
-      })
-      .then(d => {
-        const el = document.getElementById('visitor-count');
-        if (el && typeof d.value !== 'undefined') {
-          el.textContent = (d.value?.toLocaleString?.() || d.value);
-        } else {
-          showFallback();
-        }
-      })
-      .catch(err => {
-        console.warn('countapi 失敗，啟用後備徽章：', err);
-        showFallback();
-      });
-  })();
-  </script>
+        // 訪客計數（countapi.xyz）
+        (function(){
+            const ns = "kwannn666.github.io";
+            const key = "pageviews";
+            const showFallback = () => {
+                const fallback = document.getElementById('visitor-fallback');
+                const count = document.getElementById('visitor-count');
+                if (fallback) fallback.style.display = 'inline-block';
+                if (count) count.style.display = 'none';
+            };
+            const withTimeout = (promise, ms = 3500) => {
+                return Promise.race([
+                    promise,
+                    new Promise((_, rej) => setTimeout(() => rej(new Error('timeout')), ms))
+                ]);
+            };
+            withTimeout(fetch(`https://api.countapi.xyz/hit/${ns}/${key}`))
+                .then(r => {
+                    if (!r.ok) throw new Error('HTTP ' + r.status);
+                    return r.json();
+                })
+                .then(d => {
+                    const el = document.getElementById('visitor-count');
+                    if (el && typeof d.value !== 'undefined') {
+                        el.textContent = (d.value?.toLocaleString?.() || d.value);
+                    } else {
+                        showFallback();
+                    }
+                })
+                .catch(err => {
+                    console.warn('countapi 失敗，啟用後備徽章：', err);
+                    showFallback();
+                });
+        })();
+    </script>
 </body>
 </html>
-
-
