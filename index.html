@@ -69,27 +69,37 @@
         </div>
       </div>
     </section>
-          <!-- Right aside: current research -->
-    <aside id="research" class="sticky">
-      <div class="aside-card">
-         <h3 style="margin-top:0">目前研究中</h3>
-         <ul class="klist">
-           <li>
-              <strong>BigQuery AI / 向量搜尋 + 多模態 RAG</strong>
-              <small>在 BigQuery 上做向量索引與檢索擴展；串接 CLIP/多模態 Embeddings 與檔案上傳工作流程。</small>
-            </li>
-            <li>
-              <strong>TTS（文字轉語音）管線</strong>
-              <small>訓練/微調中文 TTS；推論加速與音色轉換；串接前端語音提示。</small>
-            </li>
-            <li>
-              <strong>Voronoi × UAV‑RIS 覆蓋規劃</strong>
-              <small>以 Voronoi 分割規劃多 UAV 航跡與 RIS 配置，並結合 DRL（DDPG/TD3）做能量與 QoS 共同最佳化。</small>
-            </li>
-          </ul>
+        <!-- 進行中專案：區塊化條列展示 -->
+    <section id="ongoing">
+      <div class="section-title"><h2>進行中專案</h2></div>
+      <div class="ongoing-list">
+        <div class="ongoing-item">
+          <span class="dot" aria-hidden="true"></span>
+          <div>
+            <h3 style="margin:0 0 4px">BigQuery AI／向量搜尋 + 多模態 RAG</h3>
+            <p class="meta">BigQuery Vector Index、CLIP / 多模態 Embeddings、檔案上傳管線</p>
+            <p style="margin:0">建置向量索引與檢索擴展，支援多檔案與語意查詢；串接前端問答與權責說明。</p>
+          </div>
         </div>
-      </aside>
-    </div>
+        <div class="ongoing-item">
+          <span class="dot" aria-hidden="true"></span>
+          <div>
+            <h3 style="margin:0 0 4px">TTS（文字轉語音）管線</h3>
+            <p class="meta">中文 TTS 微調、音色轉換、推論加速</p>
+            <p style="margin:0">建立資料清理與對齊流程，評估說話人適配；前端語音提示與 API 介接。</p>
+          </div>
+        </div>
+        <div class="ongoing-item">
+          <span class="dot" aria-hidden="true"></span>
+          <div>
+            <h3 style="margin:0 0 4px">Voronoi × UAV‑RIS 覆蓋規劃</h3>
+            <p class="meta">Voronoi 分割、UAV 航跡規劃、RIS 配置、DDPG/TD3</p>
+            <p style="margin:0">以 Voronoi 區域化多 UAV 任務並結合 DRL 最佳化能量與 QoS，支援 SWIPT 場景。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
  <!-- Education inserted here -->
     <section id="education">
       <div class="section-title"><h2>學歷</h2></div>
