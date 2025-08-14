@@ -2,11 +2,184 @@
 <html lang="zh-Hant">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>我的首頁</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>我的作品集｜GitHub Pages</title>
+  <meta name="description" content="通訊工程／韌體／AI 演算法工程師的個人作品集與筆記。" />
+  <meta name="color-scheme" content="light dark" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='80'>🛠️</text></svg>">
+  <style>
+    :root{
+      --bg: #0b0d10; --card:#12151a; --muted:#a8b3cf; --text:#e6edf3; --brand:#4f8cff; --accent:#66d9e8; --border:#1f232a;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+    }
+    :root.light{ --bg:#ffffff; --card:#ffffff; --text:#0f172a; --muted:#46506b; --brand:#2457ff; --accent:#0ea5e9; --border:#e5e7eb; --shadow: 0 8px 24px rgba(2,6,23,.08); }
+    *{box-sizing:border-box}
+    html,body{margin:0; padding:0; background:var(--bg); color:var(--text); font:16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Noto Sans TC, Arial, "PingFang TC", "Heiti TC", sans-serif}
+    a{color:var(--brand); text-decoration:none}
+    .container{max-width:1040px; margin:0 auto; padding:0 20px}
+    header{position:sticky; top:0; backdrop-filter:saturate(180%) blur(10px); background:color-mix(in srgb, var(--bg) 80%, transparent); border-bottom:1px solid var(--border); z-index:20}
+    .nav{display:flex; align-items:center; justify-content:space-between; gap:16px; height:64px}
+    .nav a.logo{font-weight:800; letter-spacing:.4px}
+    .nav .links{display:flex; gap:18px}
+    .btn{display:inline-flex; align-items:center; gap:8px; padding:10px 14px; border:1px solid var(--border); border-radius:12px; background:var(--card); color:var(--text); box-shadow:var(--shadow)}
+    .btn.ghost{background:transparent; box-shadow:none}
+    .hero{display:grid; grid-template-columns:1.15fr .85fr; gap:28px; padding:64px 0 32px}
+    .hero .card{background:var(--card); border:1px solid var(--border); border-radius:20px; padding:28px; box-shadow:var(--shadow)}
+    h1{font-size:clamp(28px, 4vw, 44px); line-height:1.1; margin:0 0 12px}
+    .subtitle{color:var(--muted); margin:0 0 18px}
+    .badges{display:flex; flex-wrap:wrap; gap:10px; margin:14px 0 22px}
+    .badge{padding:6px 10px; border:1px solid var(--border); border-radius:999px; font-size:13px; color:var(--muted)}
+    .grid{display:grid; grid-template-columns:repeat(3,1fr); gap:18px}
+    .card{background:var(--card); border:1px solid var(--border); border-radius:16px; padding:18px; box-shadow:var(--shadow)}
+    .card h3{margin:6px 0 6px; font-size:18px}
+    .card p{margin:0; color:var(--muted); font-size:14px}
+    .meta{display:flex; gap:10px; color:var(--muted); font-size:12px}
+    .tag{padding:4px 8px; border:1px solid var(--border); border-radius:999px; font-size:12px; color:var(--muted)}
+    section{padding:36px 0}
+    .section-title{display:flex; align-items:center; justify-content:space-between; margin-bottom:12px}
+    .projects .card:hover{transform:translateY(-2px); transition:transform .15s ease}
+    footer{border-top:1px solid var(--border); padding:28px 0 60px; color:var(--muted)}
+    .row{display:flex; flex-wrap:wrap; gap:12px; align-items:center}
+    .theme{cursor:pointer; border:1px solid var(--border); border-radius:12px; padding:8px 10px; background:var(--card)}
+    @media (max-width: 880px){ .hero{grid-template-columns:1fr; padding-top:28px} .grid{grid-template-columns:1fr 1fr} }
+    @media (max-width: 560px){ .grid{grid-template-columns:1fr} .nav .links{display:none} }
+    /* code block */
+    pre{background:var(--card); border:1px solid var(--border); border-radius:12px; padding:14px; overflow:auto}
+    code{font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; font-size: 13px}
+  </style>
 </head>
 <body>
-  <h1>Hello GitHub Pages!</h1>
-  <p>這是我的個人網站 🎉</p>
+  <header>
+    <div class="container nav">
+      <a class="logo" href="#top">kwannn666.github.io</a>
+      <nav class="links">
+        <a href="#about">關於我</a>
+        <a href="#projects">專案</a>
+        <a href="#notes">技術筆記</a>
+        <a href="#contact">聯絡</a>
+      </nav>
+      <button id="themeBtn" class="theme" aria-label="切換主題">🌗</button>
+    </div>
+  </header>
+
+  <main id="top" class="container">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="card">
+        <h1>韌體 × 通訊 × AI 演算法</h1>
+        <p class="subtitle">求職中：軟韌體／AI／通訊演算法工程師。具多任務學習、CLIP、UAV‑RIS、強化學習等經驗，善於將研究快速落地為產品樣機。</p>
+        <div class="badges">
+          <span class="badge">C/C++／嵌入式</span>
+          <span class="badge">PyTorch／TensorRT</span>
+          <span class="badge">無線通訊與訊號處理</span>
+          <span class="badge">Docker／Linux</span>
+        </div>
+        <div class="row">
+          <a class="btn" href="https://github.com/kwannn666" target="_blank" rel="noopener">GitHub</a>
+          <a class="btn ghost" href="#projects">查看專案</a>
+        </div>
+      </div>
+      <div class="card">
+        <h3 style="margin-top:0">最新動態</h3>
+        <ul>
+          <li>⭐ BigQuery AI Hackathon 點子孵化中（向量搜尋 + 多模態 RAG）。</li>
+          <li>📦 開源：多任務一頭模型（Seg/Det/Cls）輕量化實作。</li>
+          <li>🛸 論文延伸：多 UAV‑RIS 與 SWIPT 的強化學習路徑規劃。</li>
+        </ul>
+        <p class="meta">更新於 <span id="today"></span></p>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="projects">
+      <div class="section-title">
+        <h2>精選專案</h2>
+        <a class="btn ghost" href="https://github.com/kwannn666?tab=repositories" target="_blank" rel="noopener">更多 →</a>
+      </div>
+      <div class="grid">
+        <a class="card" href="#" target="_blank" rel="noopener">
+          <div class="tag">AI / Vision</div>
+          <h3>Accident Pre‑Warning Video Assistant</h3>
+          <p>以 OpenCLIP + 時序模型進行道路風險預警，支援多語提示與閾值自動化。</p>
+        </a>
+        <a class="card" href="#" target="_blank" rel="noopener">
+          <div class="tag">Comm / RL</div>
+          <h3>UAV‑RIS Energy Harvesting (DDPG/TD3)</h3>
+          <p>以強化學習最佳化 UAV 航跡與 RIS 配置，權衡 QoS、能耗與延遲。</p>
+        </a>
+        <a class="card" href="#" target="_blank" rel="noopener">
+          <div class="tag">Embedded</div>
+          <h3>IME Auto‑Switch + Voice Notifier</h3>
+          <p>Windows TSF 監聽輸入法狀態，依語言自動語音提示；含 Python Notifier。</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- Notes -->
+    <section id="notes">
+      <h2>技術筆記（GitHub Pages 原始碼）</h2>
+      <p>這個網站即部署於 <code>username.github.io</code>。若要在專案倉庫開啟頁面，只要新增 <code>docs/</code> 資料夾並啟用 Pages。</p>
+      <pre><code># 典型流程（第一次）
+mkdir username.github.io && cd $_
+git init
+# 建立 index.html 後
+git add . && git commit -m "init site"
+git branch -M main
+git remote add origin https://github.com/USERNAME/USERNAME.github.io.git
+git push -u origin main
+</code></pre>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+      <h2>關於我</h2>
+      <p>國立成功大學電通所碩士。研究／實作領域涵蓋 UAV‑RIS、SWIPT、強化學習、CLIP 與多任務視覺。熟悉 C/C++、Python、Docker、Linux、Git；目標職位為通訊演算法、韌體與 AI 軟體工程。</p>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <h2>聯絡</h2>
+      <p>歡迎透過下列連結與我合作或交流：</p>
+      <div class="row">
+        <a class="btn" href="mailto:your.name@example.com">Email</a>
+        <a class="btn" href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn" href="https://kaggle.com/" target="_blank" rel="noopener">Kaggle</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container row" style="justify-content:space-between">
+      <span>© <span id="year"></span> kwannn666. Built with GitHub Pages.</span>
+      <span class="meta">Made with ♥︎ · <a href="#top">Back to top</a></span>
+    </div>
+  </footer>
+
+  <script>
+    // 日期
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('today').textContent = new Date().toLocaleDateString();
+
+    // 主題切換（跟隨系統，並可手動覆寫）
+    const root = document.documentElement;
+    const btn = document.getElementById('themeBtn');
+    const saved = localStorage.getItem('theme');
+    const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+    function applyTheme(mode){ root.classList.toggle('light', mode === 'light'); }
+    applyTheme(saved || (prefersLight ? 'light' : 'dark'));
+    btn.addEventListener('click', ()=>{
+      const nowLight = !root.classList.contains('light');
+      applyTheme(nowLight ? 'light' : 'dark');
+      localStorage.setItem('theme', nowLight ? 'light' : 'dark');
+    });
+
+    // 平滑捲動
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        const id = a.getAttribute('href');
+        if(id.length > 1){ e.preventDefault(); document.querySelector(id).scrollIntoView({behavior:'smooth'}); }
+      });
+    });
+  </script>
 </body>
 </html>
