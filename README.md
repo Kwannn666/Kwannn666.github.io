@@ -55,3 +55,8 @@ https://Kwannn666.github.io
 - 專案關鍵字搜尋
 - Scroll reveal 動畫
 - GitHub Pages 無需 build，純 HTML/CSS/JS 可直接跑
+
+
+## Thesis PDF
+
+The thesis PDF is stored at `assets/papers/Voronoi-Based_Energy-Aware_User_Partitioning_and_DRL_Resource_Allocation_in_Dual-UAV_RIS-Assisted_SWIPT_Networks.pdf`. Replace this file if you update the paper version.

@@ -106,29 +106,81 @@
     </section>
 
     <section class="section shell" id="research">
-      <div class="split">
+      <div class="research-layout">
         <div class="section-head reveal">
-          <p class="eyebrow">Thesis Research</p>
-          <h2>Dual-UAV RIS-Assisted SWIPT Networks</h2>
+          <p class="eyebrow">Thesis Research · Master's Thesis</p>
+          <h2>Voronoi-Based Energy-Aware User Partitioning and DRL Resource Allocation in Dual-UAV RIS-Assisted SWIPT Networks</h2>
           <p>
-            基於 Voronoi 的能量感知使用者分區與 DRL 資源配置，針對雙 UAV-RIS 輔助 SWIPT
-            場景，結合路徑、功率、時間切割與 RIS 反射資源控制。
+            This thesis studies a <strong>dual-UAV RIS-assisted SWIPT</strong> network for 6G IoT coverage in remote or
+            disaster-affected areas. The core idea is to combine <strong>offline energy-aware user partitioning</strong>
+            with <strong>online DDPG resource allocation</strong>, so that the system can balance energy harvesting efficiency,
+            throughput, and worst-user fairness under UAV battery constraints.
           </p>
-          <ul class="check-list">
-            <li>Voronoi / weighted partitioning for multi-user service assignment</li>
-            <li>DDPG / TD3-based joint control for trajectory and resource allocation</li>
-            <li>Throughput, harvested energy, and service coverage trade-off analysis</li>
-          </ul>
-        </div>
-        <div class="diagram-card reveal">
-          <div class="uav-map">
-            <span class="node uav uav1">UAV‑1</span>
-            <span class="node uav uav2">UAV‑2</span>
-            <span class="node user p1"></span><span class="node user p2"></span><span class="node user p3"></span>
-            <span class="node user p4"></span><span class="node user p5"></span><span class="node user p6"></span>
-            <span class="ris">RIS</span>
+          <div class="research-actions">
+            <a class="btn primary" href="assets/papers/Voronoi-Based_Energy-Aware_User_Partitioning_and_DRL_Resource_Allocation_in_Dual-UAV_RIS-Assisted_SWIPT_Networks.pdf" target="_blank" rel="noreferrer">Read Thesis PDF</a>
+            <a class="btn secondary" href="#projects">View Related Projects</a>
           </div>
-          <p class="caption">Energy-aware user partitioning + DRL resource control</p>
+        </div>
+
+        <div class="diagram-card reveal thesis-panel">
+          <p class="eyebrow">Two-Stage Framework</p>
+          <div class="thesis-flow" aria-label="Thesis framework flow">
+            <div class="flow-node">User Mobility<br><small>UT distribution</small></div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-node accent">P1 Offline<br><small>Weighted Voronoi</small></div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-node accent2">P2 Online<br><small>DDPG Control</small></div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-node">EH · Throughput<br><small>Fairness</small></div>
+          </div>
+          <p class="caption">AP → dual UAV-mounted RIS → mobile users, with RAHTS-based time/space-domain SWIPT control.</p>
+        </div>
+      </div>
+
+      <div class="research-grid">
+        <article class="card reveal">
+          <span class="card-icon">📍</span>
+          <h3>P1 · Battery-Aware Weighted Voronoi</h3>
+          <p>
+            Designs UAV service regions using both <strong>user density</strong> and <strong>normalized residual battery</strong>.
+            A UAV with lower remaining energy automatically receives a smaller service region, reducing the risk
+            of premature battery depletion and improving load balance.
+          </p>
+        </article>
+        <article class="card reveal">
+          <span class="card-icon">🤖</span>
+          <h3>P2 · DDPG-Based SWIPT Resource Control</h3>
+          <p>
+            Given the fixed P1 partitions, the DDPG agent jointly optimizes the <strong>time-switching factor τ</strong>,
+            <strong>per-user transmit power p</strong>, <strong>RIS phase shifts θ</strong>, and <strong>RIS element switching states w</strong>
+            over finite time slots.
+          </p>
+        </article>
+        <article class="card reveal">
+          <span class="card-icon">⚖️</span>
+          <h3>Objective · Energy + Throughput + Fairness</h3>
+          <p>
+            The primary target is energy harvesting efficiency, while average sum-throughput and worst-user throughput
+            are used as key secondary metrics to verify communication quality and service fairness.
+          </p>
+        </article>
+      </div>
+
+      <div class="research-metrics reveal" aria-label="Thesis simulation results">
+        <div class="metric-card">
+          <span>EH Efficiency</span>
+          <strong>50.31% → 54.06%</strong>
+          <small>+7.5% with dual-UAV DDPG</small>
+        </div>
+        <div class="metric-card">
+          <span>System Throughput</span>
+          <strong>598.18 → 803.01 Mbps</strong>
+          <small>+34.2% average sum-throughput</small>
+        </div>
+        <div class="metric-card">
+          <span>Worst-User Throughput</span>
+          <strong>44.44 → 86.38 Mbps</strong>
+          <small>Nearly doubled fairness metric</small>
         </div>
       </div>
     </section>
