@@ -7,11 +7,40 @@
   <meta name="description" content="郭人瑋 Jen-Wei Kuo｜NCKU CCE M.S.｜Wireless Communication, AI/DRL, Edge AI, Embedded Systems Portfolio." />
   <meta name="author" content="Jen-Wei Kuo" />
   <meta name="theme-color" content="#07111f" />
+  <link rel="canonical" href="https://kwannn666.github.io/" />
+  <!-- Open Graph -->
   <meta property="og:title" content="Jen-Wei Kuo｜Portfolio" />
   <meta property="og:description" content="Wireless Communication × AI/DRL × System Integration." />
   <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://kwannn666.github.io/" />
+  <!-- TODO: 放一張 1200×630 的分享預覽圖到 assets/img/og-cover.png（社群/LinkedIn 分享時才有縮圖） -->
+  <meta property="og:image" content="https://kwannn666.github.io/assets/img/og-cover.png" />
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Jen-Wei Kuo｜Portfolio" />
+  <meta name="twitter:description" content="Wireless Communication × AI/DRL × System Integration." />
+  <meta name="twitter:image" content="https://kwannn666.github.io/assets/img/og-cover.png" />
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="styles.css" />
+  <!-- Structured data: helps Google show a richer result for your name -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Jen-Wei Kuo",
+    "alternateName": "郭人瑋",
+    "url": "https://kwannn666.github.io/",
+    "email": "mailto:jooj30136@gmail.com",
+    "jobTitle": "M.S. Student, Computer and Communication Engineering",
+    "affiliation": { "@type": "CollegeOrUniversity", "name": "National Cheng Kung University" },
+    "alumniOf": { "@type": "CollegeOrUniversity", "name": "National Cheng Kung University" },
+    "knowsAbout": ["Wireless Communication", "Reconfigurable Intelligent Surface", "UAV Communications", "Deep Reinforcement Learning", "Computer Vision", "Edge AI"],
+    "sameAs": [
+      "https://github.com/Kwannn666",
+      "https://www.linkedin.com/in/%E4%BA%BA%E7%91%8B-%E9%83%AD-89026a29a/"
+    ]
+  }
+  </script>
 </head>
 <body>
   <div class="bg-orb orb-a"></div>
@@ -30,7 +59,9 @@
       <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">☰</button>
       <div class="nav-links">
         <a href="#about">About</a>
+        <a href="#education">Education</a>
         <a href="#research">Research</a>
+        <a href="#publications">Publications</a>
         <a href="#projects">Projects</a>
         <a href="#awards">Awards</a>
         <a href="#skills">Skills</a>
@@ -54,17 +85,19 @@
         <div class="hero-actions">
           <a class="btn primary" href="#projects">View Projects</a>
           <a class="btn secondary" href="mailto:jooj30136@gmail.com">Contact Me</a>
-          <a class="btn ghost" href="assets/JenWei_Kuo_Resume.pdf" aria-disabled="true" title="請把履歷 PDF 放到 assets/JenWei_Kuo_Resume.pdf">Resume Slot</a>
+          <!-- TODO: 把履歷 PDF 放到 assets/JenWei_Kuo_Resume.pdf，按鈕才不會 404 -->
+          <a class="btn ghost" href="assets/JenWei_Kuo_Resume.pdf" target="_blank" rel="noreferrer">Download CV</a>
         </div>
         <dl class="stats" aria-label="Highlights">
           <div><dt>15 / 2240</dt><dd>Kaggle NeurIPS Silver</dd></div>
-          <div><dt>Top 9.2%</dt><dd>IEEE AVSS TAISC</dd></div>
-          <div><dt>3 Tracks</dt><dd>Communication · AI · Systems</dd></div>
+          <div><dt>2nd Place</dt><dd>CVPR 2026 CV4CHL</dd></div>
+          <div><dt>8</dt><dd>Competition Awards</dd></div>
         </dl>
       </div>
 
       <aside class="hero-card reveal" aria-label="Profile summary">
         <div class="profile-visual">
+          <!-- TODO: 換成正式照片，放 assets/img/ 並改這裡的 src -->
           <img src="assets/img/profile-placeholder.svg" alt="Jen-Wei Kuo abstract profile illustration" />
         </div>
         <div class="profile-body">
@@ -105,6 +138,25 @@
       </div>
     </section>
 
+    <section class="section shell" id="education">
+      <div class="section-head reveal">
+        <p class="eyebrow">Education</p>
+        <h2>學歷</h2>
+      </div>
+      <div class="timeline">
+        <article class="timeline-item reveal">
+          <span class="time">2024 – 2026</span>
+          <h3>M.S. in Computer and Communication Engineering｜National Cheng Kung University</h3>
+          <p>指導教授：張志文 教授（Prof. Wenson Chang）· Intelligent Communication Lab。碩士論文：Voronoi-Based Energy-Aware User Partitioning and DRL Resource Allocation in Dual-UAV RIS-Assisted SWIPT Networks。</p>
+        </article>
+        <article class="timeline-item reveal">
+          <span class="time">2020 – 2024</span>
+          <h3>B.S. in Systems and Naval Mechatronic Engineering｜National Cheng Kung University</h3>
+          <p>畢業專題指導教授：李建興 教授（Prof. Chien-Hsing Lee）· Lab617。專題：Intelligent Unmanned Vessel（智慧無人船舶）。</p>
+        </article>
+      </div>
+    </section>
+
     <section class="section shell" id="research">
       <div class="research-layout">
         <div class="section-head reveal">
@@ -113,7 +165,7 @@
           <p>
             This thesis studies a <strong>dual-UAV RIS-assisted SWIPT</strong> network for 6G IoT coverage in remote or
             disaster-affected areas. The core idea is to combine <strong>offline energy-aware user partitioning</strong>
-            with <strong>online DDPG resource allocation</strong>, so that the system can balance energy harvesting efficiency,
+            with <strong>online DRL resource allocation</strong>, so that the system can balance energy harvesting efficiency,
             throughput, and worst-user fairness under UAV battery constraints.
           </p>
           <div class="research-actions">
@@ -129,7 +181,8 @@
             <div class="flow-arrow">→</div>
             <div class="flow-node accent">P1 Offline<br><small>Weighted Voronoi</small></div>
             <div class="flow-arrow">→</div>
-            <div class="flow-node accent2">P2 Online<br><small>DDPG Control</small></div>
+            <!-- TODO: 確認演算法。若論文用 SAC，請把這裡與下方卡片的 DDPG 一併改成 SAC -->
+            <div class="flow-node accent2">P2 Online<br><small>DRL Control</small></div>
             <div class="flow-arrow">→</div>
             <div class="flow-node">EH · Throughput<br><small>Fairness</small></div>
           </div>
@@ -149,9 +202,10 @@
         </article>
         <article class="card reveal">
           <span class="card-icon">🤖</span>
-          <h3>P2 · DDPG-Based SWIPT Resource Control</h3>
+          <!-- TODO: 確認演算法 (DDPG / SAC)，標題與內文需一致 -->
+          <h3>P2 · DRL-Based SWIPT Resource Control</h3>
           <p>
-            Given the fixed P1 partitions, the DDPG agent jointly optimizes the <strong>time-switching factor τ</strong>,
+            Given the fixed P1 partitions, the DRL agent jointly optimizes the <strong>time-switching factor τ</strong>,
             <strong>per-user transmit power p</strong>, <strong>RIS phase shifts θ</strong>, and <strong>RIS element switching states w</strong>
             over finite time slots.
           </p>
@@ -166,11 +220,12 @@
         </article>
       </div>
 
+      <!-- TODO: 確認這三組數據是論文最終定稿版本（與口試/PDF 一致） -->
       <div class="research-metrics reveal" aria-label="Thesis simulation results">
         <div class="metric-card">
           <span>EH Efficiency</span>
           <strong>50.31% → 54.06%</strong>
-          <small>+7.5% with dual-UAV DDPG</small>
+          <small>+7.5% with dual-UAV DRL</small>
         </div>
         <div class="metric-card">
           <span>System Throughput</span>
@@ -183,6 +238,22 @@
           <small>Nearly doubled fairness metric</small>
         </div>
       </div>
+    </section>
+
+    <section class="section shell" id="publications">
+      <div class="section-head reveal">
+        <p class="eyebrow">Publications</p>
+        <h2>發表論文</h2>
+      </div>
+      <article class="card reveal">
+        <div class="project-top">
+          <span class="project-kicker">CVPR 2026 · CV4CHL Workshop</span>
+          <span class="pill gold">Gold Award / 2nd Place</span>
+        </div>
+        <h3>Clinically-Grounded Multi-View Features and Cross-Track Rule Coupling for Children Gait Visual Analysis</h3>
+        <p><strong>Jen-Wei Kuo</strong>, Yi-Ting Ku · Accepted (non-proceeding submission), CVPR 2026 Workshop on Computer Vision for Children (CV4CHL).</p>
+        <p>The First AI for Children Challenge（Team CCE）第二名。Multi-view clinical features + PCA-compressed MotionBERT embeddings + three-model ensemble，並以 cross-track EVGS→Rodda rule coupling 作為核心貢獻。</p>
+      </article>
     </section>
 
     <section class="section shell" id="projects">
@@ -204,6 +275,14 @@
         </label>
       </div>
 
+      <!--
+        TODO（強烈建議）：每張專案卡片加上 repo / demo 連結，可信度差很多。
+        在每個 .project-card 的 </article> 前貼上，並換成真實網址：
+        <div class="project-links">
+          <a href="https://github.com/Kwannn666/REPO" target="_blank" rel="noreferrer">GitHub ↗</a>
+          <a href="DEMO_URL" target="_blank" rel="noreferrer">Demo ↗</a>
+        </div>
+      -->
       <div class="project-grid" id="projectGrid">
         <article class="project-card reveal featured" data-tags="ai competition chemistry kaggle">
           <div class="project-top">
@@ -215,7 +294,7 @@
           <ul>
             <li>Cleaned polymer SMILES and removed 13+ R-group bad patterns.</li>
             <li>Built XGBoost branch with 1,600+ Mordred descriptors and GAT-based GNN branch.</li>
-            <li>Achieved 15th / 2,240 teams, Top 0.67%.</li>
+            <li>Achieved 15th / 2,240 teams, Top 0.66%.</li>
           </ul>
           <div class="tag-row"><span>XGBoost</span><span>GNN</span><span>RDKit</span><span>Mordred</span></div>
         </article>
@@ -364,19 +443,44 @@
       </div>
       <div class="timeline">
         <article class="timeline-item reveal">
-          <span class="time">2025</span>
-          <h3>NeurIPS Open Polymer Prediction｜Kaggle Silver Medal</h3>
-          <p>15 / 2,240 teams, Top 0.67%. Built a hybrid GNN + XGBoost ensemble with label-specific modeling.</p>
+          <span class="time">2026</span>
+          <h3>CVPR 2026 CV4CHL — The First AI for Children Challenge｜Gold Award / 2nd Place</h3>
+          <p>Team CCE。以 multi-view clinical features、MotionBERT embeddings 與 cross-track rule coupling 進行兒童步態視覺分析。</p>
         </article>
         <article class="timeline-item reveal">
           <span class="time">2025</span>
-          <h3>IEEE AVSS TAISC Traffic Accident Prediction</h3>
-          <p>12 / 130, Top 9.2%. Used CLIP semantic features and XGBoost for visual risk prediction.</p>
+          <h3>Kaggle NeurIPS 2025 Open Polymer Prediction｜Silver Medal</h3>
+          <p>15 / 2,240 teams（Top 0.66%）。GNN + XGBoost hybrid ensemble 搭配 label-specific modeling。</p>
+        </article>
+        <article class="timeline-item reveal">
+          <span class="time">2025</span>
+          <h3>IEEE AVSS TAISC — Taiwan Future Accident Classification Challenge</h3>
+          <p>12 / 130（Top 9.2%）。以 CLIP semantic features + XGBoost 進行影像事故風險預測。</p>
+        </article>
+        <article class="timeline-item reveal">
+          <span class="time">2025</span>
+          <h3>AI CUP 2025 Spring — Table Tennis Smart Racket Analysis</h3>
+          <p>47 / 633（Top 7.4%）。感測訊號特徵工程與多類別分類。</p>
+        </article>
+        <article class="timeline-item reveal">
+          <span class="time">2025</span>
+          <h3>Kaggle Playground S5E8 — Bank Dataset Binary Classification</h3>
+          <p>227 / 3,377（Top 6.7%）。</p>
+        </article>
+        <article class="timeline-item reveal">
+          <span class="time">2025</span>
+          <h3>Kaggle Playground S6E3 — Predict Customer Churn</h3>
+          <p>286 / 4,142（Top 6.9%）。</p>
+        </article>
+        <article class="timeline-item reveal">
+          <span class="time">2025</span>
+          <h3>永豐 AI GO 股神對決 — Financial Forecasting</h3>
+          <p>121 / 868（Top 13.9%）。</p>
         </article>
         <article class="timeline-item reveal">
           <span class="time">2024</span>
           <h3>Kaggle Community Competition｜MLB Game Prediction</h3>
-          <p>Top 13% with data preprocessing, feature engineering, Random Forest baseline, and parameter optimization.</p>
+          <p>19 / 142（Top 13%）。資料前處理、特徵工程、Random Forest baseline 與參數優化。</p>
         </article>
       </div>
     </section>
@@ -389,19 +493,27 @@
       <div class="skill-board reveal">
         <div>
           <h3>Programming</h3>
-          <p>Python, C, C++, MATLAB, Bash, Git</p>
+          <p>Python, C, C++, MATLAB, FORTRAN, Bash, Git</p>
         </div>
         <div>
           <h3>AI / ML</h3>
-          <p>PyTorch, PyTorch Geometric, scikit-learn, XGBoost, LightGBM, CatBoost, OpenCV, CLIP</p>
+          <p>PyTorch, TensorFlow, PyTorch Geometric, scikit-learn, XGBoost, LightGBM, CatBoost, OpenCV, YOLOv8, CLIP</p>
         </div>
         <div>
           <h3>GenAI / Data</h3>
-          <p>OpenAI API, LangChain, FAISS, RAG, Pandas, NumPy, RDKit, Mordred</p>
+          <p>OpenAI API, LangChain, FAISS, RAG, Streamlit, Pandas, NumPy, RDKit, Mordred</p>
+        </div>
+        <div>
+          <h3>Wireless / DSP</h3>
+          <p>RIS, UAV Communications, SWIPT, Physical-layer Comm., Adaptive & Digital Signal Processing, Stochastic Processes</p>
         </div>
         <div>
           <h3>Systems / Edge</h3>
-          <p>Docker, Linux, FastAPI, Gradio, ONNX Runtime, Jetson Xavier NX, Raspberry Pi, Arduino, STM32 basics</p>
+          <p>Docker, Linux, FastAPI, Gradio, ONNX Runtime, Jetson Xavier NX, Raspberry Pi, Arduino, STM32</p>
+        </div>
+        <div>
+          <h3>Languages</h3>
+          <p>Mandarin (native), English — TOEIC 720</p>
         </div>
       </div>
     </section>
@@ -414,7 +526,9 @@
         <div class="contact-actions">
           <a class="btn primary" href="mailto:jooj30136@gmail.com">jooj30136@gmail.com</a>
           <a class="btn secondary" href="https://github.com/Kwannn666" target="_blank" rel="noreferrer">GitHub</a>
-          <a class="btn secondary" href="https://www.kaggle.com/" target="_blank" rel="noreferrer">Kaggle Profile Slot</a>
+          <a class="btn secondary" href="https://www.linkedin.com/in/%E4%BA%BA%E7%91%8B-%E9%83%AD-89026a29a/" target="_blank" rel="noreferrer">LinkedIn</a>
+          <!-- TODO: 換成你的真實 Kaggle profile 網址，例如 https://www.kaggle.com/yourhandle -->
+          <a class="btn secondary" href="https://www.kaggle.com/" target="_blank" rel="noreferrer">Kaggle</a>
         </div>
       </div>
     </section>
