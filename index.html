@@ -3,532 +3,394 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Jen-Wei Kuo｜郭人瑋 Portfolio</title>
-  <meta name="description" content="郭人瑋 Jen-Wei Kuo｜NCKU CCE M.S.｜Wireless Communication, AI/DRL, Edge AI, Embedded Systems Portfolio." />
+  <title>Jen-Wei Kuo | Edge AI, Wireless DRL, Computer Vision</title>
+  <meta name="description" content="Jen-Wei Kuo portfolio: NCKU CCE M.S., wireless DRL, dual-UAV RIS SWIPT, edge AI on Jetson, generative AI, computer vision, and embedded systems." />
   <meta name="author" content="Jen-Wei Kuo" />
-  <meta name="theme-color" content="#07111f" />
+  <meta name="theme-color" content="#101312" />
   <link rel="canonical" href="https://kwannn666.github.io/" />
-  <!-- Open Graph -->
-  <meta property="og:title" content="Jen-Wei Kuo｜Portfolio" />
-  <meta property="og:description" content="Wireless Communication × AI/DRL × System Integration." />
+  <meta property="og:title" content="Jen-Wei Kuo | Edge AI + Wireless DRL Portfolio" />
+  <meta property="og:description" content="Deployable AI systems across wireless communication, edge AI, computer vision, and embedded hardware." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://kwannn666.github.io/" />
-  <!-- TODO: 放一張 1200×630 的分享預覽圖到 assets/img/og-cover.png（社群/LinkedIn 分享時才有縮圖） -->
-  <meta property="og:image" content="https://kwannn666.github.io/assets/img/og-cover.png" />
-  <!-- Twitter -->
+  <meta property="og:image" content="https://kwannn666.github.io/assets/images/profile.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Jen-Wei Kuo｜Portfolio" />
-  <meta name="twitter:description" content="Wireless Communication × AI/DRL × System Integration." />
-  <meta name="twitter:image" content="https://kwannn666.github.io/assets/img/og-cover.png" />
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="styles.css" />
-  <!-- Structured data: helps Google show a richer result for your name -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Jen-Wei Kuo",
-    "alternateName": "郭人瑋",
+    "alternateName": "Wayne Kuo",
     "url": "https://kwannn666.github.io/",
     "email": "mailto:jooj30136@gmail.com",
-    "jobTitle": "M.S. Student, Computer and Communication Engineering",
+    "jobTitle": "M.S. in Computer and Communication Engineering",
     "affiliation": { "@type": "CollegeOrUniversity", "name": "National Cheng Kung University" },
-    "alumniOf": { "@type": "CollegeOrUniversity", "name": "National Cheng Kung University" },
-    "knowsAbout": ["Wireless Communication", "Reconfigurable Intelligent Surface", "UAV Communications", "Deep Reinforcement Learning", "Computer Vision", "Edge AI"],
-    "sameAs": [
-      "https://github.com/Kwannn666",
-      "https://www.linkedin.com/in/%E4%BA%BA%E7%91%8B-%E9%83%AD-89026a29a/"
-    ]
+    "knowsAbout": ["Edge AI", "Wireless Communication", "Deep Reinforcement Learning", "Computer Vision", "ControlNet", "Embedded Systems"],
+    "sameAs": ["https://github.com/Kwannn666", "https://www.linkedin.com/in/%E4%BA%BA%E7%91%8B-%E9%83%AD-89026a29a/"]
   }
   </script>
 </head>
 <body>
-  <div class="bg-orb orb-a"></div>
-  <div class="bg-orb orb-b"></div>
-
+  <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header" id="top">
-    <a class="skip-link" href="#main">跳到主要內容</a>
-    <nav class="nav shell" aria-label="Main Navigation">
-      <a class="brand" href="#top" aria-label="Jen-Wei Kuo Home">
+    <nav class="nav shell" aria-label="Main navigation">
+      <a class="brand" href="#top" aria-label="Jen-Wei Kuo home">
         <span class="brand-mark">JW</span>
         <span>
           <strong>Jen-Wei Kuo</strong>
-          <small>Wireless · AI/DRL · Systems</small>
+          <small>Edge AI · Wireless DRL · CV</small>
         </span>
       </a>
-      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">☰</button>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
       <div class="nav-links">
         <a href="#about">About</a>
-        <a href="#education">Education</a>
-        <a href="#research">Research</a>
-        <a href="#publications">Publications</a>
+        <a href="#aidsp">AIDSP</a>
         <a href="#projects">Projects</a>
+        <a href="#research">Research</a>
         <a href="#awards">Awards</a>
         <a href="#skills">Skills</a>
         <a href="#contact">Contact</a>
-        <button class="icon-btn" id="themeToggle" aria-label="Toggle dark mode">🌗</button>
+        <button class="icon-btn" id="themeToggle" aria-label="Toggle theme">
+          <span class="sun"></span>
+        </button>
       </div>
     </nav>
   </header>
 
   <main id="main">
-    <section class="hero shell">
-      <div class="hero-copy reveal">
-        <p class="eyebrow">郭人瑋 · National Cheng Kung University</p>
-        <h1>把通訊系統、AI 模型與真實硬體整合成能落地的工程方案。</h1>
-        <p class="hero-text">
-          I am a M.S. student at NCKU Computer and Communication Engineering, focusing on
-          <strong>Dual-UAV RIS-assisted SWIPT</strong>, <strong>deep reinforcement learning</strong>,
-          and <strong>edge AI system integration</strong>. My portfolio spans wireless communication,
-          embedded robotics, Kaggle competitions, GenAI/RAG platforms, and lightweight vision models.
-        </p>
-        <div class="hero-actions">
-          <a class="btn primary" href="#projects">View Projects</a>
-          <a class="btn secondary" href="mailto:jooj30136@gmail.com">Contact Me</a>
-          <!-- TODO: 把履歷 PDF 放到 assets/JenWei_Kuo_Resume.pdf，按鈕才不會 404 -->
-          <a class="btn ghost" href="assets/JenWei_Kuo_Resume.pdf" target="_blank" rel="noreferrer">Download CV</a>
-        </div>
-        <dl class="stats" aria-label="Highlights">
-          <div><dt>15 / 2240</dt><dd>Kaggle NeurIPS Silver</dd></div>
-          <div><dt>2nd Place</dt><dd>CVPR 2026 CV4CHL</dd></div>
-          <div><dt>8</dt><dd>Competition Awards</dd></div>
-        </dl>
-      </div>
-
-      <aside class="hero-card reveal" aria-label="Profile summary">
-        <div class="profile-visual">
-          <!-- TODO: 換成正式照片，放 assets/img/ 並改這裡的 src -->
-          <img src="assets/img/profile-placeholder.svg" alt="Jen-Wei Kuo abstract profile illustration" />
-        </div>
-        <div class="profile-body">
-          <h2>Jen-Wei (Wayne) Kuo</h2>
-          <p>國立成功大學 電腦與通信工程研究所｜M.S.</p>
-          <div class="chip-row">
-            <span>Python</span><span>C/C++</span><span>PyTorch</span><span>Docker</span><span>MCU</span>
+    <section class="hero">
+      <canvas class="hero-canvas" id="systemsCanvas" aria-hidden="true"></canvas>
+      <div class="hero-grid shell">
+        <div class="hero-copy reveal">
+          <p class="eyebrow">NCKU CCE · deployable AI systems</p>
+          <h1>Building AI systems that move from models to hardware.</h1>
+          <p class="hero-text">
+            I connect <strong>wireless DRL research</strong>, <strong>edge AI deployment</strong>,
+            <strong>computer vision</strong>, and <strong>embedded integration</strong>. My recent work spans
+            dual-UAV RIS-assisted SWIPT optimization, Jetson Xavier NX demos, ControlNet generation,
+            gait authentication, and award-winning ML competitions.
+          </p>
+          <div class="hero-actions">
+            <a class="btn primary" href="#aidsp"><span class="btn-icon">A</span>AIDSP Showcase</a>
+            <a class="btn secondary" href="#projects"><span class="btn-icon">P</span>Projects</a>
+            <a class="btn tertiary" href="assets/JenWei_Kuo_Resume.pdf" target="_blank" rel="noreferrer"><span class="btn-icon">CV</span>Download CV</a>
+          </div>
+          <div class="metric-strip" aria-label="Highlights">
+            <div><strong>15/2,240</strong><span>Kaggle NeurIPS Silver</span></div>
+            <div><strong>2nd</strong><span>CVPR 2026 CV4CHL</span></div>
+            <div><strong>15 FPS</strong><span>Jetson NST streaming</span></div>
+            <div><strong>2 pages</strong><span>latest CV version</span></div>
           </div>
         </div>
-      </aside>
+
+        <aside class="profile-panel reveal" aria-label="Profile snapshot">
+          <div class="profile-frame">
+            <img src="assets/images/profile.jpg" alt="Jen-Wei Kuo portrait" />
+          </div>
+          <div class="profile-summary">
+            <p class="eyebrow">Wayne Kuo</p>
+            <h2>Jen-Wei Kuo<br><span>郭人瑋</span></h2>
+            <p>M.S. in Computer and Communication Engineering, National Cheng Kung University.</p>
+            <div class="signal-row" aria-label="Core domains">
+              <span>DRL</span><span>Jetson</span><span>ControlNet</span><span>YOLOv8</span>
+            </div>
+          </div>
+        </aside>
+      </div>
     </section>
 
     <section class="section shell" id="about">
       <div class="section-head reveal">
-        <p class="eyebrow">About</p>
-        <h2>個人定位</h2>
+        <p class="eyebrow">Positioning</p>
+        <h2>Communication research with engineering proof.</h2>
         <p>
-          我的能力主軸是「通訊 / DSP 理論 × AI / DRL 建模 × 韌體與系統整合」。
-          做專案時習慣先拆清楚問題，再做出可驗證版本，最後用實驗與工程約束逐步優化。
+          My work sits at the intersection of physical-layer communication, AI optimization,
+          and end-to-end system delivery. I prefer projects where algorithms have to survive
+          real deployment constraints: latency, memory, sensors, cameras, Docker, and hardware I/O.
         </p>
       </div>
-      <div class="grid three">
-        <article class="card reveal">
-          <span class="card-icon">📡</span>
-          <h3>Wireless Communication</h3>
-          <p>Dual-UAV RIS-assisted SWIPT、energy-aware Voronoi partitioning、resource allocation、QoS/energy optimization。</p>
+      <div class="domain-grid">
+        <article class="domain-card reveal">
+          <span class="domain-code">01</span>
+          <h3>Wireless DRL</h3>
+          <p>Dual-UAV RIS-assisted SWIPT, Voronoi user partitioning, DRL resource allocation, throughput and energy-harvesting tradeoffs.</p>
         </article>
-        <article class="card reveal">
-          <span class="card-icon">🧠</span>
-          <h3>AI / DRL Modeling</h3>
-          <p>DDPG/TD3、CLIP semantic features、GNN/XGBoost ensemble、segmentation / detection / classification multi-task learning。</p>
+        <article class="domain-card reveal">
+          <span class="domain-code">02</span>
+          <h3>Edge AI</h3>
+          <p>Jetson Xavier NX, ONNX Runtime, TensorRT FP16, FastAPI, Gradio, Docker, camera/audio device integration.</p>
         </article>
-        <article class="card reveal">
-          <span class="card-icon">⚙️</span>
-          <h3>System Integration</h3>
-          <p>Raspberry Pi、Arduino、Jetson Xavier NX、ONNX Runtime、FastAPI、Gradio、Docker-based deployment。</p>
+        <article class="domain-card reveal">
+          <span class="domain-code">03</span>
+          <h3>Vision + GenAI</h3>
+          <p>YOLOv8, CLIP, Stable Diffusion/ControlNet, MotionBERT features, segmentation, classification, and VLM feature engineering.</p>
         </article>
-      </div>
-    </section>
-
-    <section class="section shell" id="education">
-      <div class="section-head reveal">
-        <p class="eyebrow">Education</p>
-        <h2>學歷</h2>
-      </div>
-      <div class="timeline">
-        <article class="timeline-item reveal">
-          <span class="time">2024 – 2026</span>
-          <h3>M.S. in Computer and Communication Engineering｜National Cheng Kung University</h3>
-          <p>指導教授：張志文 教授（Prof. Wenson Chang）· Intelligent Communication Lab。碩士論文：Voronoi-Based Energy-Aware User Partitioning and DRL Resource Allocation in Dual-UAV RIS-Assisted SWIPT Networks。</p>
-        </article>
-        <article class="timeline-item reveal">
-          <span class="time">2020 – 2024</span>
-          <h3>B.S. in Systems and Naval Mechatronic Engineering｜National Cheng Kung University</h3>
-          <p>畢業專題指導教授：李建興 教授（Prof. Chien-Hsing Lee）· Lab617。專題：Intelligent Unmanned Vessel（智慧無人船舶）。</p>
+        <article class="domain-card reveal">
+          <span class="domain-code">04</span>
+          <h3>Embedded Systems</h3>
+          <p>Raspberry Pi, Arduino, STM32, acoustic navigation, PID/bang-bang control, image sensors, and robotic integration.</p>
         </article>
       </div>
     </section>
 
-    <section class="section shell" id="research">
-      <div class="research-layout">
+    <section class="section system-section" id="system-map">
+      <div class="shell system-layout">
         <div class="section-head reveal">
-          <p class="eyebrow">Thesis Research · Master's Thesis</p>
-          <h2>Voronoi-Based Energy-Aware User Partitioning and DRL Resource Allocation in Dual-UAV RIS-Assisted SWIPT Networks</h2>
+          <p class="eyebrow">System Map</p>
+          <h2>From signal to decision to deployment.</h2>
           <p>
-            This thesis studies a <strong>dual-UAV RIS-assisted SWIPT</strong> network for 6G IoT coverage in remote or
-            disaster-affected areas. The core idea is to combine <strong>offline energy-aware user partitioning</strong>
-            with <strong>online DRL resource allocation</strong>, so that the system can balance energy harvesting efficiency,
-            throughput, and worst-user fairness under UAV battery constraints.
+            The site now treats your portfolio like a system: research produces optimization logic,
+            edge projects prove deployability, and competitions validate model-building instincts.
           </p>
-          <div class="research-actions">
-            <a class="btn primary" href="assets/papers/Voronoi-Based_Energy-Aware_User_Partitioning_and_DRL_Resource_Allocation_in_Dual-UAV_RIS-Assisted_SWIPT_Networks.pdf" target="_blank" rel="noreferrer">Read Thesis PDF</a>
-            <a class="btn secondary" href="#projects">View Related Projects</a>
-          </div>
         </div>
-
-        <div class="diagram-card reveal thesis-panel">
-          <p class="eyebrow">Two-Stage Framework</p>
-          <div class="thesis-flow" aria-label="Thesis framework flow">
-            <div class="flow-node">User Mobility<br><small>UT distribution</small></div>
-            <div class="flow-arrow">→</div>
-            <div class="flow-node accent">P1 Offline<br><small>Weighted Voronoi</small></div>
-            <div class="flow-arrow">→</div>
-            <!-- TODO: 確認演算法。若論文用 SAC，請把這裡與下方卡片的 DDPG 一併改成 SAC -->
-            <div class="flow-node accent2">P2 Online<br><small>DRL Control</small></div>
-            <div class="flow-arrow">→</div>
-            <div class="flow-node">EH · Throughput<br><small>Fairness</small></div>
-          </div>
-          <p class="caption">AP → dual UAV-mounted RIS → mobile users, with RAHTS-based time/space-domain SWIPT control.</p>
-        </div>
-      </div>
-
-      <div class="research-grid">
-        <article class="card reveal">
-          <span class="card-icon">📍</span>
-          <h3>P1 · Battery-Aware Weighted Voronoi</h3>
-          <p>
-            Designs UAV service regions using both <strong>user density</strong> and <strong>normalized residual battery</strong>.
-            A UAV with lower remaining energy automatically receives a smaller service region, reducing the risk
-            of premature battery depletion and improving load balance.
-          </p>
-        </article>
-        <article class="card reveal">
-          <span class="card-icon">🤖</span>
-          <!-- TODO: 確認演算法 (DDPG / SAC)，標題與內文需一致 -->
-          <h3>P2 · DRL-Based SWIPT Resource Control</h3>
-          <p>
-            Given the fixed P1 partitions, the DRL agent jointly optimizes the <strong>time-switching factor τ</strong>,
-            <strong>per-user transmit power p</strong>, <strong>RIS phase shifts θ</strong>, and <strong>RIS element switching states w</strong>
-            over finite time slots.
-          </p>
-        </article>
-        <article class="card reveal">
-          <span class="card-icon">⚖️</span>
-          <h3>Objective · Energy + Throughput + Fairness</h3>
-          <p>
-            The primary target is energy harvesting efficiency, while average sum-throughput and worst-user throughput
-            are used as key secondary metrics to verify communication quality and service fairness.
-          </p>
-        </article>
-      </div>
-
-      <!-- TODO: 確認這三組數據是論文最終定稿版本（與口試/PDF 一致） -->
-      <div class="research-metrics reveal" aria-label="Thesis simulation results">
-        <div class="metric-card">
-          <span>EH Efficiency</span>
-          <strong>50.31% → 54.06%</strong>
-          <small>+7.5% with dual-UAV DRL</small>
-        </div>
-        <div class="metric-card">
-          <span>System Throughput</span>
-          <strong>598.18 → 803.01 Mbps</strong>
-          <small>+34.2% average sum-throughput</small>
-        </div>
-        <div class="metric-card">
-          <span>Worst-User Throughput</span>
-          <strong>44.44 → 86.38 Mbps</strong>
-          <small>Nearly doubled fairness metric</small>
+        <div class="system-visual reveal" aria-label="Animated system map">
+          <div class="system-node source">Sensor<br><small>audio / camera / users</small></div>
+          <div class="system-node model">Model<br><small>DRL / CV / GenAI</small></div>
+          <div class="system-node deploy">Deploy<br><small>Jetson / Docker / API</small></div>
+          <div class="system-node outcome">Outcome<br><small>EH · FPS · awards</small></div>
+          <svg viewBox="0 0 760 260" aria-hidden="true">
+            <path class="flow-line line-a" d="M110 130 C230 40, 330 40, 380 130 S540 220, 650 130" />
+            <path class="flow-line line-b" d="M110 130 C230 220, 330 220, 380 130 S540 40, 650 130" />
+          </svg>
         </div>
       </div>
     </section>
 
-    <section class="section shell" id="publications">
+    <section class="section shell" id="aidsp">
       <div class="section-head reveal">
-        <p class="eyebrow">Publications</p>
-        <h2>發表論文</h2>
+        <p class="eyebrow">AIDSP Projects</p>
+        <h2>Edge AI and generative AI demos with deployable paths.</h2>
+        <p>
+          The AIDSP suite is now a visual focus because it explains your newest engineering story:
+          audio, real-time video, gait authentication, and ControlNet generation on edge-oriented infrastructure.
+        </p>
       </div>
-      <article class="card reveal">
-        <div class="project-top">
-          <span class="project-kicker">CVPR 2026 · CV4CHL Workshop</span>
-          <span class="pill gold">Gold Award / 2nd Place</span>
+      <div class="showcase reveal">
+        <div class="showcase-tabs" role="tablist" aria-label="AIDSP project tabs">
+          <button class="showcase-tab active" data-panel="audio" role="tab">Audio + LLM</button>
+          <button class="showcase-tab" data-panel="nst" role="tab">Real-time NST</button>
+          <button class="showcase-tab" data-panel="gait" role="tab">GaitPass</button>
+          <button class="showcase-tab" data-panel="controlnet" role="tab">ControlNet</button>
         </div>
-        <h3>Clinically-Grounded Multi-View Features and Cross-Track Rule Coupling for Children Gait Visual Analysis</h3>
-        <p><strong>Jen-Wei Kuo</strong>, Yi-Ting Ku · Accepted (non-proceeding submission), CVPR 2026 Workshop on Computer Vision for Children (CV4CHL).</p>
-        <p>The First AI for Children Challenge（Team CCE）第二名。Multi-view clinical features + PCA-compressed MotionBERT embeddings + three-model ensemble，並以 cross-track EVGS→Rodda rule coupling 作為核心貢獻。</p>
-      </article>
+        <div class="showcase-body">
+          <article class="showcase-panel active" data-panel="audio">
+            <div>
+              <p class="project-kicker">AIDSP Project 1 · Jetson Xavier NX</p>
+              <h3>Edge Music Lyrics</h3>
+              <p>FastAPI/Gradio pipeline for 20-second audio capture, log-mel spectrograms, ONNX genre inference, Gemma HTTP lyric generation, and robust fallback behavior.</p>
+              <div class="mini-stack"><span>FastAPI</span><span>Gradio</span><span>ONNX Runtime</span><span>Gemma</span></div>
+            </div>
+            <div class="pipeline-viz">
+              <span>WAV</span><i></i><span>Log-Mel</span><i></i><span>ONNX</span><i></i><span>Gemma</span>
+            </div>
+          </article>
+          <article class="showcase-panel" data-panel="nst">
+            <div>
+              <p class="project-kicker">AIDSP Project 2 · Real-time vision</p>
+              <h3>Neural Style Transfer Streaming</h3>
+              <p>PyTorch to ONNX to TensorRT FP16 deployment path, USB webcam input, Flask/MJPEG web streaming, and style switching at 15 FPS on Jetson Xavier NX.</p>
+              <div class="mini-stack"><span>TensorRT FP16</span><span>Flask/MJPEG</span><span>Webcam</span><span>15 FPS</span></div>
+            </div>
+            <div class="latency-meter" aria-label="15 FPS performance meter">
+              <strong>15 FPS</strong>
+              <span style="--value: 74%"></span>
+            </div>
+          </article>
+          <article class="showcase-panel" data-panel="gait">
+            <div>
+              <p class="project-kicker">AIDSP Project 3 · Privacy-preserving access</p>
+              <h3>GaitPass Jetson</h3>
+              <p>YOLOv8-pose 17-keypoint detection, gallery matching, unknown rejection, identity smoothing, and tailgating alerts in a Jetson Docker demo package.</p>
+              <div class="mini-stack"><span>YOLOv8-pose</span><span>Gallery matching</span><span>Tailgating</span><span>Docker</span></div>
+            </div>
+            <div class="skeleton-viz" aria-hidden="true">
+              <b></b><b></b><b></b><b></b><b></b><b></b>
+            </div>
+          </article>
+          <article class="showcase-panel" data-panel="controlnet">
+            <div>
+              <p class="project-kicker">AIDSP Project 4 · Public repo</p>
+              <h3>ControlNet Diffusion Studio</h3>
+              <p>Gradio-based Stable Diffusion + ControlNet app with Canny/Sketch controls, scheduler, seed, CFG, control weight, optional LoRA, and ablation logging.</p>
+              <div class="mini-stack"><span>Stable Diffusion</span><span>ControlNet</span><span>Diffusers</span><span>Gradio</span></div>
+            </div>
+            <div class="control-viz" aria-hidden="true">
+              <span></span><span></span><span></span><span></span>
+            </div>
+          </article>
+        </div>
+      </div>
     </section>
 
     <section class="section shell" id="projects">
       <div class="section-head reveal">
         <p class="eyebrow">Selected Projects</p>
-        <h2>代表專案</h2>
-        <p>可用下方按鈕篩選不同能力面向；每張卡片都保留「問題、方法、成果」三件事。</p>
+        <h2>Projects with images, filters, and outcomes.</h2>
       </div>
-
       <div class="toolbar reveal" role="toolbar" aria-label="Project filters">
         <button class="filter active" data-filter="all">All</button>
-        <button class="filter" data-filter="communication">Communication</button>
-        <button class="filter" data-filter="ai">AI / ML</button>
-        <button class="filter" data-filter="systems">Systems</button>
+        <button class="filter" data-filter="edge">Edge AI</button>
+        <button class="filter" data-filter="vision">Vision</button>
+        <button class="filter" data-filter="wireless">Wireless</button>
         <button class="filter" data-filter="embedded">Embedded</button>
+        <button class="filter" data-filter="competition">Competition</button>
         <label class="search-label">
           <span>Search</span>
-          <input id="projectSearch" type="search" placeholder="e.g. Kaggle, Jetson, YOLO..." />
+          <input id="projectSearch" type="search" placeholder="Jetson, ControlNet, YOLO..." />
         </label>
       </div>
-
-      <!--
-        TODO（強烈建議）：每張專案卡片加上 repo / demo 連結，可信度差很多。
-        在每個 .project-card 的 </article> 前貼上，並換成真實網址：
-        <div class="project-links">
-          <a href="https://github.com/Kwannn666/REPO" target="_blank" rel="noreferrer">GitHub ↗</a>
-          <a href="DEMO_URL" target="_blank" rel="noreferrer">Demo ↗</a>
-        </div>
-      -->
       <div class="project-grid" id="projectGrid">
-        <article class="project-card reveal featured" data-tags="ai competition chemistry kaggle">
-          <div class="project-top">
-            <span class="project-kicker">Kaggle · NeurIPS 2025</span>
-            <span class="pill gold">Silver Medal</span>
+        <article class="project-card reveal highlight" data-tags="edge genai jetson audio aidsp">
+          <img src="assets/images/project7.jpg" alt="AI platform screenshot" />
+          <div class="project-card-body">
+            <p class="project-kicker">AIDSP · Edge AI</p>
+            <h3>Edge AI & GenAI Deployment Suite</h3>
+            <p>Jetson-targeted demos across audio + LLM, real-time NST, gait authentication, and ControlNet generation.</p>
+            <ul>
+              <li>ONNX/TensorRT and Docker deployment paths.</li>
+              <li>FastAPI/Gradio UIs and robust fallback logic.</li>
+              <li>Public ControlNet project with ablation logging.</li>
+            </ul>
+            <div class="project-links">
+              <a href="https://github.com/Kwannn666/AIDSP-Project1-edge-music-lyrics" target="_blank" rel="noreferrer">Audio repo</a>
+              <a href="https://github.com/Kwannn666/AIDSP-Project4-ControlNet" target="_blank" rel="noreferrer">ControlNet repo</a>
+            </div>
           </div>
-          <h3>Open Polymer Prediction</h3>
-          <p>GNN × XGBoost hybrid ensemble for predicting five polymer properties from SMILES under missing-label and low-data constraints.</p>
-          <ul>
-            <li>Cleaned polymer SMILES and removed 13+ R-group bad patterns.</li>
-            <li>Built XGBoost branch with 1,600+ Mordred descriptors and GAT-based GNN branch.</li>
-            <li>Achieved 15th / 2,240 teams, Top 0.66%.</li>
-          </ul>
-          <div class="tag-row"><span>XGBoost</span><span>GNN</span><span>RDKit</span><span>Mordred</span></div>
         </article>
 
-        <article class="project-card reveal featured" data-tags="embedded systems robotics vision dsp">
-          <div class="project-top">
-            <span class="project-kicker">Capstone · Robotics</span>
-            <span class="pill">System Integrator</span>
+        <article class="project-card reveal" data-tags="wireless drl research communication">
+          <div class="project-media thesis-media" aria-hidden="true">
+            <span>AP</span><span>RIS-UAV 1</span><span>RIS-UAV 2</span><span>Users</span>
           </div>
-          <h3>智慧無人船舶設計與製造</h3>
-          <p>Integrated audio guidance, YOLOv8 digit recognition, PID/bang-bang control, and mechatronics for autonomous water-tank missions.</p>
-          <ul>
-            <li>Audio DSP: 44.1 kHz recording, 500–3500 Hz BPF, Log-MMSE denoising, cross-correlation.</li>
-            <li>Vision: 3,000 labeled LED digit images, CLAHE + augmentation, YOLOv8 mAP@0.5 = 0.995.</li>
-            <li>Hardware: Raspberry Pi 4, Arduino UNO / UNO R4 Wi-Fi, MPU-9250, HC-SR04P.</li>
-          </ul>
-          <div class="tag-row"><span>Raspberry Pi</span><span>Arduino</span><span>YOLOv8</span><span>DSP</span></div>
+          <div class="project-card-body">
+            <p class="project-kicker">Master's Thesis</p>
+            <h3>Dual-UAV RIS-Assisted SWIPT Networks</h3>
+            <p>Energy-aware Voronoi user partitioning and DRL resource allocation for time-switching, power, and RIS phase control.</p>
+            <div class="outcome-row"><span>EH efficiency</span><strong>54.06%</strong></div>
+            <div class="outcome-row"><span>Throughput</span><strong>803.01 Mbps</strong></div>
+          </div>
         </article>
 
-        <article class="project-card reveal" data-tags="ai genai rag systems">
-          <div class="project-top">
-            <span class="project-kicker">GenAI · RAG</span>
-            <span class="pill">Full Stack</span>
+        <article class="project-card reveal" data-tags="embedded vision systems robotics">
+          <img src="assets/images/project10.jpg" alt="Intelligent unmanned vessel team photo" />
+          <div class="project-card-body">
+            <p class="project-kicker">Capstone · Robotics</p>
+            <h3>Intelligent Unmanned Vessel</h3>
+            <p>Integrated hull design, audio navigation, YOLOv8 LED recognition, and MCU/Raspberry Pi control into a sequential autonomous pipeline.</p>
+            <div class="mini-stack"><span>YOLOv8 AP@0.5 0.995</span><span>Raspberry Pi</span><span>Arduino</span></div>
           </div>
-          <h3>AI Mock-Interview Platform</h3>
-          <p>Resume/JD-aware interview simulator with RAG retrieval, multi-turn follow-up, interviewer chain, and HR feedback chain.</p>
-          <ul>
-            <li>RAG over interview notes instead of fine-tuning for lower cost and easier auditability.</li>
-            <li>LangChain + FAISS + text-embedding-3-small + GPT-4o + Gradio.</li>
-            <li>Supports personalized questions, dynamic follow-up, and structured feedback.</li>
-          </ul>
-          <div class="tag-row"><span>GPT‑4o</span><span>LangChain</span><span>FAISS</span><span>Gradio</span></div>
         </article>
 
-        <article class="project-card reveal" data-tags="systems edge ai embedded">
-          <div class="project-top">
-            <span class="project-kicker">Edge AI · 2026</span>
-            <span class="pill">Deployment</span>
+        <article class="project-card reveal" data-tags="vision medical ai">
+          <img src="assets/images/project1.jpg" alt="MRI segmentation output and training curve" />
+          <div class="project-card-body">
+            <p class="project-kicker">Medical Vision</p>
+            <h3>Brain Tumor MRI Segmentation</h3>
+            <p>Attention U-Net with elastic deformation augmentation for LGG MRI segmentation.</p>
+            <div class="outcome-row"><span>Dice</span><strong>0.9116</strong></div>
           </div>
-          <h3>Edge Music Lyrics on Jetson Xavier NX</h3>
-          <p>Offline audio-driven lyric generation pipeline on Jetson Xavier NX with ONNX inference and local LLM service.</p>
-          <ul>
-            <li>PyTorch → ONNX → ONNX Runtime deployment flow.</li>
-            <li>Ollama + Gemma with 4-bit quantization for low-VRAM edge inference.</li>
-            <li>FastAPI REST API + Gradio UI + NVIDIA L4T Docker environment.</li>
-          </ul>
-          <div class="tag-row"><span>Jetson</span><span>ONNX</span><span>Ollama</span><span>FastAPI</span></div>
         </article>
 
-        <article class="project-card reveal" data-tags="ai vision medical">
-          <div class="project-top">
-            <span class="project-kicker">Medical Imaging</span>
-            <span class="pill">Dice 0.9116</span>
+        <article class="project-card reveal" data-tags="competition chemistry ai kaggle">
+          <img src="assets/images/project6.jpg" alt="Polymer prediction feature engineering table" />
+          <div class="project-card-body">
+            <p class="project-kicker">Kaggle · NeurIPS 2025</p>
+            <h3>Open Polymer Prediction</h3>
+            <p>GNN + XGBoost hybrid ensemble with Mordred/RDKit descriptors for polymer property prediction.</p>
+            <div class="outcome-row"><span>Rank</span><strong>15 / 2,240</strong></div>
           </div>
-          <h3>Brain Tumor MRI Segmentation</h3>
-          <p>Attention U-Net with elastic deformation for LGG brain tumor pixel-wise segmentation on FLAIR MRI images.</p>
-          <ul>
-            <li>Input: 2D MRI image; output: binary tumor mask.</li>
-            <li>Elastic augmentation improves generalization for irregular tumor boundaries.</li>
-            <li>Validation Dice around 0.9070 / Dice 0.9116.</li>
-          </ul>
-          <div class="tag-row"><span>Attention U‑Net</span><span>Elastic Aug.</span><span>Dice Loss</span></div>
         </article>
 
-        <article class="project-card reveal" data-tags="ai vision multitask">
-          <div class="project-top">
-            <span class="project-kicker">Multi‑Task Learning</span>
-            <span class="pill">Replay Buffer</span>
+        <article class="project-card reveal" data-tags="genai rag systems">
+          <img src="assets/images/project7.jpg" alt="AI mock interview platform screenshot" />
+          <div class="project-card-body">
+            <p class="project-kicker">GenAI · RAG</p>
+            <h3>AI Mock-Interview Platform</h3>
+            <p>Resume-aware interview simulator using LangChain, FAISS, OpenAI API, and structured feedback loops.</p>
+            <div class="mini-stack"><span>GPT-4o</span><span>LangChain</span><span>FAISS</span></div>
           </div>
-          <h3>Unified-OneHead MTL</h3>
-          <p>Shared encoder and single output head for segmentation, detection, and classification under continual learning constraints.</p>
-          <ul>
-            <li>Single-head output structure for three visual tasks.</li>
-            <li>Replay Buffer mitigates catastrophic forgetting.</li>
-            <li>Post-stage task performance degradation controlled within 5%.</li>
-          </ul>
-          <div class="tag-row"><span>MTL</span><span>Continual Learning</span><span>Replay</span></div>
         </article>
 
-        <article class="project-card reveal" data-tags="ai vision efficient">
-          <div class="project-top">
-            <span class="project-kicker">Efficient Vision</span>
-            <span class="pill">Dynamic Kernel</span>
+        <article class="project-card reveal" data-tags="vision efficient ai">
+          <img src="assets/images/project4.jpg" alt="DynamicConv architecture diagram" />
+          <div class="project-card-body">
+            <p class="project-kicker">Efficient Vision</p>
+            <h3>DynamicConv + TinyViT</h3>
+            <p>Input-conditioned kernels and compact transformer design for lightweight visual recognition.</p>
+            <div class="outcome-row"><span>TinyViT</span><strong>1.1M params</strong></div>
           </div>
-          <h3>DynamicConv Module</h3>
-          <p>Input-conditioned lightweight convolution module that uses an MLP to generate convolution kernels for flexible channel combinations.</p>
-          <ul>
-            <li>Supports RGB / RG / R input channel variants.</li>
-            <li>Improves model flexibility while keeping inference cost manageable.</li>
-            <li>Designed for lightweight vision tasks and ablation comparison.</li>
-          </ul>
-          <div class="tag-row"><span>DynamicConv</span><span>MLP</span><span>Efficient AI</span></div>
         </article>
 
-        <article class="project-card reveal" data-tags="ai vision transformer efficient">
-          <div class="project-top">
-            <span class="project-kicker">Transformer</span>
-            <span class="pill">1.1M Params</span>
+        <article class="project-card reveal" data-tags="vision competition vlm">
+          <img src="assets/images/project5.jpg" alt="Traffic accident prediction workflow" />
+          <div class="project-card-body">
+            <p class="project-kicker">IEEE AVSS TAISC</p>
+            <h3>Traffic Accident Prediction</h3>
+            <p>CLIP semantic features combined with XGBoost for visual accident-risk scoring.</p>
+            <div class="outcome-row"><span>Rank</span><strong>12 / 130</strong></div>
           </div>
-          <h3>TinyViT Lightweight Model</h3>
-          <p>Compact transformer-based vision model targeting strong accuracy with low parameter count and FLOPs.</p>
-          <ul>
-            <li>1.1M parameters and about 5M FLOPs.</li>
-            <li>Reached ResNet-34-level 90% accuracy in the portfolio experiment setting.</li>
-            <li>Ablated FFN size and patch-resolution efficiency.</li>
-          </ul>
-          <div class="tag-row"><span>ViT</span><span>Ablation</span><span>FLOPs</span></div>
         </article>
+      </div>
+    </section>
 
-        <article class="project-card reveal" data-tags="ai vision competition">
-          <div class="project-top">
-            <span class="project-kicker">IEEE AVSS TAISC</span>
-            <span class="pill">Top 9.2%</span>
-          </div>
-          <h3>Traffic Accident Prediction</h3>
-          <p>CLIP semantic similarity features combined with XGBoost to estimate visual accident risk from road-scene images.</p>
-          <ul>
-            <li>Prompt-based semantic feature engineering with CLIP ViT-L/14.</li>
-            <li>XGBoost model with threshold optimization and evaluation pipeline.</li>
-            <li>Ranked 12 / 130 in IEEE AVSS TAISC 2025.</li>
-          </ul>
-          <div class="tag-row"><span>CLIP</span><span>XGBoost</span><span>VLM</span></div>
-        </article>
-
-        <article class="project-card reveal" data-tags="embedded control systems">
-          <div class="project-top">
-            <span class="project-kicker">Control Theory</span>
-            <span class="pill">LQR</span>
-          </div>
-          <h3>Two-Wheel Balance Car</h3>
-          <p>Arduino C++ implementation of an inverted-pendulum balancing controller with MATLAB LQR simulation and parameter tuning.</p>
-          <ul>
-            <li>Modeled system dynamics and validated LQR controller in MATLAB.</li>
-            <li>Implemented control loop on Arduino.</li>
-            <li>Used swarm optimization for parameter adjustment.</li>
-          </ul>
-          <div class="tag-row"><span>Arduino</span><span>MATLAB</span><span>LQR</span></div>
-        </article>
+    <section class="section shell" id="research">
+      <div class="research-grid">
+        <div class="section-head reveal">
+          <p class="eyebrow">Research</p>
+          <h2>Wireless optimization as a two-stage decision system.</h2>
+          <p>
+            The thesis pipeline separates offline service-region planning from online DRL resource control,
+            letting the model reason about user mobility, UAV energy, SWIPT efficiency, and fairness.
+          </p>
+        </div>
+        <div class="research-panel reveal">
+          <div class="research-step"><span>P1</span><p>Battery-aware weighted Voronoi partitioning</p></div>
+          <div class="research-step"><span>P2</span><p>DRL control for time, power, RIS phase and element switching</p></div>
+          <div class="research-step"><span>Eval</span><p>Energy-harvesting efficiency, sum throughput, worst-user fairness</p></div>
+        </div>
       </div>
     </section>
 
     <section class="section shell" id="awards">
       <div class="section-head reveal">
-        <p class="eyebrow">Awards & Competition</p>
-        <h2>競賽與成果</h2>
+        <p class="eyebrow">Awards</p>
+        <h2>Competition record that backs the engineering story.</h2>
       </div>
-      <div class="timeline">
-        <article class="timeline-item reveal">
-          <span class="time">2026</span>
-          <h3>CVPR 2026 CV4CHL — The First AI for Children Challenge｜Gold Award / 2nd Place</h3>
-          <p>Team CCE。以 multi-view clinical features、MotionBERT embeddings 與 cross-track rule coupling 進行兒童步態視覺分析。</p>
-        </article>
-        <article class="timeline-item reveal">
-          <span class="time">2025</span>
-          <h3>Kaggle NeurIPS 2025 Open Polymer Prediction｜Silver Medal</h3>
-          <p>15 / 2,240 teams（Top 0.66%）。GNN + XGBoost hybrid ensemble 搭配 label-specific modeling。</p>
-        </article>
-        <article class="timeline-item reveal">
-          <span class="time">2025</span>
-          <h3>IEEE AVSS TAISC — Taiwan Future Accident Classification Challenge</h3>
-          <p>12 / 130（Top 9.2%）。以 CLIP semantic features + XGBoost 進行影像事故風險預測。</p>
-        </article>
-        <article class="timeline-item reveal">
-          <span class="time">2025</span>
-          <h3>AI CUP 2025 Spring — Table Tennis Smart Racket Analysis</h3>
-          <p>47 / 633（Top 7.4%）。感測訊號特徵工程與多類別分類。</p>
-        </article>
-        <article class="timeline-item reveal">
-          <span class="time">2025</span>
-          <h3>Kaggle Playground S5E8 — Bank Dataset Binary Classification</h3>
-          <p>227 / 3,377（Top 6.7%）。</p>
-        </article>
-        <article class="timeline-item reveal">
-          <span class="time">2025</span>
-          <h3>Kaggle Playground S6E3 — Predict Customer Churn</h3>
-          <p>286 / 4,142（Top 6.9%）。</p>
-        </article>
-        <article class="timeline-item reveal">
-          <span class="time">2025</span>
-          <h3>永豐 AI GO 股神對決 — Financial Forecasting</h3>
-          <p>121 / 868（Top 13.9%）。</p>
-        </article>
-        <article class="timeline-item reveal">
-          <span class="time">2024</span>
-          <h3>Kaggle Community Competition｜MLB Game Prediction</h3>
-          <p>19 / 142（Top 13%）。資料前處理、特徵工程、Random Forest baseline 與參數優化。</p>
-        </article>
+      <div class="award-timeline">
+        <article class="award-item reveal"><span>2026</span><h3>CVPR 2026 CV4CHL</h3><p>Gold Award / 2nd Place, The First AI for Children Challenge.</p></article>
+        <article class="award-item reveal"><span>2025</span><h3>Kaggle NeurIPS Open Polymer Prediction</h3><p>Silver Medal, Top 0.66% (15 / 2,240).</p></article>
+        <article class="award-item reveal"><span>2025</span><h3>IEEE AVSS TAISC</h3><p>Top 9.2% for traffic accident classification.</p></article>
+        <article class="award-item reveal"><span>2025</span><h3>AI CUP Table Tennis Smart Racket</h3><p>Top 7.4% among 633 teams.</p></article>
       </div>
     </section>
 
     <section class="section shell" id="skills">
       <div class="section-head reveal">
         <p class="eyebrow">Skills</p>
-        <h2>技術棧</h2>
+        <h2>Tooling across research, models, and deployment.</h2>
       </div>
-      <div class="skill-board reveal">
-        <div>
-          <h3>Programming</h3>
-          <p>Python, C, C++, MATLAB, FORTRAN, Bash, Git</p>
-        </div>
-        <div>
-          <h3>AI / ML</h3>
-          <p>PyTorch, TensorFlow, PyTorch Geometric, scikit-learn, XGBoost, LightGBM, CatBoost, OpenCV, YOLOv8, CLIP</p>
-        </div>
-        <div>
-          <h3>GenAI / Data</h3>
-          <p>OpenAI API, LangChain, FAISS, RAG, Streamlit, Pandas, NumPy, RDKit, Mordred</p>
-        </div>
-        <div>
-          <h3>Wireless / DSP</h3>
-          <p>RIS, UAV Communications, SWIPT, Physical-layer Comm., Adaptive & Digital Signal Processing, Stochastic Processes</p>
-        </div>
-        <div>
-          <h3>Systems / Edge</h3>
-          <p>Docker, Linux, FastAPI, Gradio, ONNX Runtime, Jetson Xavier NX, Raspberry Pi, Arduino, STM32</p>
-        </div>
-        <div>
-          <h3>Languages</h3>
-          <p>Mandarin (native), English — TOEIC 720</p>
-        </div>
+      <div class="skill-bars reveal">
+        <div class="skill-row" data-level="92"><span>Python · PyTorch · scikit-learn</span><i></i></div>
+        <div class="skill-row" data-level="86"><span>FastAPI · Gradio · Docker · Linux</span><i></i></div>
+        <div class="skill-row" data-level="82"><span>ONNX Runtime · TensorRT FP16 · Jetson</span><i></i></div>
+        <div class="skill-row" data-level="88"><span>Computer Vision · YOLOv8 · CLIP · ControlNet</span><i></i></div>
+        <div class="skill-row" data-level="80"><span>Wireless · RIS · UAV · DRL optimization</span><i></i></div>
+        <div class="skill-row" data-level="78"><span>Embedded · Raspberry Pi · Arduino · STM32</span><i></i></div>
       </div>
     </section>
 
-    <section class="section shell contact" id="contact">
-      <div class="contact-card reveal">
+    <section class="section shell" id="contact">
+      <div class="contact-panel reveal">
         <p class="eyebrow">Contact</p>
-        <h2>Let’s build reliable AI systems for communication and edge applications.</h2>
-        <p>歡迎聯繫我討論通訊系統、AI/DRL、嵌入式與邊緣部署相關機會。</p>
+        <h2>Let us build deployable AI systems.</h2>
+        <p>Open to AI engineering, edge AI, computer vision, and communication-system research roles.</p>
         <div class="contact-actions">
-          <a class="btn primary" href="mailto:jooj30136@gmail.com">jooj30136@gmail.com</a>
-          <a class="btn secondary" href="https://github.com/Kwannn666" target="_blank" rel="noreferrer">GitHub</a>
-          <a class="btn secondary" href="https://www.linkedin.com/in/%E4%BA%BA%E7%91%8B-%E9%83%AD-89026a29a/" target="_blank" rel="noreferrer">LinkedIn</a>
-          <!-- TODO: 換成你的真實 Kaggle profile 網址，例如 https://www.kaggle.com/yourhandle -->
-          <a class="btn secondary" href="https://www.kaggle.com/" target="_blank" rel="noreferrer">Kaggle</a>
+          <a class="btn primary" href="mailto:jooj30136@gmail.com"><span class="btn-icon">@</span>Email</a>
+          <a class="btn secondary" href="https://github.com/Kwannn666" target="_blank" rel="noreferrer"><span class="btn-icon">G</span>GitHub</a>
+          <a class="btn secondary" href="https://www.linkedin.com/in/%E4%BA%BA%E7%91%8B-%E9%83%AD-89026a29a/" target="_blank" rel="noreferrer"><span class="btn-icon">in</span>LinkedIn</a>
         </div>
       </div>
     </section>
@@ -536,7 +398,7 @@
 
   <footer class="site-footer shell">
     <p>© <span id="year"></span> Jen-Wei Kuo. Built for GitHub Pages.</p>
-    <a href="#top">Back to top ↑</a>
+    <a href="#top">Back to top</a>
   </footer>
 
   <script src="script.js"></script>
