@@ -660,13 +660,33 @@ h3 { font-size: 22px; }
 
 .site-footer {
   display: flex;
+  align-items: center;
   justify-content: space-between;
   gap: 16px;
   padding: 30px 0 52px;
   color: var(--muted);
   border-top: 1px solid var(--line);
 }
+.site-footer p { margin: 0; }
 .site-footer a { color: var(--brand); font-weight: 800; }
+.footer-meta {
+  display: grid;
+  gap: 10px;
+}
+.visitor-stats {
+  width: max-content;
+  display: inline-flex;
+  align-items: center;
+  min-height: 38px;
+  padding: 5px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+.visitor-stats img {
+  width: auto;
+  height: 26px;
+}
 
 .reveal {
   opacity: 0;
