@@ -534,6 +534,7 @@ h3 { font-size: 22px; }
   min-height: 100%;
   transition: transform .2s ease, border-color .2s ease;
 }
+.project-card[hidden] { display: none !important; }
 .project-card:hover { transform: translateY(-4px); border-color: color-mix(in srgb, var(--brand) 60%, var(--line)); }
 .project-card.highlight { grid-column: span 2; }
 .project-card img,
