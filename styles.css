@@ -245,6 +245,7 @@ h3 { font-size: 22px; }
 .showcase,
 .project-card,
 .research-panel,
+.publication-panel,
 .award-item,
 .skill-bars,
 .contact-panel {
@@ -396,6 +397,73 @@ h3 { font-size: 22px; }
   border-radius: var(--radius);
   background: var(--surface-strong);
 }
+.architecture-diagram {
+  min-height: 220px;
+  display: grid;
+  align-content: center;
+  gap: 18px;
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background:
+    linear-gradient(135deg, rgba(85,214,190,.12), rgba(102,184,255,.09)),
+    var(--surface-strong);
+}
+.architecture-flow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.architecture-flow span {
+  display: grid;
+  min-height: 42px;
+  place-items: center;
+  padding: 7px 10px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: rgba(16,19,18,.34);
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 900;
+  text-align: center;
+}
+.architecture-flow i {
+  width: 18px;
+  height: 2px;
+  background: var(--brand-2);
+  position: relative;
+}
+.architecture-flow i::after {
+  content: ">";
+  position: absolute;
+  right: -2px;
+  top: -12px;
+  color: var(--brand-2);
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 900;
+}
+.architecture-diagram p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+  text-align: center;
+}
+.project-media.architecture-diagram {
+  min-height: 0;
+  gap: 10px;
+  padding: 14px;
+}
+.compact .architecture-flow { gap: 6px; }
+.compact .architecture-flow span {
+  min-height: 32px;
+  padding: 5px 7px;
+  font-size: 10px;
+}
+.compact .architecture-flow i { width: 11px; }
+.compact .architecture-flow i::after { top: -11px; font-size: 15px; }
 .project-kicker {
   margin: 0 0 10px;
   color: var(--brand);
@@ -617,6 +685,24 @@ h3 { font-size: 22px; }
 }
 .research-step p { margin: 0; }
 
+.publication-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(300px, .9fr);
+  gap: 28px;
+  align-items: center;
+  padding: clamp(24px, 4vw, 44px);
+  background:
+    linear-gradient(135deg, rgba(102,184,255,.12), rgba(85,214,190,.08)),
+    var(--surface);
+}
+.publication-panel p:not(.eyebrow) { color: var(--muted); }
+.citation {
+  margin: 16px 0 0;
+  padding-left: 16px;
+  border-left: 3px solid var(--brand-2);
+}
+.publication-diagram { min-height: 250px; }
+
 .award-timeline {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -714,7 +800,8 @@ h3 { font-size: 22px; }
   .project-card.highlight { grid-column: span 1; }
   .hero-grid,
   .system-layout,
-  .research-grid { grid-template-columns: 1fr; }
+  .research-grid,
+  .publication-panel { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 760px) {
@@ -765,6 +852,7 @@ h3 { font-size: 22px; }
   .award-timeline,
   .skill-row { grid-template-columns: 1fr; }
   .showcase-panel { grid-template-columns: 1fr; padding: 18px; }
+  .architecture-diagram { min-height: 190px; padding: 16px; }
   .toolbar { align-items: stretch; }
   .search-label { width: 100%; margin-left: 0; justify-content: space-between; }
   .search-label input { width: 100%; }
