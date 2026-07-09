@@ -385,6 +385,17 @@ h3 { font-size: 22px; }
   padding: 26px;
 }
 .showcase-panel.active { display: grid; }
+.showcase-image {
+  width: 100%;
+  min-height: 220px;
+  height: 100%;
+  max-height: 330px;
+  object-fit: cover;
+  object-position: center;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface-strong);
+}
 .project-kicker {
   margin: 0 0 10px;
   color: var(--brand);

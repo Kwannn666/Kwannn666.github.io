@@ -53,7 +53,11 @@ const panels = document.querySelectorAll(".showcase-panel");
 tabs.forEach((tab) => {
   tab.addEventListener("click", () => {
     const target = tab.dataset.panel;
-    tabs.forEach((item) => item.classList.toggle("active", item === tab));
+    tabs.forEach((item) => {
+      const isActive = item === tab;
+      item.classList.toggle("active", isActive);
+      item.setAttribute("aria-selected", String(isActive));
+    });
     panels.forEach((panel) => panel.classList.toggle("active", panel.dataset.panel === target));
   });
 });
