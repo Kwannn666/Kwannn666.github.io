@@ -217,21 +217,28 @@ html[data-theme="light"] .sun { background: var(--brand-2); box-shadow: inset 5p
 .scene-heading { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; padding: 20px 22px 0; }
 .scene-heading .eyebrow { margin: 0; letter-spacing: .11em; }
 .scene-tag { color: var(--muted); font-family: ui-monospace, monospace; font-size: .75rem; }
+a.scene-tag:hover { color: var(--brand); }
 .scene-stage { position: relative; height: 360px; }
 #networkCanvas { display: block; width: 100%; height: 100%; cursor: grab; touch-action: pan-y; }
 .dragging #networkCanvas { cursor: grabbing; }
-.scene-coordinate { position: absolute; color: var(--muted); opacity: .75; font-family: ui-monospace, monospace; font-size: .75rem; letter-spacing: .06em; pointer-events: none; }
-.scene-coordinate-top { top: 26px; left: 22px; }
-.scene-coordinate-bottom { bottom: 20px; right: 22px; }
+.scene-labels { position: absolute; inset: 0; pointer-events: none; }
+.scene-labels button { position: absolute; pointer-events: auto; transform: translate(-50%, -50%); white-space: nowrap; min-height: 36px; padding: 5px 8px; color: var(--text); background: var(--surface); border: 1px solid var(--line); border-radius: 5px; font-family: ui-monospace, monospace; font-size: .75rem; box-shadow: 0 4px 14px rgb(0 0 0 / 12%); }
+.scene-labels button:hover, .scene-labels button[aria-pressed="true"] { color: var(--brand); border-color: var(--brand); }
+.scene-labels button:focus-visible { z-index: 4; }
+.scene-legend { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 8px 16px; padding: 0 14px 14px; color: var(--muted); font-size: .75rem; }
+.scene-legend .link-ap::before, .scene-legend .link-user::before { content: ""; display: inline-block; width: 14px; height: 3px; margin-right: 6px; vertical-align: middle; background: #519eff; }
+.scene-legend .link-user::before { background: #ffd039; }
+.scene-detail { padding: 18px 20px; border-top: 1px solid var(--line); background: var(--surface); min-height: 130px; }
+.scene-detail strong { font-size: .875rem; }
+.scene-detail p { margin: 8px 0 0; color: var(--muted); font-size: .875rem; line-height: 1.6; }
 .scene-footer { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; border-top: 1px solid var(--line); padding: 8px 12px 8px 20px; }
 .scene-footer p { font-size: .75rem; color: var(--muted); margin: 0; }
 .scene-buttons { display: flex; gap: 3px; }
 .scene-buttons button { width: 38px; height: 44px; border: 0; border-radius: 6px; background: transparent; color: var(--text); font-size: 1rem; }
 .scene-buttons button:hover { background: var(--surface-strong); color: var(--brand); }
 .scene-buttons button:disabled { color: var(--muted); opacity: .55; cursor: default; }
-.scene-fallback { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 12px; padding: 30px; }
-.scene-fallback span { border: 1px solid var(--brand); border-radius: 8px; padding: 12px; color: var(--brand); background: var(--surface); }
-.scene-fallback i { color: var(--muted); font-style: normal; }
+.scene-fallback { position: absolute; inset: 0; display: grid; place-items: center; padding: 20px; }
+.scene-fallback img { width: 100%; height: auto; max-height: 100%; object-fit: contain; border-radius: 8px; background: #fff; }
 .hero-visual .profile-panel { display: grid; grid-template-columns: 72px minmax(0, 1fr); gap: 16px; padding: 18px; transform: none; box-shadow: none; background: var(--surface); }
 .hero-visual .profile-frame { aspect-ratio: 1; align-self: start; border-radius: 50%; }
 .hero-visual .profile-summary { padding: 0; }
@@ -357,7 +364,9 @@ html[data-theme="light"] .sun { background: var(--brand-2); box-shadow: inset 5p
   .scene-footer { padding: 8px 12px; gap: 4px; }
   .scene-footer p { flex: 1 1 100%; text-align: center; padding-top: 4px; }
   .scene-buttons { margin-inline: auto; }
-  .scene-buttons button { width: 48px; }
+  .scene-buttons button { width: 40px; }
+  .scene-labels button { min-height: 44px; }
+  .scene-detail { min-height: 0; padding: 16px; }
   .hero-visual .profile-panel { grid-template-columns: 60px minmax(0, 1fr); padding: 16px; }
   .hero-visual .profile-summary h2 span { display: block; margin: 6px 0 0; }
   .education-grid, .course-grid { grid-template-columns: minmax(0, 1fr); }

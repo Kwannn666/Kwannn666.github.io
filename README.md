@@ -12,7 +12,8 @@ Live site: https://kwannn666.github.io/
 |-- styles.css                  # Responsive styling
 |-- script.js                   # Accessible tabs, filters, navigation, theme, and motion
 |-- theme-init.js               # Applies the saved/system theme before first paint
-|-- systems3d.js                # Native WebGL network, pointer tilt, reveals, scroll progress
+|-- thesis-scene.js             # Thesis model geometry, entity descriptions and link definitions
+|-- systems3d.js                # Native WebGL renderer, signals, interaction and page motion
 |-- 404.html
 |-- robots.txt
 |-- sitemap.xml
@@ -69,7 +70,9 @@ The AIDSP, ESG, and CVPR cards use HTML/CSS architecture diagrams. Project image
 - The mobile menu closes on Escape, outside clicks, navigation, and focus leaving the menu.
 - Themes follow the operating system until the visitor explicitly selects one. Storage failures do not block the page.
 - Decorative animation pauses outside the hero, when the document is hidden, on mobile, and when reduced motion is requested.
-- The native WebGL hero supports pointer dragging, arrow keys, Home/reset, left/right buttons, and pause. Mobile and reduced-motion visitors get manual rotation without an idle animation loop. If WebGL is unavailable or its context is lost, the static Data → Models → Edge fallback stays readable.
+- The native WebGL hero depicts the thesis architecture: an access point, two UAVs with suspended RIS panel grids, six user terminals, and two fixed service regions. Blue AP–UAV/RIS links and yellow RIS–user links follow the supplied figure; moving points illustrate signal paths. Positions and the region boundary are illustrative, not simulation output.
+- Pointer dragging/arrow keys rotate the view; +/− buttons or keys zoom within bounded limits. Clicking a projected component label shows an accessible description. Home/reset restores the view and clears the selection. Pause stops the signal animation.
+- Mobile and reduced-motion visitors get manual exploration without an idle animation loop. Animation also stops offscreen or in a hidden tab. If WebGL is unavailable or its context is lost, the original thesis architecture image remains visible as a fallback.
 - Card tilt and hover lighting apply only to a fine pointer. Scroll reveals respect reduced motion and expose content immediately on anchor navigation or printing.
 - The portrait uses eager, high-priority loading; project images are lazy loaded. Explicit image dimensions reserve layout space.
 - Skill categories list the tools used, without subjective percentage bars.
@@ -98,7 +101,7 @@ The September 2026 update passed JavaScript/CSS syntax checks, simulated-DOM int
 GitHub Pages deploys from the `main` branch. Commit and push the site files:
 
 ```bash
-git add index.html styles.css script.js theme-init.js systems3d.js 404.html robots.txt sitemap.xml README.md assets
+git add index.html styles.css script.js theme-init.js thesis-scene.js systems3d.js 404.html robots.txt sitemap.xml README.md assets
 git commit -m "Update portfolio"
 git push origin main
 ```
