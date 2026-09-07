@@ -1,199 +1,229 @@
 const root = document.documentElement;
-const savedTheme = localStorage.getItem("theme");
-if (savedTheme) root.dataset.theme = savedTheme;
-
-const year = document.getElementById("year");
+const year = document.getElementById('year');
 if (year) year.textContent = new Date().getFullYear();
 
-const themeToggle = document.getElementById("themeToggle");
-themeToggle?.addEventListener("click", () => {
-  const next = root.dataset.theme === "dark" ? "light" : "dark";
-  root.dataset.theme = next;
-  localStorage.setItem("theme", next);
-});
-
-const navToggle = document.querySelector(".nav-toggle");
-const navLinks = document.querySelector(".nav-links");
-navToggle?.addEventListener("click", () => {
-  const open = navLinks.classList.toggle("open");
-  navToggle.setAttribute("aria-expanded", String(open));
-});
-navLinks?.querySelectorAll("a").forEach((link) => {
-  link.addEventListener("click", () => {
-    navLinks.classList.remove("open");
-    navToggle?.setAttribute("aria-expanded", "false");
+const themeToggle = document.getElementById('themeToggle');
+const colorPreference = window.matchMedia('(prefers-color-scheme: light)');
+let explicitTheme = false;
+try { explicitTheme = ['dark', 'light'].includes(localStorage.getItem('theme')); } catch { /* Storage is optional. */ }
+function applyTheme(theme) {
+  root.dataset.theme = theme;
+  const label = `Switch to ${theme === 'dark' ? 'light' : 'dark'} theme`;
+  themeToggle?.setAttribute('aria-label', label);
+  themeToggle?.setAttribute('title', label);
+  document.querySelector('meta[name="theme-color"]')?.setAttribute('content', theme === 'dark' ? '#101312' : '#f5f8f7');
+}
+applyTheme(root.dataset.theme);
+if (themeToggle) {
+  themeToggle.hidden = false;
+  themeToggle.addEventListener('click', () => {
+    explicitTheme = true;
+    const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+    applyTheme(next);
+    try { localStorage.setItem('theme', next); } catch { /* Keep the session preference. */ }
   });
+}
+colorPreference.addEventListener('change', event => {
+  if (!explicitTheme) applyTheme(event.matches ? 'light' : 'dark');
 });
 
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("is-visible");
-      if (entry.target.classList.contains("skill-bars")) animateSkillBars();
+const navToggle = document.querySelector('.nav-toggle');
+const navLinks = document.querySelector('.nav-links');
+const nav = document.querySelector('.nav');
+const compactNav = window.matchMedia('(max-width: 1120px)');
+if (navToggle && navLinks && nav) {
+  const setMenu = (open, restoreFocus = false) => {
+    navLinks.classList.toggle('open', open);
+    navToggle.setAttribute('aria-expanded', String(open));
+    navToggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    if (restoreFocus) navToggle.focus();
+  };
+  navToggle.addEventListener('click', () => setMenu(navToggle.getAttribute('aria-expanded') !== 'true'));
+  navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+    const target = document.querySelector(link.getAttribute('href'));
+    setMenu(false);
+    if (compactNav.matches && target) {
+      target.setAttribute('tabindex', '-1');
+      target.focus({ preventScroll: true });
+    }
+  }));
+  nav.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && navToggle.getAttribute('aria-expanded') === 'true') {
+      setMenu(false, true);
     }
   });
-}, { threshold: 0.16 });
-document.querySelectorAll(".reveal").forEach((el) => revealObserver.observe(el));
-
-const navAnchors = [...document.querySelectorAll(".nav-links a")];
-const sections = navAnchors
-  .map((link) => document.querySelector(link.getAttribute("href")))
-  .filter(Boolean);
-const navObserver = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (!entry.isIntersecting) return;
-    const id = `#${entry.target.id}`;
-    navAnchors.forEach((link) => link.classList.toggle("active", link.getAttribute("href") === id));
+  document.addEventListener('click', event => {
+    if (!nav.contains(event.target)) setMenu(false);
   });
-}, { rootMargin: "-40% 0px -54% 0px" });
-sections.forEach((section) => navObserver.observe(section));
+  nav.addEventListener('focusout', event => {
+    if (event.relatedTarget && !nav.contains(event.relatedTarget)) setMenu(false);
+  });
+  compactNav.addEventListener('change', () => {
+    const focusWillHide = compactNav.matches && navLinks.contains(document.activeElement);
+    setMenu(false, focusWillHide);
+  });
+  nav.classList.add('nav-ready');
+}
 
-const tabs = document.querySelectorAll(".showcase-tab");
-const panels = document.querySelectorAll(".showcase-panel");
-tabs.forEach((tab) => {
-  tab.addEventListener("click", () => {
-    const target = tab.dataset.panel;
-    tabs.forEach((item) => {
-      const isActive = item === tab;
-      item.classList.toggle("active", isActive);
-      item.setAttribute("aria-selected", String(isActive));
+// A single tab stop, with arrow keys, Home and End as expected for a tablist.
+const tabs = [...document.querySelectorAll('.showcase-tab')];
+const panels = [...document.querySelectorAll('.showcase-panel')];
+function selectTab(tab, focus = false) {
+  tabs.forEach(item => {
+    const selected = item === tab;
+    item.classList.toggle('active', selected);
+    item.setAttribute('aria-selected', String(selected));
+    item.tabIndex = selected ? 0 : -1;
+  });
+  panels.forEach(panel => {
+    const selected = panel.dataset.panel === tab.dataset.panel;
+    panel.hidden = !selected;
+    panel.classList.toggle('active', selected);
+  });
+  if (focus) tab.focus();
+}
+if (tabs.length && panels.length) {
+  tabs.forEach((tab, index) => {
+    tab.addEventListener('click', () => selectTab(tab));
+    tab.addEventListener('keydown', event => {
+      let next;
+      if (event.key === 'ArrowRight') next = (index + 1) % tabs.length;
+      if (event.key === 'ArrowLeft') next = (index - 1 + tabs.length) % tabs.length;
+      if (event.key === 'Home') next = 0;
+      if (event.key === 'End') next = tabs.length - 1;
+      if (next !== undefined) {
+        event.preventDefault();
+        selectTab(tabs[next], true);
+      }
     });
-    panels.forEach((panel) => panel.classList.toggle("active", panel.dataset.panel === target));
   });
-});
+  selectTab(tabs.find(tab => tab.getAttribute('aria-selected') === 'true') || tabs[0]);
+  document.querySelector('.showcase')?.classList.add('tabs-ready');
+}
 
-const filters = document.querySelectorAll(".filter");
-const cards = document.querySelectorAll(".project-card");
-const searchInput = document.getElementById("projectSearch");
-
+// Index once: hidden cards must still be searchable, without forced layout reads.
+const filters = [...document.querySelectorAll('.filter')];
+const searchInput = document.getElementById('projectSearch');
+const projectCount = document.getElementById('projectCount');
+const emptyState = document.getElementById('projectEmpty');
+const projectIndex = [...document.querySelectorAll('.project-card')].map(card => ({
+  card,
+  tags: (card.dataset.tags || '').toLowerCase().split(/\s+/),
+  text: `${card.dataset.tags || ''} ${card.textContent}`.toLowerCase().replace(/\s+/g, ' ')
+}));
+let activeFilter = 'all';
 function applyFilters() {
-  const active = document.querySelector(".filter.active")?.dataset.filter ?? "all";
-  const query = (searchInput?.value ?? "").trim().toLowerCase();
-
-  cards.forEach((card) => {
-    const tags = card.dataset.tags.toLowerCase();
-    const text = card.innerText.toLowerCase();
-    const tagMatch = active === "all" || tags.includes(active);
-    const queryMatch = !query || tags.includes(query) || text.includes(query);
-    card.hidden = !(tagMatch && queryMatch);
+  const terms = (searchInput?.value || '').trim().toLowerCase().split(/\s+/).filter(Boolean);
+  let visible = 0;
+  projectIndex.forEach(({ card, tags, text }) => {
+    const match = (activeFilter === 'all' || tags.includes(activeFilter)) && terms.every(term => text.includes(term));
+    card.hidden = !match;
+    if (match) visible++;
   });
+  filters.forEach(button => {
+    const active = button.dataset.filter === activeFilter;
+    button.classList.toggle('active', active);
+    button.setAttribute('aria-pressed', String(active));
+  });
+  if (projectCount) projectCount.textContent = `${visible} of ${projectIndex.length} projects`;
+  if (emptyState) emptyState.hidden = visible !== 0;
 }
-
-filters.forEach((button) => {
-  button.addEventListener("click", () => {
-    filters.forEach((item) => item.classList.remove("active"));
-    button.classList.add("active");
-    applyFilters();
-  });
+filters.forEach(button => button.addEventListener('click', () => {
+  activeFilter = button.dataset.filter;
+  applyFilters();
+}));
+searchInput?.addEventListener('input', applyFilters);
+document.getElementById('resetFilters')?.addEventListener('click', () => {
+  activeFilter = 'all';
+  if (searchInput) searchInput.value = '';
+  applyFilters();
+  searchInput?.focus();
 });
-searchInput?.addEventListener("input", applyFilters);
+if (projectIndex.length) {
+  applyFilters();
+  const toolbar = document.querySelector('.toolbar');
+  if (toolbar) toolbar.hidden = false;
+  if (projectCount) projectCount.hidden = false;
+}
 
-let skillAnimated = false;
-function animateSkillBars() {
-  if (skillAnimated) return;
-  skillAnimated = true;
-  document.querySelectorAll(".skill-row").forEach((row) => {
-    const level = Number(row.dataset.level || 0);
-    row.style.setProperty("--level", `${Math.max(0, Math.min(level, 100))}%`);
+// Navigation and decorative motion are optional enhancements.
+if ('IntersectionObserver' in window) {
+  const anchors = [...document.querySelectorAll('.nav-links a')];
+  const navObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      anchors.forEach(link => {
+        const active = link.getAttribute('href') === `#${entry.target.id}`;
+        link.classList.toggle('active', active);
+        if (active) link.setAttribute('aria-current', 'location');
+        else link.removeAttribute('aria-current');
+      });
+    });
+  }, { rootMargin: '-15% 0px -65% 0px', threshold: 0 });
+  anchors.forEach(link => {
+    const section = document.querySelector(link.getAttribute('href'));
+    if (section) navObserver.observe(section);
   });
 }
 
-const canvas = document.getElementById("systemsCanvas");
-const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-if (canvas && !reducedMotion) {
-  const ctx = canvas.getContext("2d");
-  let width = 0;
-  let height = 0;
-  let points = [];
-  let frame = 0;
-
+function initCanvas() {
+  const canvas = document.getElementById('systemsCanvas');
+  if (!canvas || !('IntersectionObserver' in window)) return;
+  const ctx = canvas.getContext('2d');
+  if (!ctx) return;
+  const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const desktop = window.matchMedia('(min-width: 901px)');
+  let width = 0, height = 0, points = [], request = 0, last = 0, inView = false;
   function resize() {
-    const dpr = Math.min(window.devicePixelRatio || 1, 2);
     width = canvas.clientWidth;
     height = canvas.clientHeight;
+    const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
     canvas.width = Math.floor(width * dpr);
     canvas.height = Math.floor(height * dpr);
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    points = Array.from({ length: Math.max(42, Math.floor(width / 24)) }, (_, index) => ({
-      x: Math.random() * width,
-      y: Math.random() * height,
-      vx: (Math.random() - 0.5) * 0.34,
-      vy: (Math.random() - 0.5) * 0.34,
-      r: 1.4 + Math.random() * 2.8,
-      phase: index * 0.37
+    points = Array.from({ length: Math.min(32, Math.floor(width / 40)) }, () => ({
+      x: Math.random() * width, y: Math.random() * height,
+      vx: (Math.random() - .5) * .25, vy: (Math.random() - .5) * .25
     }));
   }
-
-  function drawNode(point) {
-    const pulse = Math.sin(frame * 0.018 + point.phase) * 0.6 + 1.2;
-    ctx.beginPath();
-    ctx.arc(point.x, point.y, point.r * pulse, 0, Math.PI * 2);
-    ctx.fillStyle = "rgba(85, 214, 190, 0.72)";
-    ctx.fill();
-  }
-
-  function draw() {
-    frame += 1;
+  function draw(time) {
+    request = requestAnimationFrame(draw);
+    if (time - last < 1000 / 30) return;
+    const step = Math.min(time - (last || time), 50) / 16.67;
+    last = time;
     ctx.clearRect(0, 0, width, height);
-    ctx.fillStyle = "rgba(16, 19, 18, 0.18)";
-    ctx.fillRect(0, 0, width, height);
-
-    for (const point of points) {
-      point.x += point.vx;
-      point.y += point.vy;
-      if (point.x < -20) point.x = width + 20;
-      if (point.x > width + 20) point.x = -20;
-      if (point.y < -20) point.y = height + 20;
-      if (point.y > height + 20) point.y = -20;
-    }
-
-    for (let i = 0; i < points.length; i += 1) {
-      for (let j = i + 1; j < points.length; j += 1) {
-        const a = points[i];
-        const b = points[j];
-        const dx = a.x - b.x;
-        const dy = a.y - b.y;
-        const distance = Math.hypot(dx, dy);
-        if (distance < 145) {
-          const alpha = (1 - distance / 145) * 0.28;
-          ctx.beginPath();
-          ctx.moveTo(a.x, a.y);
-          ctx.lineTo(b.x, b.y);
-          ctx.strokeStyle = `rgba(241, 198, 91, ${alpha})`;
-          ctx.lineWidth = 1;
-          ctx.stroke();
-        }
+    const light = root.dataset.theme === 'light';
+    ctx.fillStyle = light ? '#126b48' : '#70e0ba';
+    points.forEach(point => {
+      point.x = (point.x + point.vx * step + width) % width;
+      point.y = (point.y + point.vy * step + height) % height;
+      ctx.beginPath(); ctx.arc(point.x, point.y, 1.8, 0, Math.PI * 2); ctx.fill();
+    });
+    for (let i = 0; i < points.length; i++) {
+      for (let j = i + 1; j < points.length; j++) {
+        const a = points[i], b = points[j];
+        const distance = Math.hypot(a.x - b.x, a.y - b.y);
+        if (distance >= 150) continue;
+        ctx.strokeStyle = light ? `rgba(18,107,72,${(1 - distance / 150) * .3})` : `rgba(112,224,186,${(1 - distance / 150) * .3})`;
+        ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
       }
     }
-
-    points.forEach(drawNode);
-    drawSystemGlyphs();
-    requestAnimationFrame(draw);
   }
-
-  function drawSystemGlyphs() {
-    if (width < 700) return;
-    const cx = width * 0.76;
-    const cy = height * 0.38;
-    ctx.save();
-    ctx.translate(cx, cy);
-    ctx.rotate(Math.sin(frame * 0.01) * 0.08);
-    ctx.strokeStyle = "rgba(102, 184, 255, 0.7)";
-    ctx.lineWidth = 2;
-    ctx.strokeRect(-48, -48, 96, 96);
-    ctx.beginPath();
-    ctx.moveTo(-72, 0);
-    ctx.lineTo(72, 0);
-    ctx.moveTo(0, -72);
-    ctx.lineTo(0, 72);
-    ctx.stroke();
-    ctx.fillStyle = "rgba(251, 122, 98, 0.86)";
-    ctx.fillRect(-8, -8, 16, 16);
-    ctx.restore();
+  function sync() {
+    if (request) cancelAnimationFrame(request);
+    request = 0; last = 0;
+    if (inView && !document.hidden && !motion.matches && desktop.matches && width && height) {
+      request = requestAnimationFrame(draw);
+    } else {
+      ctx.clearRect(0, 0, width, height);
+    }
   }
-
+  const observer = new IntersectionObserver(entries => { inView = entries[0].isIntersecting; sync(); });
   resize();
-  draw();
-  window.addEventListener("resize", resize);
+  observer.observe(canvas);
+  document.addEventListener('visibilitychange', sync);
+  motion.addEventListener('change', sync);
+  desktop.addEventListener('change', sync);
+  window.addEventListener('resize', () => { resize(); sync(); }, { passive: true });
 }
+initCanvas();

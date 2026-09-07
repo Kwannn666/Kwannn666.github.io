@@ -3,19 +3,20 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Jen-Wei Kuo | AI/ML, Edge AI & Computer Vision</title>
+  <title>Jen-Wei Kuo | Kaggle Expert · AI/ML &amp; Edge AI</title>
   <meta name="description" content="Jen-Wei Kuo portfolio: Kaggle Expert, AI/ML engineer, computer vision researcher, and edge AI developer across Jetson, wireless DRL, and embedded systems." />
   <meta name="author" content="Jen-Wei Kuo" />
   <meta name="theme-color" content="#101312" />
   <link rel="canonical" href="https://kwannn666.github.io/" />
-  <meta property="og:title" content="Jen-Wei Kuo | AI/ML, Edge AI & Computer Vision" />
+  <meta property="og:title" content="Jen-Wei Kuo | Kaggle Expert · AI/ML &amp; Edge AI" />
   <meta property="og:description" content="Kaggle Expert building deployable AI systems across edge AI, medical vision, wireless DRL, and embedded hardware." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://kwannn666.github.io/" />
   <meta property="og:image" content="https://kwannn666.github.io/assets/images/profile.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
-  <link rel="stylesheet" href="styles.css?v=20260710-ai-portfolio" />
+  <script src="theme-init.js?v=20260908"></script>
+  <link rel="stylesheet" href="styles.css?v=20260908-release" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -27,67 +28,109 @@
     "jobTitle": "AI/ML Engineer",
     "affiliation": { "@type": "CollegeOrUniversity", "name": "National Cheng Kung University" },
     "knowsAbout": ["Edge AI", "Computer Vision", "Deep Reinforcement Learning", "Wireless Communication", "Generative AI", "Embedded Systems"],
-    "sameAs": ["https://github.com/Kwannn666", "https://www.linkedin.com/in/%E4%BA%BA%E7%91%8B-%E9%83%AD-89026a29a/"]
+    "sameAs": ["https://www.kaggle.com/kuojenwei", "https://github.com/Kwannn666", "https://www.linkedin.com/in/%E4%BA%BA%E7%91%8B-%E9%83%AD-89026a29a/"]
   }
   </script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header" id="top">
+    <div class="scroll-progress" aria-hidden="true"></div>
     <nav class="nav shell" aria-label="Main navigation">
       <a class="brand" href="#top" aria-label="Jen-Wei Kuo home">
         <span class="brand-mark">JW</span>
         <span>
           <strong>Jen-Wei Kuo</strong>
-          <small>AI/ML · Edge AI · Computer Vision</small>
+          <small>Kaggle Expert · AI/ML Engineer</small>
         </span>
       </a>
-      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+      <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="primaryNav">
         <span></span><span></span><span></span>
       </button>
-      <div class="nav-links">
+      <div class="nav-links" id="primaryNav">
         <a href="#about">About</a>
-        <a href="#aidsp">AIDSP</a>
-        <a href="#projects">Projects</a>
-        <a href="#research">Research</a>
-        <a href="#publication">Publication</a>
+        <a href="#education">Education</a>
+        <a href="#research">Thesis</a>
         <a href="#awards">Awards</a>
+        <a href="#publication">Publication</a>
+        <a href="#projects">Projects</a>
+        <a href="#aidsp">Edge AI</a>
+        <a href="#skills">Toolkit</a>
         <a href="#contact">Contact</a>
-        <button class="icon-btn" id="themeToggle" aria-label="Toggle theme">
-          <span class="sun"></span>
+        <button class="icon-btn" id="themeToggle" type="button" aria-label="Switch to light theme" hidden>
+          <span class="sun" aria-hidden="true"></span>
         </button>
       </div>
     </nav>
   </header>
 
-  <main id="main">
+  <main id="main" tabindex="-1">
     <section class="hero">
       <canvas class="hero-canvas" id="systemsCanvas" aria-hidden="true"></canvas>
       <div class="hero-grid shell">
         <div class="hero-copy reveal">
-          <p class="eyebrow">NCKU CCE · Kaggle Competition Expert</p>
-          <h1>Deployable AI, from research models to edge systems.</h1>
+          <p class="eyebrow">Jen-Wei (Wayne) Kuo · 郭人瑋</p>
+          <a class="expert-badge" href="https://www.kaggle.com/kuojenwei" target="_blank" rel="noreferrer"><span class="kaggle-mark" aria-hidden="true">k</span>Competitions Expert <span class="expert-tier">Global Top 1%</span><span aria-hidden="true">↗</span></a>
+          <h1><span class="expert-heading">Kaggle Expert.</span><br><em>Building real-world AI.</em></h1>
           <p class="hero-text">
-            I build AI systems across computer vision, wireless DRL, generative AI, and embedded hardware.
-            Recent work includes Jetson deployment, medical segmentation, clinical gait analysis, and
-            competition-grade ML pipelines with rigorous evaluation.
+            I build learning models and the systems around them. My work connects AI/ML, computer vision,
+            wireless optimization, and embedded hardware — from competition pipelines to autonomous vessels and Jetson deployment.
           </p>
           <div class="hero-actions">
-            <a class="btn primary" href="#aidsp"><span class="btn-icon">A</span>AIDSP Suite</a>
-            <a class="btn secondary" href="#projects"><span class="btn-icon">P</span>Projects</a>
-            <a class="btn tertiary" href="assets/JenWei_Kuo_Resume.pdf" target="_blank" rel="noreferrer"><span class="btn-icon">CV</span>Download CV</a>
+            <a class="btn primary" href="#projects">Explore projects <span aria-hidden="true">↗</span></a>
+            <a class="btn secondary" href="assets/JenWei_Kuo_Resume.pdf" target="_blank" rel="noreferrer">Download CV <span class="btn-icon" aria-hidden="true">PDF</span></a>
+            <a class="btn tertiary" href="https://www.kaggle.com/kuojenwei" target="_blank" rel="noreferrer">Kaggle profile <span aria-hidden="true">↗</span></a>
           </div>
           <div class="metric-strip" aria-label="Highlights">
             <div><strong>Top 1%</strong><span>Kaggle Expert</span></div>
             <div><strong>15 / 2,240</strong><span>NeurIPS Silver</span></div>
             <div><strong>2nd</strong><span>CVPR CV4CHL Gold</span></div>
-            <div><strong>15 FPS</strong><span>Jetson NST stream</span></div>
+            <div><strong>15 FPS</strong><span>Jetson vision stream</span></div>
           </div>
         </div>
 
-        <aside class="profile-panel reveal" aria-label="Profile snapshot">
+        <div class="hero-visual">
+          <figure class="scene-shell" aria-labelledby="sceneTitle" aria-describedby="sceneHelp">
+            <figcaption class="scene-heading">
+              <span class="eyebrow" id="sceneTitle">My thesis, in 3D.</span>
+              <a class="scene-tag" href="#research">Dual-UAV · RIS · SWIPT ↗</a>
+            </figcaption>
+            <div class="scene-stage">
+              <canvas id="networkCanvas" aria-hidden="true"></canvas>
+              <div class="scene-fallback" id="sceneFallback">
+                <img src="assets/images/dual-uav-ris-swipt.jpg" alt="Thesis system model: access point, two UAV-mounted RIS panels and user regions" width="661" height="423" decoding="async" />
+              </div>
+              <div class="scene-labels" id="sceneLabels" role="group" aria-label="Explore thesis system components" hidden>
+                <button type="button" data-entity="ap" aria-pressed="false">AP</button>
+                <button type="button" data-entity="uav1" aria-pressed="false">UAV 1 + RIS</button>
+                <button type="button" data-entity="uav2" aria-pressed="false">UAV 2 + RIS</button>
+                <button type="button" data-entity="usersA" aria-pressed="false">Users · A</button>
+                <button type="button" data-entity="usersB" aria-pressed="false">Users · B</button>
+              </div>
+            </div>
+            <div class="scene-legend" aria-label="Wireless link legend"><span class="link-ap">AP–UAV/RIS</span><span class="link-user">RIS–User</span><span class="link-blocked">Direct path blocked</span><span>Illustrative patrol</span></div>
+            <div class="scene-footer" id="sceneControls" hidden>
+              <p id="sceneHelp">Drag / arrows to rotate · + / − to zoom</p>
+              <div class="scene-buttons" role="group" aria-label="3D view controls">
+                <button type="button" id="sceneLeft" aria-label="Rotate 3D view left" title="Rotate left">←</button>
+                <button type="button" id="sceneRight" aria-label="Rotate 3D view right" title="Rotate right">→</button>
+                <button type="button" id="sceneZoomIn" aria-label="Zoom in on thesis model" title="Zoom in">+</button>
+                <button type="button" id="sceneZoomOut" aria-label="Zoom out from thesis model" title="Zoom out">−</button>
+                <button type="button" id="sceneReset" aria-label="Reset 3D view" title="Reset view">↺</button>
+                <button type="button" id="sceneMotion" aria-label="Pause UAVs, regions and signals" aria-pressed="false" title="Pause UAVs, regions and signals">Ⅱ</button>
+              </div>
+            </div>
+            <div class="scene-detail" id="sceneDetail" role="status" aria-live="polite" aria-atomic="true">
+              <strong id="sceneDetailTitle">Two UAVs. One coordinated system.</strong>
+              <p id="sceneDetailText">Buildings block the direct AP–user path. Two UAVs patrol their own service regions, linking the AP to users through RIS panels. Select a label to explore.</p>
+            </div>
+          </figure>
+        <aside class="profile-panel" aria-label="Profile snapshot">
           <div class="profile-frame">
-            <img src="assets/images/profile.jpg" alt="Jen-Wei Kuo portrait" />
+            <picture>
+              <source type="image/webp" srcset="assets/images/profile-360.webp 360w, assets/images/profile-720.webp 720w" sizes="80px" />
+              <img src="assets/images/profile.jpg" alt="Jen-Wei Kuo portrait" width="1146" height="1681" fetchpriority="high" />
+            </picture>
           </div>
           <div class="profile-summary">
             <p class="eyebrow">Wayne Kuo</p>
@@ -98,15 +141,16 @@
             </div>
           </div>
         </aside>
+        </div>
       </div>
     </section>
 
     <section class="section shell" id="about">
       <div class="section-head reveal">
-        <p class="eyebrow">Positioning</p>
-        <h2>Research rigor with systems that can actually run.</h2>
+        <p class="eyebrow">01 / About</p>
+        <h2>Research mindset.<br>Engineering practice.</h2>
         <p>
-          My work connects model design, feature engineering, edge deployment, and hardware integration.
+          I am an M.S. candidate in Computer and Communication Engineering at National Cheng Kung University, and a Kaggle Competitions Expert in the global top 1%. My work connects model design, feature engineering, edge deployment, and hardware integration.
           I care about the full path from input signal to measurable outcome, whether it is an MRI mask,
           a Jetson dashboard, a UAV policy, or an embedded control loop.
         </p>
@@ -114,8 +158,8 @@
       <div class="domain-grid">
         <article class="domain-card reveal">
           <span class="domain-code">01</span>
-          <h3>Edge AI</h3>
-          <p>Jetson Xavier NX, ONNX Runtime, TensorRT FP16, Docker, FastAPI, Gradio, cameras, and live streaming.</p>
+          <h3>ML + GenAI</h3>
+          <p>PyTorch, ensemble learning, feature engineering, RAG, LLM applications, Stable Diffusion, and ControlNet.</p>
         </article>
         <article class="domain-card reveal">
           <span class="domain-code">02</span>
@@ -124,21 +168,342 @@
         </article>
         <article class="domain-card reveal">
           <span class="domain-code">03</span>
-          <h3>ML + GenAI</h3>
-          <p>PyTorch, ensemble learning, feature engineering, RAG, LLM applications, Stable Diffusion, and ControlNet.</p>
-        </article>
-        <article class="domain-card reveal">
-          <span class="domain-code">04</span>
           <h3>Wireless + Embedded</h3>
           <p>DRL-based optimization, RIS and UAV communication, Raspberry Pi, STM32, Arduino, DSP, and closed-loop control.</p>
         </article>
+        <article class="domain-card reveal">
+          <span class="domain-code">04</span>
+          <h3>Edge AI</h3>
+          <p>Jetson Xavier NX, ONNX Runtime, TensorRT FP16, Docker, FastAPI, Gradio, cameras, and live streaming.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section shell" id="education">
+      <div class="section-head reveal">
+        <p class="eyebrow">02 / Education</p>
+        <h2>AI research, grounded in engineering.</h2>
+      </div>
+      <div class="education-grid">
+        <article class="education-card reveal">
+          <span>Sep 2024 – Jul 2026</span>
+          <h3>National Cheng Kung University</h3>
+          <p class="degree">M.S. in Computer and Communication Engineering</p>
+          <p>Advisor: Prof. Wenson Chang · Intelligent Communication Lab</p>
+          <p>DRL-based optimization, wireless communication, and energy-aware resource allocation.</p>
+        </article>
+        <article class="education-card reveal">
+          <span>Sep 2020 – Jun 2024</span>
+          <h3>National Cheng Kung University</h3>
+          <p class="degree">B.S. in Systems and Naval Mechatronic Engineering</p>
+          <p>Capstone advisor: Prof. Chien-Hsing Lee · Lab617</p>
+          <p>Intelligent unmanned vessel: sound-source recognition and electromechanical integration.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section shell thesis-section" id="research" aria-labelledby="thesisTitle">
+      <div class="section-head reveal">
+        <p class="eyebrow">03 / Master's Thesis</p>
+        <h2 id="thesisTitle">Dual-UAV RIS-Assisted SWIPT Networks</h2>
+        <p>Voronoi-based energy-aware user partitioning and DRL resource allocation.</p>
+      </div>
+      <div class="thesis-layout">
+        <figure class="thesis-figure reveal">
+          <a href="assets/images/dual-uav-ris-swipt.jpg" target="_blank" rel="noreferrer" aria-label="Open full-size thesis architecture diagram">
+            <img src="assets/images/dual-uav-ris-swipt.jpg" alt="Dual-UAV RIS-assisted SWIPT architecture with an access point, two UAV-mounted RIS panels, user terminals, partitioned service regions and wireless links" width="661" height="423" loading="lazy" decoding="async" />
+          </a>
+          <figcaption>System model: an access point, two UAV-mounted RIS panels, and partitioned user regions. <a href="assets/images/dual-uav-ris-swipt.jpg" target="_blank" rel="noreferrer">View full-size diagram ↗</a></figcaption>
+        </figure>
+        <div class="thesis-summary reveal">
+          <p class="project-kicker">NCKU · Intelligent Communication Lab · 2024–2026</p>
+          <h3>Energy-aware decisions in dynamic wireless networks.</h3>
+          <p>My M.S. research under Prof. Wenson Chang studies how to partition users and allocate resources in dual-UAV RIS-assisted SWIPT networks.</p>
+          <p>The decision space covers time-switching, power allocation, and RIS phase-shift control, with energy-harvesting efficiency as a central objective.</p>
+          <div class="mini-stack"><span>Deep Reinforcement Learning</span><span>Voronoi Partitioning</span><span>RIS</span><span>SWIPT</span></div>
+        </div>
+      </div>
+      <div class="thesis-methods">
+        <article class="reveal"><span>01 / PARTITION</span><h3>Plan service regions</h3><p>Energy-aware Voronoi partitioning assigns users to UAV service regions.</p></article>
+        <article class="reveal"><span>02 / OPTIMIZE</span><h3>Learn resource decisions</h3><p>DRL learns time-switching, power allocation, and RIS phase decisions under dynamic wireless states.</p></article>
+        <article class="reveal"><span>03 / EVALUATE</span><h3>Examine system tradeoffs</h3><p>Study energy-harvesting efficiency, throughput, and service quality across resource-allocation decisions.</p></article>
+      </div>
+    </section>
+
+    <section class="section shell" id="awards">
+      <div class="section-head reveal">
+        <p class="eyebrow">04 / Competitions &amp; Awards</p>
+        <h2>Recognition through competition.</h2>
+      </div>
+      <div class="kaggle-highlight reveal">
+        <div class="kaggle-intro">
+          <p class="eyebrow">Kaggle Competitions</p>
+          <h3>Expert. Global Top 1%.</h3>
+          <p>Competition experience in predictive modeling, feature engineering, and ensemble learning.</p>
+          <a href="https://www.kaggle.com/kuojenwei" target="_blank" rel="noreferrer">View my Kaggle profile <span aria-hidden="true">↗</span></a>
+        </div>
+        <dl class="kaggle-stats">
+          <div><dt>Rank · profile snapshot</dt><dd>1,296 <small>/ 212,639</small></dd></div>
+          <div><dt>Highest rank achieved</dt><dd>1,260</dd></div>
+          <div><dt>Competition medals</dt><dd><span class="silver-medal">1 Silver</span> <span class="bronze-medal">1 Bronze</span></dd></div>
+        </dl>
+      </div>
+      <div class="award-timeline">
+        <article class="award-item reveal"><span>2025</span><h3>Kaggle NeurIPS Open Polymer</h3><p>Silver Medal · top 0.66% · 15 / 2,240.</p></article>
+        <article class="award-item reveal"><span>2026</span><h3>CVPR CV4CHL</h3><p>Gold Award · 2nd place · Team CCE.</p></article>
+        <article class="award-item reveal"><span>Kaggle</span><h3>Orbit Wars</h3><p>Bronze Medal · top 7.7% · 365 / 4,729.</p></article>
+        <article class="award-item reveal"><span>2026</span><h3>AI CUP ESG Verification</h3><p>Honorable Mention (佳作) · TEAM_10365.</p></article>
+        <article class="award-item reveal"><span>S5E8</span><h3>Kaggle Bank Classification</h3><p>Top 6.7% · 227 / 3,377.</p></article>
+        <article class="award-item reveal"><span>S6E3</span><h3>Kaggle Customer Churn</h3><p>Top 6.9% · 286 / 4,142.</p></article>
+        <article class="award-item reveal"><span>2025</span><h3>TAISC at IEEE AVSS</h3><p>12th place · traffic accident classification.</p></article>
+        <article class="award-item reveal"><span>2025</span><h3>AI CUP Smart Racket</h3><p>Top 7.4% · 47 / 633.</p></article>
+        <article class="award-item reveal"><span>AI GO</span><h3>SinoPac Financial Forecasting</h3><p>Top 13.9% · 121 / 868.</p></article>
+      </div>
+    </section>
+
+    <section class="section shell" id="publication">
+      <div class="publication-panel reveal">
+        <div>
+          <p class="eyebrow">05 / Publication</p>
+          <h2>Clinical gait analysis with multi-view features and rule coupling.</h2>
+          <p>Accepted non-proceeding submission to the CVPR 2026 Workshop on Computer Vision for Children (CV4CHL).</p>
+          <p class="citation">Kuo Jen Wei, Yi-Ting Ku. “Clinically-Grounded Multi-View Features and Cross-Track Rule Coupling for Children Gait Visual Analysis.”</p>
+          <div class="project-links"><a href="https://github.com/Kwannn666/CVPR-2026_CGC" target="_blank" rel="noreferrer">Read project materials</a></div>
+        </div>
+        <div class="architecture-diagram publication-diagram" aria-label="Publication method overview">
+          <div class="architecture-flow"><span>Pose sequences</span><i></i><span>Clinical views</span></div>
+          <div class="architecture-flow"><span>MotionBERT PCA</span><i></i><span>Cross-track rules</span></div>
+          <p>Interpretable features + priors for robust small-data gait analysis</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section shell" id="projects">
+      <div class="section-head reveal">
+        <p class="eyebrow">06 / Selected Projects</p>
+        <h2>Built, tested, and put to work.</h2>
+        <p>From autonomous hardware and edge deployment to medical vision, efficient models, and generative AI.</p>
+      </div>
+      <div class="toolbar reveal" role="group" aria-label="Project filters" hidden>
+        <button type="button" class="filter active" data-filter="all">All</button>
+        <button type="button" class="filter" data-filter="research">Research</button>
+        <button type="button" class="filter" data-filter="vision">Vision</button>
+        <button type="button" class="filter" data-filter="ml">ML / Data</button>
+        <button type="button" class="filter" data-filter="edge">Edge AI</button>
+        <button type="button" class="filter" data-filter="embedded">Embedded</button>
+        <label class="search-label">
+          <span>Search</span>
+          <input id="projectSearch" type="search" placeholder="Jetson, CVPR, RAG..." aria-controls="projectGrid" />
+        </label>
+      </div>
+      <p class="results-count" id="projectCount" role="status" aria-live="polite" aria-atomic="true" hidden></p>
+      <div class="empty-state" id="projectEmpty" hidden>
+        <h3>No projects found</h3>
+        <p>Try another keyword or explore all project areas.</p>
+        <button class="btn secondary" id="resetFilters" type="button">Clear filters</button>
+      </div>
+      <div class="project-grid" id="projectGrid">
+        <article class="project-card reveal featured" data-tags="embedded edge vision audio vessel raspberry pi arduino yolo">
+          <a class="project-image photo" href="assets/images/project10.jpg" target="_blank" rel="noreferrer" aria-label="Open full-size image: Intelligent unmanned vessel capstone team and hull prototype"><picture><source type="image/webp" srcset="assets/images/project10-480.webp 480w, assets/images/project10-960.webp 960w" sizes="(max-width: 620px) calc(100vw - 40px), (max-width: 1120px) 45vw, 370px" /><img src="assets/images/project10.jpg" alt="Intelligent unmanned vessel capstone team and hull prototype" width="3300" height="2475" loading="lazy" decoding="async" /></picture></a>
+          <div class="project-card-body">
+            <p class="project-kicker">Capstone · Mar 2023 – Jan 2024</p>
+            <h3>Intelligent Unmanned Vessel</h3>
+            <p>Led sound-source recognition and electromechanical integration using Raspberry Pi, Arduino, Python, and C++. Combined motor-noise-resistant acoustic navigation, heading control, and YOLOv8 LED recognition in an autonomous vessel.</p>
+            <div class="outcome-row"><span>YOLOv8 LED recognition</span><strong>AP@0.5 0.995</strong></div>
+          </div>
+        </article>
+
+        <article class="project-card reveal featured" data-tags="edge vision ml genai jetson onnx tensorrt docker audio controlnet gemma">
+          <div class="project-media architecture-diagram compact" aria-label="AIDSP deployment suite overview">
+            <div class="architecture-flow"><span>Audio + LLM</span><i></i><span>Jetson</span></div>
+            <div class="architecture-flow"><span>Vision</span><i></i><span>TensorRT FP16</span></div>
+          </div>
+          <div class="project-card-body">
+            <p class="project-kicker">AIDSP Suite · Mar – Jun 2026</p>
+            <h3>Edge AI &amp; GenAI Deployment Suite</h3>
+            <p>Four Jetson demos: audio-to-lyrics with Gemma, real-time neural style transfer, gait authentication, and ControlNet image generation.</p>
+            <div class="outcome-row"><span>Webcam streaming</span><strong>15 FPS</strong></div>
+            <div class="project-links"><a href="#aidsp">Explore the four demos</a></div>
+          </div>
+        </article>
+
+        <article class="project-card reveal" data-tags="vision medical segmentation attention unet mri">
+          <a class="project-image" href="assets/images/project1.jpg" target="_blank" rel="noreferrer" aria-label="Open full-size image: Brain tumor MRI segmentation outputs and training curves"><img src="assets/images/project1.jpg" alt="Brain tumor MRI segmentation outputs and training curves" width="237" height="165" loading="lazy" decoding="async" /></a>
+          <div class="project-card-body">
+            <p class="project-kicker">Medical Vision · 2025</p>
+            <h3>Brain Tumor MRI Segmentation</h3>
+            <p>Custom Attention U-Net with elastic deformation augmentation for LGG MRI segmentation, including qualitative mask comparison and metric tracking.</p>
+            <div class="outcome-row"><span>Validation / test Dice</span><strong>0.9070 / 0.9116</strong></div>
+            <div class="project-links"><a href="https://github.com/Kwannn666/tumor-seg-attention-unet" target="_blank" rel="noreferrer">View repository</a></div>
+          </div>
+        </article>
+
+        <article class="project-card reveal" data-tags="vision ml multitask classification detection segmentation">
+          <a class="project-image" href="assets/images/project3.jpg" target="_blank" rel="noreferrer" aria-label="Open full-size image: Unified-OneHead multi-task model architecture"><img src="assets/images/project3.jpg" alt="Unified-OneHead multi-task model architecture" width="428" height="693" loading="lazy" decoding="async" /></a>
+          <div class="project-card-body">
+            <p class="project-kicker">Personal Project · 2025</p>
+            <h3>Unified-OneHead Multi-Task Learning</h3>
+            <p>Shared-encoder and single-head architecture for classification, detection, and segmentation, with a replay buffer to reduce catastrophic forgetting.</p>
+            <div class="outcome-row"><span>Performance degradation</span><strong>Within 5%</strong></div>
+          </div>
+        </article>
+
+        <article class="project-card reveal" data-tags="vision ml dynamicconv lightweight">
+          <a class="project-image" href="assets/images/project4.jpg" target="_blank" rel="noreferrer" aria-label="Open full-size image: DynamicConv model workflow"><img src="assets/images/project4.jpg" alt="DynamicConv model workflow" width="155" height="441" loading="lazy" decoding="async" /></a>
+          <div class="project-card-body">
+            <p class="project-kicker">Personal Project · 2025</p>
+            <h3>DynamicConv Lightweight Convolution</h3>
+            <p>MLP-generated dynamic kernels conditioned on each input, supporting RGB, RG, and R channel combinations for flexible lightweight vision.</p>
+            <div class="mini-stack"><span>Dynamic kernels</span><span>MLP</span><span>Vision</span></div>
+          </div>
+        </article>
+
+        <article class="project-card reveal" data-tags="vision ml transformer tinyvit lightweight">
+          <a class="project-image" href="assets/images/project5.jpg" target="_blank" rel="noreferrer" aria-label="Open full-size image: TinyViT architecture diagram"><img src="assets/images/project5.jpg" alt="TinyViT architecture diagram" width="227" height="894" loading="lazy" decoding="async" /></a>
+          <div class="project-card-body">
+            <p class="project-kicker">Personal Project · 2025</p>
+            <h3>TinyViT Lightweight Vision Model</h3>
+            <p>ViT-inspired classifier with ablation studies on FFN size and patch resolution, designed for an efficient accuracy-footprint balance.</p>
+            <div class="outcome-row"><span>Parameters / FLOPs / accuracy</span><strong>1.1M / 5M / 90%</strong></div>
+          </div>
+        </article>
+
+        <article class="project-card reveal" data-tags="ml edge genai rag langchain openai interview docker">
+          <a class="project-image" href="assets/images/project7.jpg" target="_blank" rel="noreferrer" aria-label="Open full-size image: AI mock interview platform interface"><img src="assets/images/project7.jpg" alt="AI mock interview platform interface" width="962" height="799" loading="lazy" decoding="async" /></a>
+          <div class="project-card-body">
+            <p class="project-kicker">Academic Project · 2025</p>
+            <h3>AI Mock-Interview Platform</h3>
+            <p>Resume-aware interview simulation with GPT-4o, LangChain, vector-DB RAG, and feedback that adapts to company-culture profiles.</p>
+            <div class="mini-stack"><span>Streamlit</span><span>RAG</span><span>Docker</span></div>
+          </div>
+        </article>
+
+        <article class="project-card reveal" data-tags="vision ml data clip xgboost traffic competition">
+          <a class="project-image" href="assets/images/project8.jpg" target="_blank" rel="noreferrer" aria-label="Open full-size image: Traffic accident prediction model workflow using CLIP features and XGBoost"><img src="assets/images/project8.jpg" alt="Traffic accident prediction model workflow using CLIP features and XGBoost" width="197" height="969" loading="lazy" decoding="async" /></a>
+          <div class="project-card-body">
+            <p class="project-kicker">Academic Project · 2024</p>
+            <h3>Traffic Accident Prediction</h3>
+            <p>CLIP semantic similarity, prompt similarity, and visual features combined with XGBoost for image-based accident-risk scoring.</p>
+            <div class="outcome-row"><span>TAISC at IEEE AVSS</span><strong>12th place</strong></div>
+          </div>
+        </article>
+
+        <article class="project-card reveal" data-tags="embedded control lqr arduino matlab robotics">
+          <a class="project-image" href="assets/images/project9.jpg" target="_blank" rel="noreferrer" aria-label="Open full-size image: Arduino two-wheel balance car prototype"><img src="assets/images/project9.jpg" alt="Arduino two-wheel balance car prototype" width="295" height="343" loading="lazy" decoding="async" /></a>
+          <div class="project-card-body">
+            <p class="project-kicker">Academic Project · 2022-2023</p>
+            <h3>Two-Wheel Balance Car with LQR</h3>
+            <p>Arduino C++ implementation of an inverted-pendulum vehicle with MATLAB LQR simulation and swarm-algorithm parameter tuning.</p>
+            <div class="mini-stack"><span>Arduino</span><span>MATLAB</span><span>LQR</span></div>
+          </div>
+        </article>
+
+
+
+        <article class="project-card reveal" data-tags="vision research competition cvpr medical gait pose publication">
+          <div class="project-media architecture-diagram compact" aria-label="Children gait visual analysis architecture">
+            <div class="architecture-flow"><span>2D pose</span><i></i><span>Clinical features</span></div>
+            <div class="architecture-flow"><span>MotionBERT</span><i></i><span>Rule coupling</span><i></i><span>Gait output</span></div>
+          </div>
+          <div class="project-card-body">
+            <p class="project-kicker">CVPR 2026 CV4CHL</p>
+            <h3>Children Gait Visual Analysis</h3>
+            <p>Clinical multi-view gait descriptors and MotionBERT-PCA priors for EVGS prediction and cerebral-palsy gait classification in a small-data setting.</p>
+            <div class="outcome-row"><span>Final post-evaluation</span><strong>Gold · Rank 2</strong></div>
+            <div class="project-links"><a href="https://github.com/Kwannn666/CVPR-2026_CGC" target="_blank" rel="noreferrer">View repository</a></div>
+          </div>
+        </article>
+
+        <article class="project-card reveal" data-tags="ml data competition nlp esg ensemble llm mdeberta">
+          <div class="project-media architecture-diagram compact" aria-label="ESG verification system architecture">
+            <div class="architecture-flow"><span>Reports</span><i></i><span>5 encoders</span><i></i><span>LLM blend</span></div>
+            <div class="architecture-flow"><span>Cascade</span><i></i><span>mDeBERTa</span><i></i><span>4 tasks</span></div>
+          </div>
+          <div class="project-card-body">
+            <p class="project-kicker">AI CUP 2026 · ESG NLP</p>
+            <h3>VeriPromiseESG</h3>
+            <p>Four-task ESG promise verification using a five-layer decision cascade: encoder ensemble, LLM blending, hierarchical constraints, and mDeBERTa residual fusion.</p>
+            <div class="outcome-row"><span>Public / Private rank</span><strong>5 / 143 · 14 / 137</strong></div>
+            <div class="project-links"><a href="https://github.com/Kwannn666/TEAM_10365_ESG-VeriPromiseESG" target="_blank" rel="noreferrer">View repository</a></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section shell" id="aidsp">
+      <div class="section-head reveal">
+        <p class="eyebrow">07 / Edge AI Lab</p>
+        <h2>Models meet the edge.</h2>
+        <p>Four Jetson demos exploring audio, real-time vision, gait authentication, and controllable image generation.</p>
+      </div>
+      <div class="showcase reveal">
+        <div class="showcase-tabs" role="tablist" aria-label="AIDSP project tabs">
+          <button class="showcase-tab active" data-panel="music" id="tab-music" aria-controls="panel-music" type="button" role="tab" aria-selected="true">Audio + LLM</button>
+          <button class="showcase-tab" data-panel="nst" id="tab-nst" aria-controls="panel-nst" type="button" role="tab" aria-selected="false">Real-time NST</button>
+          <button class="showcase-tab" data-panel="gait" id="tab-gait" aria-controls="panel-gait" type="button" role="tab" aria-selected="false">GaitPass</button>
+          <button class="showcase-tab" data-panel="controlnet" id="tab-controlnet" aria-controls="panel-controlnet" type="button" role="tab" aria-selected="false">ControlNet</button>
+        </div>
+        <div class="showcase-body">
+          <article class="showcase-panel active" data-panel="music" id="panel-music" role="tabpanel" aria-labelledby="tab-music" tabindex="0">
+            <div>
+              <p class="project-kicker">AIDSP Project 1 · Jetson Xavier NX</p>
+              <h3>Edge Music Lyrics</h3>
+              <p>Records 20 seconds of audio, creates a log-mel spectrogram, runs ONNX genre and mood analysis, then generates themed lyrics through a local Gemma API. The demo preserves a usable fallback path when a microphone, ONNX model, or LLM service is unavailable.</p>
+              <div class="mini-stack"><span>FastAPI</span><span>Gradio</span><span>ONNX Runtime</span><span>Gemma</span></div>
+              <div class="project-links"><a href="https://github.com/Kwannn666/AIDSP-Project1-edge-music-lyrics" target="_blank" rel="noreferrer">View repository</a></div>
+            </div>
+            <div class="architecture-diagram" aria-label="Audio to lyrics architecture">
+              <div class="architecture-flow"><span>20 s audio</span><i></i><span>Log-mel</span><i></i><span>ONNX</span><i></i><span>Gemma</span></div>
+              <p>Capture -> spectrogram -> genre/mood -> lyrics</p>
+            </div>
+          </article>
+          <article class="showcase-panel" data-panel="nst" id="panel-nst" role="tabpanel" aria-labelledby="tab-nst" tabindex="0">
+            <div>
+              <p class="project-kicker">AIDSP Project 2 · Real-time vision</p>
+              <h3>Neural Style Transfer Streaming</h3>
+              <p>A USB webcam pipeline that converts a PyTorch reference model to ONNX and TensorRT FP16, then serves style-switched video through a Flask MJPEG dashboard. End-to-end streaming reached 15 FPS on Jetson Xavier NX.</p>
+              <div class="mini-stack"><span>PyTorch</span><span>ONNX</span><span>TensorRT FP16</span><span>15 FPS</span></div>
+              <div class="project-links"><a href="https://github.com/Kwannn666/AIDSP-Project2-Real-Time-Neural-Style-Transfer" target="_blank" rel="noreferrer">View repository</a></div>
+            </div>
+            <div class="architecture-diagram" aria-label="Neural style transfer deployment architecture">
+              <div class="architecture-flow"><span>Webcam</span><i></i><span>ONNX</span><i></i><span>TensorRT</span><i></i><span>MJPEG</span></div>
+              <p>USB video -> FP16 inference -> style stream</p>
+            </div>
+          </article>
+          <article class="showcase-panel" data-panel="gait" id="panel-gait" role="tabpanel" aria-labelledby="tab-gait" tabindex="0">
+            <div>
+              <p class="project-kicker">AIDSP Project 3 · Privacy-preserving access</p>
+              <h3>GaitPass Jetson</h3>
+              <p>A camera-based access-control prototype that detects people, tracks motion, builds gait descriptors, matches an enrolled gallery, and raises tailgating alerts. The runtime uses YOLOv8-pose with 17 keypoints and has an HOG fallback when model files are unavailable.</p>
+              <div class="mini-stack"><span>YOLOv8-pose</span><span>17 keypoints</span><span>Docker</span><span>Tailgating alerts</span></div>
+              <div class="project-links"><a href="https://github.com/Kwannn666/AIDSP-Project3-GaitPass" target="_blank" rel="noreferrer">View repository</a></div>
+            </div>
+            <div class="architecture-diagram" aria-label="Gait authentication architecture">
+              <div class="architecture-flow"><span>Camera</span><i></i><span>Pose</span><i></i><span>Gait ID</span><i></i><span>Alert</span></div>
+              <p>Detect -> track -> authenticate -> protect access</p>
+            </div>
+          </article>
+          <article class="showcase-panel" data-panel="controlnet" id="panel-controlnet" role="tabpanel" aria-labelledby="tab-controlnet" tabindex="0">
+            <div>
+              <p class="project-kicker">AIDSP Project 4 · Controllable diffusion</p>
+              <h3>ControlNet Diffusion Studio</h3>
+              <p>A Gradio demo for Canny edge-to-image and sketch-to-image generation. The interface exposes steps, CFG scale, ControlNet weight, scheduler, seed, optional LoRA, and batch ablation logging, with a Jetson Xavier deployment guide.</p>
+              <div class="mini-stack"><span>Stable Diffusion</span><span>ControlNet</span><span>Gradio</span><span>Ablation study</span></div>
+              <div class="project-links"><a href="https://github.com/Kwannn666/AIDSP-Project4-ControlNet" target="_blank" rel="noreferrer">View repository</a></div>
+            </div>
+            <div class="architecture-diagram" aria-label="ControlNet diffusion architecture">
+              <div class="architecture-flow"><span>Sketch</span><i></i><span>Canny</span><i></i><span>ControlNet</span><i></i><span>Image</span></div>
+              <p>Structure + prompt -> controllable diffusion output</p>
+            </div>
+          </article>
+        </div>
       </div>
     </section>
 
     <section class="section system-section" id="system-map">
       <div class="shell system-layout">
         <div class="section-head reveal">
-          <p class="eyebrow">Engineering Map</p>
+          <p class="eyebrow">How I work</p>
           <h2>From signal and data to a deployed decision.</h2>
           <p>
             Across my projects, inputs such as audio, video, medical images, and wireless states become learned
@@ -158,290 +523,44 @@
       </div>
     </section>
 
-    <section class="section shell" id="aidsp">
-      <div class="section-head reveal">
-        <p class="eyebrow">AIDSP Edge AI Suite</p>
-        <h2>Four deployable demos for Jetson and real-world inputs.</h2>
-        <p>Each project has a public repository and a compact architecture map showing the pipeline rather than a generic screenshot.</p>
-      </div>
-      <div class="showcase reveal">
-        <div class="showcase-tabs" role="tablist" aria-label="AIDSP project tabs">
-          <button class="showcase-tab active" data-panel="music" role="tab" aria-selected="true">Audio + LLM</button>
-          <button class="showcase-tab" data-panel="nst" role="tab" aria-selected="false">Real-time NST</button>
-          <button class="showcase-tab" data-panel="gait" role="tab" aria-selected="false">GaitPass</button>
-          <button class="showcase-tab" data-panel="controlnet" role="tab" aria-selected="false">ControlNet</button>
-        </div>
-        <div class="showcase-body">
-          <article class="showcase-panel active" data-panel="music">
-            <div>
-              <p class="project-kicker">AIDSP Project 1 · Jetson Xavier NX</p>
-              <h3>Edge Music Lyrics</h3>
-              <p>Records 20 seconds of audio, creates a log-mel spectrogram, runs ONNX genre and mood analysis, then generates themed lyrics through a local Gemma API. The demo preserves a usable fallback path when a microphone, ONNX model, or LLM service is unavailable.</p>
-              <div class="mini-stack"><span>FastAPI</span><span>Gradio</span><span>ONNX Runtime</span><span>Gemma</span></div>
-              <div class="project-links"><a href="https://github.com/Kwannn666/AIDSP-Project1-edge-music-lyrics" target="_blank" rel="noreferrer">View repository</a></div>
-            </div>
-            <div class="architecture-diagram" aria-label="Audio to lyrics architecture">
-              <div class="architecture-flow"><span>20 s audio</span><i></i><span>Log-mel</span><i></i><span>ONNX</span><i></i><span>Gemma</span></div>
-              <p>Capture -> spectrogram -> genre/mood -> lyrics</p>
-            </div>
-          </article>
-          <article class="showcase-panel" data-panel="nst">
-            <div>
-              <p class="project-kicker">AIDSP Project 2 · Real-time vision</p>
-              <h3>Neural Style Transfer Streaming</h3>
-              <p>A USB webcam pipeline that converts a PyTorch reference model to ONNX and TensorRT FP16, then serves style-switched video through a Flask MJPEG dashboard. End-to-end streaming reached 15 FPS on Jetson Xavier NX.</p>
-              <div class="mini-stack"><span>PyTorch</span><span>ONNX</span><span>TensorRT FP16</span><span>15 FPS</span></div>
-              <div class="project-links"><a href="https://github.com/Kwannn666/AIDSP-Project2-Real-Time-Neural-Style-Transfer" target="_blank" rel="noreferrer">View repository</a></div>
-            </div>
-            <div class="architecture-diagram" aria-label="Neural style transfer deployment architecture">
-              <div class="architecture-flow"><span>Webcam</span><i></i><span>ONNX</span><i></i><span>TensorRT</span><i></i><span>MJPEG</span></div>
-              <p>USB video -> FP16 inference -> style stream</p>
-            </div>
-          </article>
-          <article class="showcase-panel" data-panel="gait">
-            <div>
-              <p class="project-kicker">AIDSP Project 3 · Privacy-preserving access</p>
-              <h3>GaitPass Jetson</h3>
-              <p>A camera-based access-control prototype that detects people, tracks motion, builds gait descriptors, matches an enrolled gallery, and raises tailgating alerts. The runtime uses YOLOv8-pose with 17 keypoints and has an HOG fallback when model files are unavailable.</p>
-              <div class="mini-stack"><span>YOLOv8-pose</span><span>17 keypoints</span><span>Docker</span><span>Tailgating alerts</span></div>
-              <div class="project-links"><a href="https://github.com/Kwannn666/AIDSP-Project3-GaitPass" target="_blank" rel="noreferrer">View repository</a></div>
-            </div>
-            <div class="architecture-diagram" aria-label="Gait authentication architecture">
-              <div class="architecture-flow"><span>Camera</span><i></i><span>Pose</span><i></i><span>Gait ID</span><i></i><span>Alert</span></div>
-              <p>Detect -> track -> authenticate -> protect access</p>
-            </div>
-          </article>
-          <article class="showcase-panel" data-panel="controlnet">
-            <div>
-              <p class="project-kicker">AIDSP Project 4 · Controllable diffusion</p>
-              <h3>ControlNet Diffusion Studio</h3>
-              <p>A Gradio demo for Canny edge-to-image and sketch-to-image generation. The interface exposes steps, CFG scale, ControlNet weight, scheduler, seed, optional LoRA, and batch ablation logging, with a Jetson Xavier deployment guide.</p>
-              <div class="mini-stack"><span>Stable Diffusion</span><span>ControlNet</span><span>Gradio</span><span>Ablation study</span></div>
-              <div class="project-links"><a href="https://github.com/Kwannn666/AIDSP-Project4-ControlNet" target="_blank" rel="noreferrer">View repository</a></div>
-            </div>
-            <div class="architecture-diagram" aria-label="ControlNet diffusion architecture">
-              <div class="architecture-flow"><span>Sketch</span><i></i><span>Canny</span><i></i><span>ControlNet</span><i></i><span>Image</span></div>
-              <p>Structure + prompt -> controllable diffusion output</p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section shell" id="projects">
-      <div class="section-head reveal">
-        <p class="eyebrow">Selected Projects</p>
-        <h2>Research, competition, and system delivery in one portfolio.</h2>
-        <p>Filter by area or search by task, model, and technology. Diagram cards represent the actual architecture described in each repository.</p>
-      </div>
-      <div class="toolbar reveal" role="toolbar" aria-label="Project filters">
-        <button class="filter active" data-filter="all">All</button>
-        <button class="filter" data-filter="research">Research</button>
-        <button class="filter" data-filter="vision">Vision</button>
-        <button class="filter" data-filter="ml">ML / Data</button>
-        <button class="filter" data-filter="edge">Edge AI</button>
-        <button class="filter" data-filter="embedded">Embedded</button>
-        <label class="search-label">
-          <span>Search</span>
-          <input id="projectSearch" type="search" placeholder="Jetson, CVPR, RAG..." />
-        </label>
-      </div>
-      <div class="project-grid" id="projectGrid">
-        <article class="project-card reveal highlight" data-tags="research wireless drl uav ris swipt optimization communication">
-          <div class="project-media thesis-media" aria-hidden="true"><span>UAV</span><span>RIS</span><span>DRL</span><span>SWIPT</span></div>
-          <div class="project-card-body">
-            <p class="project-kicker">M.S. Research · 2024-2026</p>
-            <h3>Dual-UAV RIS-Assisted SWIPT Networks</h3>
-            <p>Voronoi-based energy-aware user partitioning and DRL resource allocation for time-switching, power allocation, and RIS phase-shift control.</p>
-            <div class="mini-stack"><span>Wireless AI</span><span>DRL</span><span>Energy harvesting</span></div>
-          </div>
-        </article>
-
-        <article class="project-card reveal" data-tags="ml data competition nlp esg ensemble llm mdeberta">
-          <div class="project-media architecture-diagram compact" aria-label="ESG verification system architecture">
-            <div class="architecture-flow"><span>Reports</span><i></i><span>5 encoders</span><i></i><span>LLM blend</span></div>
-            <div class="architecture-flow"><span>Cascade</span><i></i><span>mDeBERTa</span><i></i><span>4 tasks</span></div>
-          </div>
-          <div class="project-card-body">
-            <p class="project-kicker">AI CUP 2026 · ESG NLP</p>
-            <h3>VeriPromiseESG</h3>
-            <p>Four-task ESG promise verification using a five-layer decision cascade: encoder ensemble, LLM blending, hierarchical constraints, and mDeBERTa residual fusion.</p>
-            <div class="outcome-row"><span>Public / Private rank</span><strong>5 / 143 · 14 / 137</strong></div>
-            <div class="project-links"><a href="https://github.com/Kwannn666/TEAM_10365_ESG-VeriPromiseESG" target="_blank" rel="noreferrer">View repository</a></div>
-          </div>
-        </article>
-
-        <article class="project-card reveal" data-tags="vision research competition cvpr medical gait pose publication">
-          <div class="project-media architecture-diagram compact" aria-label="Children gait visual analysis architecture">
-            <div class="architecture-flow"><span>2D pose</span><i></i><span>Clinical features</span></div>
-            <div class="architecture-flow"><span>MotionBERT</span><i></i><span>Rule coupling</span><i></i><span>Gait output</span></div>
-          </div>
-          <div class="project-card-body">
-            <p class="project-kicker">CVPR 2026 CV4CHL</p>
-            <h3>Children Gait Visual Analysis</h3>
-            <p>Clinical multi-view gait descriptors and MotionBERT-PCA priors for EVGS prediction and cerebral-palsy gait classification in a small-data setting.</p>
-            <div class="outcome-row"><span>Final post-evaluation</span><strong>Gold · Rank 2</strong></div>
-            <div class="project-links"><a href="https://github.com/Kwannn666/CVPR-2026_CGC" target="_blank" rel="noreferrer">View repository</a></div>
-          </div>
-        </article>
-
-        <article class="project-card reveal" data-tags="vision medical segmentation attention unet mri">
-          <img src="assets/images/project1.jpg" alt="Brain tumor MRI segmentation outputs and training curves" />
-          <div class="project-card-body">
-            <p class="project-kicker">Medical Vision · 2025</p>
-            <h3>Brain Tumor MRI Segmentation</h3>
-            <p>Custom Attention U-Net with elastic deformation augmentation for LGG MRI segmentation, including qualitative mask comparison and metric tracking.</p>
-            <div class="outcome-row"><span>Validation / test Dice</span><strong>0.9070 / 0.9116</strong></div>
-            <div class="project-links"><a href="https://github.com/Kwannn666/tumor-seg-attention-unet" target="_blank" rel="noreferrer">View repository</a></div>
-          </div>
-        </article>
-
-        <article class="project-card reveal" data-tags="embedded edge vision audio vessel raspberry pi arduino yolo">
-          <img src="assets/images/project10.jpg" alt="Intelligent unmanned vessel capstone team and hull prototype" />
-          <div class="project-card-body">
-            <p class="project-kicker">Capstone Project · 2023-2024</p>
-            <h3>Intelligent Unmanned Vessel</h3>
-            <p>Integrated hull engineering, PID and bang-bang heading control, acoustic navigation, obstacle avoidance, and YOLOv8 LED recognition into one vessel.</p>
-            <div class="outcome-row"><span>YOLOv8 LED recognition</span><strong>AP@0.5 0.995</strong></div>
-          </div>
-        </article>
-
-        <article class="project-card reveal" data-tags="vision ml multitask classification detection segmentation">
-          <img src="assets/images/project3.jpg" alt="Unified-OneHead multi-task model architecture" />
-          <div class="project-card-body">
-            <p class="project-kicker">Personal Project · 2025</p>
-            <h3>Unified-OneHead Multi-Task Learning</h3>
-            <p>Shared-encoder and single-head architecture for classification, detection, and segmentation, with a replay buffer to reduce catastrophic forgetting.</p>
-            <div class="outcome-row"><span>Performance degradation</span><strong>Within 5%</strong></div>
-          </div>
-        </article>
-
-        <article class="project-card reveal" data-tags="vision ml dynamicconv lightweight">
-          <img src="assets/images/project4.jpg" alt="DynamicConv model workflow" />
-          <div class="project-card-body">
-            <p class="project-kicker">Personal Project · 2025</p>
-            <h3>DynamicConv Lightweight Convolution</h3>
-            <p>MLP-generated dynamic kernels conditioned on each input, supporting RGB, RG, and R channel combinations for flexible lightweight vision.</p>
-            <div class="mini-stack"><span>Dynamic kernels</span><span>MLP</span><span>Vision</span></div>
-          </div>
-        </article>
-
-        <article class="project-card reveal" data-tags="vision ml transformer tinyvit lightweight">
-          <img src="assets/images/project5.jpg" alt="TinyViT architecture diagram" />
-          <div class="project-card-body">
-            <p class="project-kicker">Personal Project · 2025</p>
-            <h3>TinyViT Lightweight Vision Model</h3>
-            <p>ViT-inspired classifier with ablation studies on FFN size and patch resolution, designed for an efficient accuracy-footprint balance.</p>
-            <div class="outcome-row"><span>Footprint / accuracy</span><strong>1.1M · 5M · 90%</strong></div>
-          </div>
-        </article>
-
-        <article class="project-card reveal" data-tags="ml edge genai rag langchain openai interview docker">
-          <img src="assets/images/project7.jpg" alt="AI mock interview platform interface" />
-          <div class="project-card-body">
-            <p class="project-kicker">Academic Project · 2025</p>
-            <h3>AI Mock-Interview Platform</h3>
-            <p>Resume-aware interview simulation with GPT-4o, LangChain, vector-DB RAG, and feedback that adapts to company-culture profiles.</p>
-            <div class="mini-stack"><span>Streamlit</span><span>RAG</span><span>Docker</span></div>
-          </div>
-        </article>
-
-        <article class="project-card reveal" data-tags="vision ml data clip xgboost traffic competition">
-          <img src="assets/images/project8.jpg" alt="Traffic accident prediction model workflow using CLIP features and XGBoost" />
-          <div class="project-card-body">
-            <p class="project-kicker">Academic Project · 2024</p>
-            <h3>Traffic Accident Prediction</h3>
-            <p>CLIP semantic similarity, prompt similarity, and visual features combined with XGBoost for image-based accident-risk scoring.</p>
-            <div class="outcome-row"><span>TAISC at IEEE AVSS</span><strong>12 / 134</strong></div>
-          </div>
-        </article>
-
-        <article class="project-card reveal" data-tags="embedded control lqr arduino matlab robotics">
-          <img src="assets/images/project9.jpg" alt="Arduino two-wheel balance car prototype" />
-          <div class="project-card-body">
-            <p class="project-kicker">Academic Project · 2022-2023</p>
-            <h3>Two-Wheel Balance Car with LQR</h3>
-            <p>Arduino C++ implementation of an inverted-pendulum vehicle with MATLAB LQR simulation and swarm-algorithm parameter tuning.</p>
-            <div class="mini-stack"><span>Arduino</span><span>MATLAB</span><span>LQR</span></div>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section class="section shell" id="research">
-      <div class="research-grid">
-        <div class="section-head reveal">
-          <p class="eyebrow">Research</p>
-          <h2>Energy-aware decisions for dual-UAV RIS-assisted SWIPT.</h2>
-          <p>
-            Under Prof. Wenson Chang at the Intelligent Communication Lab, my M.S. research studies
-            Voronoi-based user partitioning and DRL resource allocation in dual-UAV RIS-assisted SWIPT networks.
-            The decision space includes time-switching, power allocation, RIS phase-shift, and energy-harvesting efficiency.
-          </p>
-        </div>
-        <div class="research-panel reveal">
-          <div class="research-step"><span>Plan</span><p>Energy-aware Voronoi partitioning assigns users to UAV service regions.</p></div>
-          <div class="research-step"><span>Control</span><p>DRL learns time, power, and RIS phase decisions under dynamic wireless states.</p></div>
-          <div class="research-step"><span>Evaluate</span><p>Measure energy-harvesting efficiency, throughput, and service quality tradeoffs.</p></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section shell" id="publication">
-      <div class="publication-panel reveal">
-        <div>
-          <p class="eyebrow">Publication</p>
-          <h2>Clinical gait analysis with multi-view features and rule coupling.</h2>
-          <p>Accepted non-proceeding submission to the CVPR 2026 Workshop on Computer Vision for Children (CV4CHL).</p>
-          <p class="citation">Kuo Jen Wei, Yi-Ting Ku. “Clinically-Grounded Multi-View Features and Cross-Track Rule Coupling for Children Gait Visual Analysis.”</p>
-          <div class="project-links"><a href="https://github.com/Kwannn666/CVPR-2026_CGC" target="_blank" rel="noreferrer">Read project materials</a></div>
-        </div>
-        <div class="architecture-diagram publication-diagram" aria-label="Publication method overview">
-          <div class="architecture-flow"><span>Pose sequences</span><i></i><span>Clinical views</span></div>
-          <div class="architecture-flow"><span>MotionBERT PCA</span><i></i><span>Cross-track rules</span></div>
-          <p>Interpretable features + priors for robust small-data gait analysis</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section shell" id="awards">
-      <div class="section-head reveal">
-        <p class="eyebrow">Awards</p>
-        <h2>Competition results that are backed by public work.</h2>
-      </div>
-      <div class="award-timeline">
-        <article class="award-item reveal"><span>2026</span><h3>AI CUP ESG Verification</h3><p>Public rank 5 / 143; private rank 14 / 137.</p></article>
-        <article class="award-item reveal"><span>2026</span><h3>CVPR CV4CHL</h3><p>Gold Award, rank 2 in final post-evaluation.</p></article>
-        <article class="award-item reveal"><span>2025</span><h3>Kaggle NeurIPS Open Polymer</h3><p>Silver Medal, top 0.66%: rank 15 / 2,240.</p></article>
-        <article class="award-item reveal"><span>2025</span><h3>Kaggle Orbit Wars</h3><p>Bronze Medal, top 7.7%: rank 365 / 4,729.</p></article>
-        <article class="award-item reveal"><span>2025</span><h3>TAISC at IEEE AVSS</h3><p>Top 8.9%: rank 12 / 134.</p></article>
-        <article class="award-item reveal"><span>2025</span><h3>AI CUP Smart Racket</h3><p>Top 7.4%: rank 47 / 633.</p></article>
-      </div>
-    </section>
-
     <section class="section shell" id="skills">
       <div class="section-head reveal">
-        <p class="eyebrow">Skills</p>
-        <h2>Tools used across research, models, and deployment.</h2>
+        <p class="eyebrow">08 / Toolkit</p>
+        <h2>From experiments to deployment.</h2>
       </div>
-      <div class="skill-bars reveal">
-        <div class="skill-row" data-level="92"><span>Python · PyTorch · TensorFlow · OpenCV · scikit-learn</span><i></i></div>
-        <div class="skill-row" data-level="88"><span>Computer Vision · YOLOv8 · CLIP · Attention U-Net · MotionBERT</span><i></i></div>
-        <div class="skill-row" data-level="86"><span>Edge AI · Jetson · ONNX Runtime · TensorRT · Docker</span><i></i></div>
-        <div class="skill-row" data-level="83"><span>GenAI · OpenAI API · LangChain · RAG · ControlNet</span><i></i></div>
-        <div class="skill-row" data-level="80"><span>Wireless AI · DRL · RIS · UAV Communication · DSP</span><i></i></div>
-        <div class="skill-row" data-level="82"><span>Embedded · Raspberry Pi · STM32 · Arduino · C/C++ · MATLAB</span><i></i></div>
+      <dl class="skill-list reveal">
+        <div><dt>ML &amp; Data</dt><dd>Python · C/C++ · MATLAB · FORTRAN · PyTorch · TensorFlow · scikit-learn</dd></div>
+        <div><dt>Computer Vision</dt><dd>OpenCV · YOLOv8 · CLIP · Attention U-Net · MotionBERT</dd></div>
+        <div><dt>Edge AI</dt><dd>Jetson · ONNX Runtime · TensorRT · Docker · Git · Linux</dd></div>
+        <div><dt>Generative AI</dt><dd>OpenAI API · LangChain · RAG · ControlNet</dd></div>
+        <div><dt>Wireless AI</dt><dd>DRL optimization · custom simulators · RIS · UAV communication · DSP</dd></div>
+        <div><dt>Embedded Systems</dt><dd>Raspberry Pi · STM32 · Arduino · C/C++ · MATLAB</dd></div>
+        <div><dt>Languages</dt><dd>Mandarin (native) · English (TOEIC 720)</dd></div>
+      </dl>
+    </section>
+
+    <section class="section shell" id="courses">
+      <div class="section-head reveal">
+        <p class="eyebrow">09 / Relevant Coursework</p>
+        <h2>The foundations behind the work.</h2>
+      </div>
+      <div class="course-grid">
+        <article class="reveal"><h3>AI &amp; Machine Learning</h3><p>Deep Learning · Machine Learning · Computer Vision &amp; Deep Learning · Generative AI · Data Science · Digital Image Processing · Numerical Analysis</p></article>
+        <article class="reveal"><h3>Communications &amp; IC</h3><p>Modern Communication · Wireless Networks · Digital Signal Processing · Adaptive Signal Processing · Stochastic Processes · Digital IC Design</p></article>
+        <article class="reveal"><h3>Computer Science</h3><p>Computer Algorithms · Operating Systems · Computer Organization · Object-Oriented Programming</p></article>
+        <article class="reveal"><h3>Control &amp; Embedded</h3><p>Automatic Control · Microcomputer Control &amp; Embedded Systems</p></article>
       </div>
     </section>
 
     <section class="section shell" id="contact">
       <div class="contact-panel reveal">
-        <p class="eyebrow">Contact</p>
+        <p class="eyebrow">10 / Contact</p>
         <h2>Let us build useful AI systems.</h2>
         <p>Open to AI/ML, edge AI, computer vision, wireless-AI, and embedded-systems engineering opportunities.</p>
         <div class="contact-actions">
           <a class="btn primary" href="mailto:jooj30136@gmail.com"><span class="btn-icon">@</span>Email</a>
           <a class="btn secondary" href="https://github.com/Kwannn666" target="_blank" rel="noreferrer"><span class="btn-icon">G</span>GitHub</a>
+          <a class="btn secondary" href="https://www.kaggle.com/kuojenwei" target="_blank" rel="noreferrer"><span class="btn-icon" aria-hidden="true">k</span>Kaggle</a>
           <a class="btn secondary" href="https://www.linkedin.com/in/%E4%BA%BA%E7%91%8B-%E9%83%AD-89026a29a/" target="_blank" rel="noreferrer"><span class="btn-icon">in</span>LinkedIn</a>
         </div>
       </div>
@@ -450,14 +569,16 @@
 
   <footer class="site-footer shell">
     <div class="footer-meta">
-      <p>&copy; <span id="year"></span> Jen-Wei Kuo. Built for GitHub Pages.</p>
+      <p>&copy; <span id="year">2026</span> Jen-Wei Kuo.</p>
       <a class="visitor-stats" href="https://visitor-badge.laobi.icu/" target="_blank" rel="noreferrer" aria-label="Site visits counter">
-        <img src="https://visitor-badge.laobi.icu/badge?page_id=Kwannn666.Kwannn666.github.io&amp;left_text=site%20visits&amp;left_color=%23202820&amp;right_color=%2355d6be&amp;format=true&amp;radius=6&amp;height=26" alt="Site visit count" />
+        <img src="https://visitor-badge.laobi.icu/badge?page_id=Kwannn666.Kwannn666.github.io&amp;left_text=site%20visits&amp;left_color=%23202820&amp;right_color=%2355d6be&amp;format=true&amp;radius=6&amp;height=26" alt="Site visit count" width="130" height="26" loading="lazy" decoding="async" />
       </a>
     </div>
     <a href="#top">Back to top</a>
   </footer>
 
-  <script src="script.js?v=20260710-ai-portfolio"></script>
+  <script src="script.js?v=20260908" defer></script>
+  <script src="thesis-scene.js?v=20260908-release" defer></script>
+  <script src="systems3d.js?v=20260908-release" defer></script>
 </body>
 </html>
