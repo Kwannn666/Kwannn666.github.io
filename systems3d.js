@@ -58,7 +58,7 @@
   const initialYaw = -.28, initialPitch = .43;
   let yaw = initialYaw, pitch = initialPitch, targetYaw = yaw, targetPitch = pitch, zoom = 1;
   let inView = true, paused = false, lost = false, available = false;
-  let frame = 0, previousTime = 0, signalTime = 0, pointer = null, selected = null;
+  let frame = 0, previousTime = 0, animationTime = 0, pointer = null, selected = null;
   const movingPoints = new Float32Array(model.links.length * 3 * 7);
   const focusPoint = new Float32Array(7);
   const f = 1 / Math.tan(Math.PI / 7);
@@ -91,8 +91,8 @@
         return { buffer, count: data.length / 7 };
       };
       buffers = {
-        ground: createBuffer(model.ground), solids: createBuffer(model.solids),
-        lines: createBuffer(model.lines), points: createBuffer(model.points),
+        ground: createBuffer(model.ground), solids: createBuffer(model.solids, true),
+        lines: createBuffer(model.lines, true), points: createBuffer(model.points),
         signals: createBuffer(movingPoints, true), focus: createBuffer(focusPoint, true)
       };
       gl.enable(gl.BLEND); gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA); gl.clearColor(0, 0, 0, 0);
@@ -146,7 +146,7 @@
     let offset = 0;
     model.links.forEach(link => {
       for (let i = 0; i < 3; i++) {
-        const progress = (signalTime * .00024 + link.phase + i / 3) % 1;
+        const progress = (animationTime * .00024 + link.phase + i / 3) % 1;
         movingPoints.set([...model.mix(link.from, link.to, progress), ...link.color, 5.5], offset);
         offset += 7;
       }
@@ -156,6 +156,10 @@
   }
   function render() {
     if (!available || lost || !width || !height) return;
+    if (model.updateMotion(animationTime)) {
+      gl.bindBuffer(gl.ARRAY_BUFFER, buffers.solids.buffer); gl.bufferSubData(gl.ARRAY_BUFFER, 0, model.solids);
+      gl.bindBuffer(gl.ARRAY_BUFFER, buffers.lines.buffer); gl.bufferSubData(gl.ARRAY_BUFFER, 0, model.lines);
+    }
     gl.depthMask(true); gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
     gl.uniform2f(uniforms.uRotation, pitch, yaw); gl.uniform1f(uniforms.uCameraDistance, 8.3 / zoom);
     gl.uniform1f(uniforms.uPixelRatio, dpr);
@@ -182,17 +186,17 @@
     const stopped = paused || motion.matches || mobile.matches;
     motionButton.textContent = stopped ? '▶' : 'Ⅱ';
     motionButton.setAttribute('aria-pressed', String(stopped));
-    motionButton.setAttribute('aria-label', stopped ? 'Start signal animation' : 'Pause signal animation');
-    motionButton.title = stopped ? 'Start signals' : 'Pause signals';
+    motionButton.setAttribute('aria-label', stopped ? 'Start UAV patrol and signals' : 'Pause UAV patrol and signals');
+    motionButton.title = stopped ? 'Start UAV patrol and signals' : 'Pause UAV patrol and signals';
     motionButton.disabled = motion.matches || mobile.matches;
-    if (motionButton.disabled) motionButton.title = motion.matches ? 'Animation disabled by your system preference' : 'Static signals on mobile; drag to explore';
+    if (motionButton.disabled) motionButton.title = motion.matches ? 'Animation disabled by your system preference' : 'Static view on mobile; drag to explore';
   }
   function tick(time) {
     frame = 0;
     if (!canAnimate()) return;
     if (time - previousTime < 1000 / 30) { frame = requestAnimationFrame(tick); return; }
     const elapsed = Math.min(time - (previousTime || time), 50); previousTime = time;
-    if (flowEnabled()) signalTime = (signalTime + elapsed) % 125000;
+    if (flowEnabled()) animationTime += elapsed;
     yaw += (targetYaw - yaw) * .16; pitch += (targetPitch - pitch) * .16;
     render();
     if (flowEnabled() || unsettled()) frame = requestAnimationFrame(tick);
@@ -214,10 +218,10 @@
     selected = entity;
     entityButtons.forEach(({ entity: candidate, button }) => button.setAttribute('aria-pressed', String(candidate === entity)));
     document.getElementById('sceneDetailTitle').textContent = entity ? entity.title : 'Two UAVs. One coordinated system.';
-    document.getElementById('sceneDetailText').textContent = entity ? entity.description : 'Select a label to explore the access point, UAV-mounted RIS panels, and user regions.';
+    document.getElementById('sceneDetailText').textContent = entity ? entity.description : 'Buildings block the direct AP–user path. Two UAVs patrol their own service regions, linking the AP to users through RIS panels. Select a label to explore.';
     render();
   }
-  function reset() { targetYaw = initialYaw; targetPitch = initialPitch; setZoom(1); select(null); sync(); }
+  function reset() { animationTime = 0; targetYaw = initialYaw; targetPitch = initialPitch; setZoom(1); select(null); sync(); }
   entityButtons.forEach(({ entity, button }) => {
     button.setAttribute('aria-controls', 'sceneDetail');
     button.addEventListener('click', () => select(entity));

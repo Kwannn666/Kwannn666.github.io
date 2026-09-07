@@ -16,7 +16,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
   <script src="theme-init.js?v=20260908"></script>
-  <link rel="stylesheet" href="styles.css?v=20260908-thesis" />
+  <link rel="stylesheet" href="styles.css?v=20260908-patrol-buildings" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -102,13 +102,14 @@
               </div>
               <div class="scene-labels" id="sceneLabels" role="group" aria-label="Explore thesis system components" hidden>
                 <button type="button" data-entity="ap" aria-pressed="false">AP</button>
+                <button type="button" data-entity="buildings" aria-pressed="false">No direct link</button>
                 <button type="button" data-entity="uav1" aria-pressed="false">UAV 1 + RIS</button>
                 <button type="button" data-entity="uav2" aria-pressed="false">UAV 2 + RIS</button>
                 <button type="button" data-entity="usersA" aria-pressed="false">Users · A</button>
                 <button type="button" data-entity="usersB" aria-pressed="false">Users · B</button>
               </div>
             </div>
-            <div class="scene-legend" aria-label="Wireless link legend"><span class="link-ap">AP–UAV/RIS</span><span class="link-user">RIS–User</span><span>Illustrative layout</span></div>
+            <div class="scene-legend" aria-label="Wireless link legend"><span class="link-ap">AP–UAV/RIS</span><span class="link-user">RIS–User</span><span class="link-blocked">Direct path blocked</span><span>Illustrative patrol</span></div>
             <div class="scene-footer" id="sceneControls" hidden>
               <p id="sceneHelp">Drag / arrows to rotate · + / − to zoom</p>
               <div class="scene-buttons" role="group" aria-label="3D view controls">
@@ -117,12 +118,12 @@
                 <button type="button" id="sceneZoomIn" aria-label="Zoom in on thesis model" title="Zoom in">+</button>
                 <button type="button" id="sceneZoomOut" aria-label="Zoom out from thesis model" title="Zoom out">−</button>
                 <button type="button" id="sceneReset" aria-label="Reset 3D view" title="Reset view">↺</button>
-                <button type="button" id="sceneMotion" aria-label="Pause signal animation" aria-pressed="false" title="Pause signals">Ⅱ</button>
+                <button type="button" id="sceneMotion" aria-label="Pause UAV patrol and signals" aria-pressed="false" title="Pause UAV patrol and signals">Ⅱ</button>
               </div>
             </div>
             <div class="scene-detail" id="sceneDetail" role="status" aria-live="polite" aria-atomic="true">
               <strong id="sceneDetailTitle">Two UAVs. One coordinated system.</strong>
-              <p id="sceneDetailText">Select a label to explore the access point, UAV-mounted RIS panels, and user regions.</p>
+              <p id="sceneDetailText">Buildings block the direct AP–user path. Two UAVs patrol their own service regions, linking the AP to users through RIS panels. Select a label to explore.</p>
             </div>
           </figure>
         <aside class="profile-panel" aria-label="Profile snapshot">
@@ -578,7 +579,7 @@
   </footer>
 
   <script src="script.js?v=20260908" defer></script>
-  <script src="thesis-scene.js?v=20260908-thesis" defer></script>
-  <script src="systems3d.js?v=20260908-thesis" defer></script>
+  <script src="thesis-scene.js?v=20260908-patrol-buildings" defer></script>
+  <script src="systems3d.js?v=20260908-patrol-buildings" defer></script>
 </body>
 </html>
