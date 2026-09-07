@@ -229,7 +229,6 @@ a.scene-tag:hover { color: var(--brand); }
 .scene-legend .link-ap::before, .scene-legend .link-user::before { content: ""; display: inline-block; width: 14px; height: 3px; margin-right: 6px; vertical-align: middle; background: #519eff; }
 .scene-legend .link-user::before { background: #ffd039; }
 .scene-legend .link-blocked::before { content: "×"; display: inline-block; margin-right: 6px; color: #ff856b; font-weight: 700; }
-.scene-labels button[data-entity="buildings"] { border-color: #a65a49; }
 .scene-detail { padding: 18px 20px; border-top: 1px solid var(--line); background: var(--surface); min-height: 130px; }
 .scene-detail strong { font-size: .875rem; }
 .scene-detail p { margin: 8px 0 0; color: var(--muted); font-size: .875rem; line-height: 1.6; }

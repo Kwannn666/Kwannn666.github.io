@@ -36,10 +36,15 @@
     }
   }
   const floor = -1.05;
-  // Two fixed service regions share a curved boundary, following the reference figure.
-  const boundary = t => .32 + .21 * Math.sin(t * Math.PI * 2);
-  for (let i = 0; i < 24; i++) {
-    const t = i / 24, next = (i + 1) / 24, z = -1.15 + t * 2.9, zn = -1.15 + next * 2.9;
+  // A shared animated seam keeps the two service-region fills joined without gaps.
+  // Its full range [.095, .545] leaves room for both complete UAV footprints.
+  const regionSegments = 24;
+  const boundary = (t, timeMs = 0) => {
+    const phase = timeMs * Math.PI * 2 / 24000;
+    return .32 + .015 * Math.sin(phase) + (.19 + .02 * Math.cos(phase)) * Math.sin(t * Math.PI * 2 + phase);
+  };
+  for (let i = 0; i < regionSegments; i++) {
+    const t = i / regionSegments, next = (i + 1) / regionSegments, z = -1.15 + t * 2.9, zn = -1.15 + next * 2.9;
     const a = [boundary(t), floor, z], b = [boundary(next), floor, zn];
     quad(ground, [-1.5, floor, z], a, b, [-1.5, floor, zn], colors.mint);
     quad(ground, a, [2.10, floor, z], [2.10, floor, zn], b, colors.purple);
@@ -133,11 +138,10 @@
   });
   const entities = [
     { id: 'ap', label: 'AP', position: ap, offset: [-12, -40], title: 'Access point (AP)', description: 'Buildings block the direct AP–user path in this illustrative scenario. The access point instead connects to both elevated UAV-mounted RIS panels through the blue links.' },
-    { id: 'buildings', label: 'No direct link', position: [-1.84, -.80, 1.12], offset: [-13, 30], title: 'Buildings block the direct link', description: 'The buildings sit between the AP and the ground users. Direct AP–user links are assumed unavailable; the coral cross marks a blocked path. Communication follows AP → UAV-mounted RIS → user. This is an illustrative obstruction layout, not a radio-propagation simulation.' },
     { id: 'uav1', label: 'UAV 1 + RIS', position: uavs[0], offset: [0, -42], title: 'UAV 1 with a RIS panel', description: 'The first UAV patrols above region A while carrying its RIS panel. The illustrated loop remains inside its service region; RIS phase-shift control is part of the thesis decision space.' },
     { id: 'uav2', label: 'UAV 2 + RIS', position: uavs[1], offset: [0, -42], title: 'UAV 2 with a RIS panel', description: 'The second UAV patrols above region B on its own loop. Its RIS panel and wireless links follow the aircraft while it continues serving the same user group.' },
     { id: 'usersA', label: 'Users · A', position: [-.84, floor, 1.35], offset: [-6, 27], title: 'User terminals in region A', description: 'Three illustrative user terminals occupy the first service region. Yellow links show RIS–user connections for simultaneous wireless information and power transfer (SWIPT).' },
-    { id: 'usersB', label: 'Users · B', position: [1.43, floor, 1.40], offset: [0, 27], title: 'User terminals in region B', description: 'The second region contains three illustrative terminals. The shared boundary represents the energy-aware user-partitioning concept; it is not a computed simulation result.' }
+    { id: 'usersB', label: 'Users · B', position: [1.43, floor, 1.40], offset: [0, 27], title: 'User terminals in region B', description: 'The second region contains three illustrative terminals. The moving shared boundary illustrates the energy-aware user-partitioning concept. Its motion is illustrative, not a computed simulation result.' }
   ];
   // Conservative footprints include the rotors: +/-0.56 in x and +/-0.49 in z.
   // Both loops stay away from the complete curved boundary, not just its midpoint.
@@ -148,11 +152,22 @@
       : [1.30 - .17 * Math.sin(angle), 1.20, .24 - .82 * Math.cos(angle)];
   }
   const restUavs = uavs.map(position => [...position]);
-  const dynamicSolids = new Float32Array(solids), dynamicLines = new Float32Array(lines);
+  const dynamicGround = new Float32Array(ground), dynamicSolids = new Float32Array(solids), dynamicLines = new Float32Array(lines);
+  const boundaryPoints = new Float32Array(regionSegments + 1);
   let lastMotionTime = 0;
   function updateMotion(timeMs) {
     if (!Number.isFinite(timeMs) || timeMs === lastMotionTime) return false;
     lastMotionTime = timeMs;
+    for (let i = 0; i <= regionSegments; i++) boundaryPoints[i] = boundary(i / regionSegments, timeMs);
+    for (let i = 0; i < regionSegments; i++) {
+      // Each strip contains two quads (12 vertices, seven floats per vertex).
+      // Both colored fills and the visible seam use exactly the same endpoints.
+      const offset = i * 12 * 7, a = boundaryPoints[i], b = boundaryPoints[i + 1];
+      for (const vertex of [1, 6, 9]) dynamicGround[offset + vertex * 7] = a;
+      for (const vertex of [2, 4, 11]) dynamicGround[offset + vertex * 7] = b;
+      dynamicLines[i * 14] = a;
+      dynamicLines[i * 14 + 7] = b;
+    }
     uavs.forEach((position, index) => {
       const next = patrolPosition(index, timeMs);
       const delta = next.map((value, axis) => value - restUavs[index][axis]);
@@ -179,5 +194,5 @@
     });
     return true;
   }
-  window.ThesisScene = { ground, solids: dynamicSolids, lines: dynamicLines, points, entities, links, uavs, users, buildings, ap, mix, updateMotion, patrolPosition, uavRanges, risCenters, linkStart };
+  window.ThesisScene = { ground: dynamicGround, solids: dynamicSolids, lines: dynamicLines, points, entities, links, uavs, users, buildings, ap, mix, updateMotion, patrolPosition, uavRanges, risCenters, linkStart, regionSegments };
 })();

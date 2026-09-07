@@ -91,7 +91,7 @@
         return { buffer, count: data.length / 7 };
       };
       buffers = {
-        ground: createBuffer(model.ground), solids: createBuffer(model.solids, true),
+        ground: createBuffer(model.ground, true), solids: createBuffer(model.solids, true),
         lines: createBuffer(model.lines, true), points: createBuffer(model.points),
         signals: createBuffer(movingPoints, true), focus: createBuffer(focusPoint, true)
       };
@@ -157,6 +157,7 @@
   function render() {
     if (!available || lost || !width || !height) return;
     if (model.updateMotion(animationTime)) {
+      gl.bindBuffer(gl.ARRAY_BUFFER, buffers.ground.buffer); gl.bufferSubData(gl.ARRAY_BUFFER, 0, model.ground);
       gl.bindBuffer(gl.ARRAY_BUFFER, buffers.solids.buffer); gl.bufferSubData(gl.ARRAY_BUFFER, 0, model.solids);
       gl.bindBuffer(gl.ARRAY_BUFFER, buffers.lines.buffer); gl.bufferSubData(gl.ARRAY_BUFFER, 0, model.lines);
     }
@@ -186,8 +187,8 @@
     const stopped = paused || motion.matches || mobile.matches;
     motionButton.textContent = stopped ? '▶' : 'Ⅱ';
     motionButton.setAttribute('aria-pressed', String(stopped));
-    motionButton.setAttribute('aria-label', stopped ? 'Start UAV patrol and signals' : 'Pause UAV patrol and signals');
-    motionButton.title = stopped ? 'Start UAV patrol and signals' : 'Pause UAV patrol and signals';
+    motionButton.setAttribute('aria-label', stopped ? 'Start UAVs, regions and signals' : 'Pause UAVs, regions and signals');
+    motionButton.title = stopped ? 'Start UAVs, regions and signals' : 'Pause UAVs, regions and signals';
     motionButton.disabled = motion.matches || mobile.matches;
     if (motionButton.disabled) motionButton.title = motion.matches ? 'Animation disabled by your system preference' : 'Static view on mobile; drag to explore';
   }
